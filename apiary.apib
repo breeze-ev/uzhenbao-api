@@ -959,50 +959,6 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
             }
 
 
-# Group 快递
-
-## 快递支持 [/expresses]
-
-### 获取列表 [GET]
-
-+ Request (application/json)
-
-    + Headers
-
-            timestamp: 1478840722
-            app-key: 92lsk20ks
-            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 2
-
-+ Response 200 (application/json)
-
-            [
-                {
-                    "id": 1,
-                    "name": "顺丰速运",
-                    "alias": "SF"
-                },
-                {
-                    "id": 2,
-                    "name": "圆通快递",
-                    "alias": "YT"
-                },
-                {
-                    "id": 3,
-                    "name": "申通快递",
-                    "alias": "ST"
-                }
-            ]
-
-
-+ Response 404 (application/json)
-
-            {
-                "status": 404,
-                "code": 404,
-                "message": "资源不存在"
-            }
-
 
 # Group 销售者
 
@@ -1305,36 +1261,4 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
                 "status": 409,
                 "code": 40910,
                 "message": "订单已发货"
-            }
-
-
-
-
-
-
-# Group 公司
-
-## 地址 [/company/address]
-
-### 获取 [GET]
-
-+ Request (application/json)
-
-    + Headers
-
-            timestamp: 1478840722
-            app-key: 92lsk20ks
-            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 2
-
-+ Response 200 (application/json)
-
-            {
-              "province": "上海市",
-              "city": "上海市",
-              "area": "黄浦区",
-              "street": "人民东路332号",
-              "room": "外滩soho F座",
-              "phone": "128123123213",
-              "real_name": "上海烨历网络科技有限公司"
             }
