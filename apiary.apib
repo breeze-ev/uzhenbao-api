@@ -160,12 +160,12 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
 ```
 {
-	"title": [
-		"The title may not be greater than 255 characters."
-	],
-	"original_price": [
-		"The original price field is required."
-	],
+    "title": [
+        "The title may not be greater than 255 characters."
+    ],
+    "original_price": [
+        "The original price field is required."
+    ],
 }
 ```
 
@@ -178,8 +178,8 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
 ```
 {
-	user-id: 1,
-	access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+    user-id: 1,
+    access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
 }
 ```
 
@@ -225,113 +225,113 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
 + Request (application/json)
 
-	+ Headers
+    + Headers
 
-			timestamp: 1478840722
-			app-key: 92lsk20ks
-			sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-			api-version: 2
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
 
 
 + Response 200 (application/json)
 
-			[
-			  {
-				"id": 1,
-				"pid": 0,
-				"icon": "",
-				"name": "箱包",
-				"sort": 0,
-				"created_at": "2016-12-09 17:46:15",
-				"updated_at": "2016-12-09 17:46:15"
-			  },
-			  {
-				"id": 2,
-				"pid": 0,
-				"icon": "",
-				"name": "服装",
-				"sort": 0,
-				"created_at": "2016-12-09 17:49:24",
-				"updated_at": "2016-12-09 17:49:24"
-			  },
-			  {
-				"id": 3,
-				"pid": 0,
-				"icon": "",
-				"name": "配饰",
-				"sort": 0,
-				"created_at": "2016-12-09 17:49:31",
-				"updated_at": "2016-12-09 17:49:31"
-			  },
-			  {
-				"id": 4,
-				"pid": 0,
-				"icon": "",
-				"name": "鞋履",
-				"sort": 0,
-				"created_at": "2016-12-09 17:49:40",
-				"updated_at": "2016-12-09 17:49:40"
-			  },
-			  {
-				"id": 5,
-				"pid": 0,
-				"icon": "",
-				"name": "其它",
-				"sort": 0,
-				"created_at": "2016-12-09 17:55:43",
-				"updated_at": "2016-12-09 17:55:43"
-			  }
-			]
+            [
+              {
+                "id": 1,
+                "pid": 0,
+                "icon": "",
+                "name": "箱包",
+                "sort": 0,
+                "created_at": "2016-12-09 17:46:15",
+                "updated_at": "2016-12-09 17:46:15"
+              },
+              {
+                "id": 2,
+                "pid": 0,
+                "icon": "",
+                "name": "服装",
+                "sort": 0,
+                "created_at": "2016-12-09 17:49:24",
+                "updated_at": "2016-12-09 17:49:24"
+              },
+              {
+                "id": 3,
+                "pid": 0,
+                "icon": "",
+                "name": "配饰",
+                "sort": 0,
+                "created_at": "2016-12-09 17:49:31",
+                "updated_at": "2016-12-09 17:49:31"
+              },
+              {
+                "id": 4,
+                "pid": 0,
+                "icon": "",
+                "name": "鞋履",
+                "sort": 0,
+                "created_at": "2016-12-09 17:49:40",
+                "updated_at": "2016-12-09 17:49:40"
+              },
+              {
+                "id": 5,
+                "pid": 0,
+                "icon": "",
+                "name": "其它",
+                "sort": 0,
+                "created_at": "2016-12-09 17:55:43",
+                "updated_at": "2016-12-09 17:55:43"
+              }
+            ]
 
 
 + Response 409 (application/json)
 
-			{
-				"status": 409,
-				"code": 4098,
-				"message": "该商品已退换"
-			}
+            {
+                "status": 409,
+                "code": 4098,
+                "message": "该商品已退换"
+            }
 
 + Response 404 (application/json)
 
-			{
-				"status": 404,
-				"code": 404,
-				"message": "订单不存在"
-			}
+            {
+                "status": 404,
+                "code": 404,
+                "message": "订单不存在"
+            }
 
 + Response 403 (application/json)
 
-			{
-				"status": 403,
-				"code": 4034,
-				"message": "超出订单购买数量"
-			}
+            {
+                "status": 403,
+                "code": 4034,
+                "message": "超出订单购买数量"
+            }
 
 
 + Response 403 (application/json)
 
-			{
-				"status": 403,
-				"code": 4035,
-				"message": "该商品不支持直接退换或超出可无理由退换期限"
-			}
+            {
+                "status": 403,
+                "code": 4035,
+                "message": "该商品不支持直接退换或超出可无理由退换期限"
+            }
 
 + Response 403 (application/json)
 
-			{
-				"status": 403,
-				"code": 4036,
-				"message": "退换申请不存在"
-			}
+            {
+                "status": 403,
+                "code": 4036,
+                "message": "退换申请不存在"
+            }
 
 + Response 403 (application/json)
 
-			{
-				"status": 403,
-				"code": 4037,
-				"message": "商品不满足退换条件"
-			}
+            {
+                "status": 403,
+                "code": 4037,
+                "message": "商品不满足退换条件"
+            }
 
 
 ## 商品列表 [/userProducts]
@@ -342,170 +342,170 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
 + Request (application/json)
 
-	+ Headers
+    + Headers
 
-			timestamp: 1478840722
-			app-key: 92lsk20ks
-			sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-			api-version: 2
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
 
-	+ Attributes
+    + Attributes
 
-		+ user_id: 1 (number, optional) - 用户id, 筛选与该用户有关的商品
-		+ category_id: 1 (number, optional) -  用户商品分类id
-		+ is_audited: 1 (number, optional) - 1:筛选审核通过的商品; 0: 筛选侍审核的商品; -1: 审核未通过的商品
-		+ status: 1 (number, optional) - 1: 上架商品; 0: 下架商品
+        + user_id: 1 (number, optional) - 用户id, 筛选与该用户有关的商品
+        + category_id: 1 (number, optional) -  用户商品分类id
+        + is_audited: 1 (number, optional) - 1:筛选审核通过的商品; 0: 筛选侍审核的商品; -1: 审核未通过的商品
+        + status: 1 (number, optional) - 1: 上架商品; 0: 下架商品
 
 + Response 200 (application/json)
 
-			{
-			  "total": 15,
-			  "per_page": 15,
-			  "current_page": 1,
-			  "last_page": 1,
-			  "next_page_url": null,
-			  "prev_page_url": null,
-			  "from": 1,
-			  "to": 15,
-			  "data": [
-				{
-				  "id": 18,
-				  "user_id": 1,
-				  "title": "这是测试标题",
-				  "keywords": null,
-				  "description": "这是描述",
-				  "images": [
-					"http://devapi.uzhenbao.com/uploads/userProduct/20161228110300288924.png"
-				  ],
-				  "price": "129.00",
-				  "original_price": "199.00",
-				  "category_id": 1,
-				  "is_sold": 0,
-				  "is_audited": 0,
-				  "quality": 99,
-				  "delivery_day": 1,
-				  "updated_at": "2016-12-28 14:02:25",
-				  "created_at": "2016-12-28 11:03:00",
-				  "sort": 0,
-				  "audited_at": null,
-				  "postage": "0.00",
-				  "status": 0,
-				  "favorites": 0,
-				  "views": 6
-				}
-			  ]
-			}
+            {
+              "total": 15,
+              "per_page": 15,
+              "current_page": 1,
+              "last_page": 1,
+              "next_page_url": null,
+              "prev_page_url": null,
+              "from": 1,
+              "to": 15,
+              "data": [
+                {
+                  "id": 18,
+                  "user_id": 1,
+                  "title": "这是测试标题",
+                  "keywords": null,
+                  "description": "这是描述",
+                  "images": [
+                    "http://devapi.uzhenbao.com/uploads/userProduct/20161228110300288924.png"
+                  ],
+                  "price": "129.00",
+                  "original_price": "199.00",
+                  "category_id": 1,
+                  "is_sold": 0,
+                  "is_audited": 0,
+                  "quality": 99,
+                  "delivery_day": 1,
+                  "updated_at": "2016-12-28 14:02:25",
+                  "created_at": "2016-12-28 11:03:00",
+                  "sort": 0,
+                  "audited_at": null,
+                  "postage": "0.00",
+                  "status": 0,
+                  "favorites": 0,
+                  "views": 6
+                }
+              ]
+            }
 
 
 ### 获取详情 [GET /userProducts/{id}]
 
 + Parameters
 
-	+ id: 1 (number) - 商品id
+    + id: 1 (number) - 商品id
 
 + Request (application/json)
 
-	+ Headers
+    + Headers
 
-			timestamp: 1478840722
-			app-key: 92lsk20ks
-			sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-			api-version: 2
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
 
 + Response 200 (application/json)
 
-			{
-			  "id": 18,
-			  "user_id": 1,
-			  "title": "这是测试标题",
-			  "keywords": null,
-			  "description": "这是描述",
-			  "images": [
-				"http://devapi.uzhenbao.com/uploads/userProduct/20161228110300288924.png"
-			  ],
-			  "price": "129.00",
-			  "original_price": "199.00",
-			  "category_id": 1,
-			  "is_sold": 0,
-			  "is_audited": 0,
-			  "quality": {
-				"id": 2,
-				"name": 99,
-				"description": "商品拆包\n轻微使用"
-			  },
-			  "delivery_day": 1,
-			  "updated_at": "2016-12-28 12:06:59",
-			  "created_at": "2016-12-28 11:03:00",
-			  "sort": 0,
-			  "audited_at": null,
-			  "postage": "0.00",
-			  "status": 0,
-			  "favorites": 0,
-			  "views": 6,
-			  "user": {
-				"id": 1,
-				"name": "宝宝30832065",
-				"created_at": "2016-11-28 19:34:25",
-				"updated_at": "2016-11-30 14:17:47",
-				"avatar": {
-				  "avatar": "http://devapi.uzhenbao.com/default/avatar.jpg",
-				  "thumb": "http://devapi.uzhenbao.com/default/avatar.jpg"
-				},
-				"summary": "",
-				"level": 1,
-				"forum_level": 2
-			  }
-			}
+            {
+              "id": 18,
+              "user_id": 1,
+              "title": "这是测试标题",
+              "keywords": null,
+              "description": "这是描述",
+              "images": [
+                "http://devapi.uzhenbao.com/uploads/userProduct/20161228110300288924.png"
+              ],
+              "price": "129.00",
+              "original_price": "199.00",
+              "category_id": 1,
+              "is_sold": 0,
+              "is_audited": 0,
+              "quality": {
+                "id": 2,
+                "name": 99,
+                "description": "商品拆包\n轻微使用"
+              },
+              "delivery_day": 1,
+              "updated_at": "2016-12-28 12:06:59",
+              "created_at": "2016-12-28 11:03:00",
+              "sort": 0,
+              "audited_at": null,
+              "postage": "0.00",
+              "status": 0,
+              "favorites": 0,
+              "views": 6,
+              "user": {
+                "id": 1,
+                "name": "宝宝30832065",
+                "created_at": "2016-11-28 19:34:25",
+                "updated_at": "2016-11-30 14:17:47",
+                "avatar": {
+                  "avatar": "http://devapi.uzhenbao.com/default/avatar.jpg",
+                  "thumb": "http://devapi.uzhenbao.com/default/avatar.jpg"
+                },
+                "summary": "",
+                "level": 1,
+                "forum_level": 2
+              }
+            }
 
 ### 发布 [POST]
 
 + Request (application/json)
 
-	+ Headers
+    + Headers
 
-			timestamp: 1478840722
-			app-key: 92lsk20ks
-			sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-			api-version: 2
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
 
-	+ Attributes
+    + Attributes
 
-		+ title: 阿玛尼正品包包 (string, required) - 商品名称/标题, 最多255个字
-		+ category_id: 1 (number, required) - 用户商品分类id
-		+ original_price: 2000 (number, required) - 专柜价/购价/原价
-		+ price: 1599 (number, required) - 期望出手价
-		+ postage: 0 (number, required) - 邮费, 0 包邮
-		+ description: 阿玛尼正品包..... (string, required) - 商品详描述, 最多512字
-		+ quality: 100 (number, required) - 成色质量, 100, 99, 95, 90, 85, 80, 70
-		+ delivery_day: 0 (string, required) - 付款后多少天发货, 0: 立即发货; 3: 3天内发货; 5: 5天内发货; 10: 10天内发货; -1: 10天以上,不确定时间发货
-		+ images: (required, array)
-			+ (object) - image, multipart/form-data
+        + title: 阿玛尼正品包包 (string, required) - 商品名称/标题, 最多255个字
+        + category_id: 1 (number, required) - 用户商品分类id
+        + original_price: 2000 (number, required) - 专柜价/购价/原价
+        + price: 1599 (number, required) - 期望出手价
+        + postage: 0 (number, required) - 邮费, 0 包邮
+        + description: 阿玛尼正品包..... (string, required) - 商品详描述, 最多512字
+        + quality: 100 (number, required) - 成色质量, 100, 99, 95, 90, 85, 80, 70
+        + delivery_day: 0 (string, required) - 付款后多少天发货, 0: 立即发货; 3: 3天内发货; 5: 5天内发货; 10: 10天内发货; -1: 10天以上,不确定时间发货
+        + images: (required, array)
+            + (object) - image, multipart/form-data
 
 
 + Response 201 (application/json)
 
-			{
-			  "id": 11,
-			  "user_id": 1,
-			  "title": "这是测试标题",
-			  "keywords": null,
-			  "description": "这是描述",
-			  "images": [
-				"http://devapi.uzhenbao.com/uploads/userProducts/20161214135425434566.png"
-			  ],
-			  "price": "129.00",
-			  "original_price": "199.00",
-			  "category_id": 1,
-			  "is_sold": 0,
-			  "is_audited": 0,
-			  "quality": 99,
-			  "delivery_day": 1,
-			  "updated_at": "2016-12-14 13:54:25",
-			  "created_at": "2016-12-14 13:54:25",
-			  "sort": 0,
-			  "audited_at": null,
-			  "status": 1
-			}
+            {
+              "id": 11,
+              "user_id": 1,
+              "title": "这是测试标题",
+              "keywords": null,
+              "description": "这是描述",
+              "images": [
+                "http://devapi.uzhenbao.com/uploads/userProducts/20161214135425434566.png"
+              ],
+              "price": "129.00",
+              "original_price": "199.00",
+              "category_id": 1,
+              "is_sold": 0,
+              "is_audited": 0,
+              "quality": 99,
+              "delivery_day": 1,
+              "updated_at": "2016-12-14 13:54:25",
+              "created_at": "2016-12-14 13:54:25",
+              "sort": 0,
+              "audited_at": null,
+              "status": 1
+            }
 
 
 
@@ -513,58 +513,58 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
 + Request (application/json)
 
-	+ Headers
+    + Headers
 
-			timestamp: 1478840722
-			app-key: 92lsk20ks
-			sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-			api-version: 2
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
 
-	+ Attributes
+    + Attributes
 
-		+ status: 1 (number, optional) - 1:上架, 0:下架
+        + status: 1 (number, optional) - 1:上架, 0:下架
 
 
 + Response 201 (application/json)
 
-			{
-			  "id": 11,
-			  "user_id": 1,
-			  "title": "这是测试标题",
-			  "keywords": null,
-			  "description": "这是描述",
-			  "images": [
-				"http://devapi.uzhenbao.com/uploads/userProducts/20161214135425434566.png"
-			  ],
-			  "price": "129.00",
-			  "original_price": "199.00",
-			  "category_id": 1,
-			  "is_sold": 0,
-			  "is_audited": 0,
-			  "quality": 99,
-			  "delivery_day": 1,
-			  "updated_at": "2016-12-14 13:54:25",
-			  "created_at": "2016-12-14 13:54:25",
-			  "sort": 0,
-			  "audited_at": null,
-			  "status": 1
-			}
+            {
+              "id": 11,
+              "user_id": 1,
+              "title": "这是测试标题",
+              "keywords": null,
+              "description": "这是描述",
+              "images": [
+                "http://devapi.uzhenbao.com/uploads/userProducts/20161214135425434566.png"
+              ],
+              "price": "129.00",
+              "original_price": "199.00",
+              "category_id": 1,
+              "is_sold": 0,
+              "is_audited": 0,
+              "quality": 99,
+              "delivery_day": 1,
+              "updated_at": "2016-12-14 13:54:25",
+              "created_at": "2016-12-14 13:54:25",
+              "sort": 0,
+              "audited_at": null,
+              "status": 1
+            }
 
 + Response 403 (application/json)
 
-			{
-				"status": 403,
-				"code": 40310,
-				"message": "该商品未通过审核"
-			}
+            {
+                "status": 403,
+                "code": 40310,
+                "message": "该商品未通过审核"
+            }
 
 + Response 403 (application/json)
 
-			{
-				"status": 403,
-				"code": 40311,
-				"message": "该商品已售出"
-			}
+            {
+                "status": 403,
+                "code": 40311,
+                "message": "该商品已售出"
+            }
 
 
 ## 成色质量 [/userProducts/qualities]
@@ -573,103 +573,103 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
 + Request (application/json)
 
-	+ Headers
+    + Headers
 
-			timestamp: 1478840722
-			app-key: 92lsk20ks
-			sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-			api-version: 2
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
 
 
 + Response 200 (application/json)
 
-			[
-			  {
-				"id": 1,
-				"name": 100,
-				"description": "商品全新\n附件齐全(包装盒， 包装袋， 质检合格， 票据等)"
-			  },
-			  {
-				"id": 2,
-				"name": 99,
-				"description": "商品拆包\n轻微使用"
-			  },
-			  {
-				"id": 3,
-				"name": 95,
-				"description": "日常使用\n无明显划痕\n金属类配件轻微氧化"
-			  },
-			  {
-				"id": 4,
-				"name": 90,
-				"description": "明显使用痕迹\n金属氧化磨损\n边角有磨损\n有清洗护理过\n"
-			  },
-			  {
-				"id": 5,
-				"name": 85,
-				"description": "有划伤\n边角磨损\n金属氧化较多\n"
-			  },
-			  {
-				"id": 6,
-				"name": 80,
-				"description": "使用较久\n磨损较严重，可修复\n整体较旧不洁"
-			  },
-			  {
-				"id": 7,
-				"name": 70,
-				"description": "有破损缝补改动配件等"
-			  }
-			]
+            [
+              {
+                "id": 1,
+                "name": 100,
+                "description": "商品全新\n附件齐全(包装盒， 包装袋， 质检合格， 票据等)"
+              },
+              {
+                "id": 2,
+                "name": 99,
+                "description": "商品拆包\n轻微使用"
+              },
+              {
+                "id": 3,
+                "name": 95,
+                "description": "日常使用\n无明显划痕\n金属类配件轻微氧化"
+              },
+              {
+                "id": 4,
+                "name": 90,
+                "description": "明显使用痕迹\n金属氧化磨损\n边角有磨损\n有清洗护理过\n"
+              },
+              {
+                "id": 5,
+                "name": 85,
+                "description": "有划伤\n边角磨损\n金属氧化较多\n"
+              },
+              {
+                "id": 6,
+                "name": 80,
+                "description": "使用较久\n磨损较严重，可修复\n整体较旧不洁"
+              },
+              {
+                "id": 7,
+                "name": 70,
+                "description": "有破损缝补改动配件等"
+              }
+            ]
 
 
 + Response 409 (application/json)
 
-			{
-				"status": 409,
-				"code": 4098,
-				"message": "该商品已退换"
-			}
+            {
+                "status": 409,
+                "code": 4098,
+                "message": "该商品已退换"
+            }
 
 + Response 404 (application/json)
 
-			{
-				"status": 404,
-				"code": 404,
-				"message": "订单不存在"
-			}
+            {
+                "status": 404,
+                "code": 404,
+                "message": "订单不存在"
+            }
 
 + Response 403 (application/json)
 
-			{
-				"status": 403,
-				"code": 4034,
-				"message": "超出订单购买数量"
-			}
+            {
+                "status": 403,
+                "code": 4034,
+                "message": "超出订单购买数量"
+            }
 
 
 + Response 403 (application/json)
 
-			{
-				"status": 403,
-				"code": 4035,
-				"message": "该商品不支持直接退换或超出可无理由退换期限"
-			}
+            {
+                "status": 403,
+                "code": 4035,
+                "message": "该商品不支持直接退换或超出可无理由退换期限"
+            }
 
 + Response 403 (application/json)
 
-			{
-				"status": 403,
-				"code": 4036,
-				"message": "退换申请不存在"
-			}
+            {
+                "status": 403,
+                "code": 4036,
+                "message": "退换申请不存在"
+            }
 
 + Response 403 (application/json)
 
-			{
-				"status": 403,
-				"code": 4037,
-				"message": "商品不满足退换条件"
-			}
+            {
+                "status": 403,
+                "code": 4037,
+                "message": "商品不满足退换条件"
+            }
 
 
 ## 咨询 [/userProducts/{goodsId}/consultations]
@@ -678,137 +678,137 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
 + Parameters
 
-	+ goodsId: 11 (number) - 用户商品id
+    + goodsId: 11 (number) - 用户商品id
 
 + Request (application/json)
 
-	+ Headers
+    + Headers
 
-			timestamp: 1478840722
-			app-key: 92lsk20ks
-			sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-			api-version: 2
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
 
 + Response 200 (application/json)
 
-			{
-			  "total": 1,
-			  "per_page": 15,
-			  "current_page": 1,
-			  "last_page": 1,
-			  "next_page_url": null,
-			  "prev_page_url": null,
-			  "from": 1,
-			  "to": 1,
-			  "data": [
-				{
-				  "id": 1,
-				  "user_goods_id": 11,
-				  "seller_id": 0,
-				  "name": "张三",
-				  "user_id": 1,
-				  "content": "这是真的吗",
-				  "reply": null,
-				  "created_at": "2016-12-16 11:52:36",
-				  "updated_at": "2016-12-16 11:52:36"
-				}
-			  ]
-			}
+            {
+              "total": 1,
+              "per_page": 15,
+              "current_page": 1,
+              "last_page": 1,
+              "next_page_url": null,
+              "prev_page_url": null,
+              "from": 1,
+              "to": 1,
+              "data": [
+                {
+                  "id": 1,
+                  "user_goods_id": 11,
+                  "seller_id": 0,
+                  "name": "张三",
+                  "user_id": 1,
+                  "content": "这是真的吗",
+                  "reply": null,
+                  "created_at": "2016-12-16 11:52:36",
+                  "updated_at": "2016-12-16 11:52:36"
+                }
+              ]
+            }
 
 ### 发布 [POST]
 
 + Parameters
 
-	+ goodsId: 11 (number) - 用户商品id
+    + goodsId: 11 (number) - 用户商品id
 
 + Request (application/json)
 
-	+ Headers
+    + Headers
 
-			timestamp: 1478840722
-			app-key: 92lsk20ks
-			sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-			api-version: 2
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
 
-	+ Attributes
+    + Attributes
 
-		+ name: 我是好孩子 (required, string) - 用户名
-		+ user_id: 11 (number, optional) - 用户id
-		+ content: 咨询的内容 (string, required) - 用户咨询的内容, 最多255字
+        + name: 我是好孩子 (required, string) - 用户名
+        + user_id: 11 (number, optional) - 用户id
+        + content: 咨询的内容 (string, required) - 用户咨询的内容, 最多255字
 
 + Response 201 (application/json)
 
-			{
-				"status": 201,
-				"message": "发表成功"
-			}
+            {
+                "status": 201,
+                "message": "发表成功"
+            }
 
 + Response 404 (application/json)
 
-			{
-				"status": 404,
-				"message": "商品不存在,或已下架"
-			}
+            {
+                "status": 404,
+                "message": "商品不存在,或已下架"
+            }
 
 
 ### 回复 [PUT /userProducts/{goodsId}/consultations/{id}]
 
 + Parameters
 
-	+ goodsId: 11 (number) - 用户商品id
-	+ id: 1 (number) - 咨询的id
+    + goodsId: 11 (number) - 用户商品id
+    + id: 1 (number) - 咨询的id
 
 + Request (application/json)
 
-	+ Headers
+    + Headers
 
-			timestamp: 1478840722
-			app-key: 92lsk20ks
-			sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-			api-version: 2
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
 
-	+ Attributes
+    + Attributes
 
-		+ content: 回复的内容 (string, required) - 回复的内容, 最多255字
+        + content: 回复的内容 (string, required) - 回复的内容, 最多255字
 
 
 + Response 201 (application/json)
 
-			{
-				"id": 2,
-				"user_goods_id": 11,
-				"seller_id": 1,
-				"name": "张三",
-				"user_id": 1,
-				"content": "这是真的吗",
-				"reply": "这是真的",
-				"created_at": "2016-12-16 12:20:03",
-				"updated_at": "2016-12-16 12:20:34"
-			}
+            {
+                "id": 2,
+                "user_goods_id": 11,
+                "seller_id": 1,
+                "name": "张三",
+                "user_id": 1,
+                "content": "这是真的吗",
+                "reply": "这是真的",
+                "created_at": "2016-12-16 12:20:03",
+                "updated_at": "2016-12-16 12:20:34"
+            }
 
 + Response 403 (application/json)
 
-			{
-				"status": 403,
-				"code": 403,
-				"message": "拒绝访问资源, 不具备访问权限"
-			}
+            {
+                "status": 403,
+                "code": 403,
+                "message": "拒绝访问资源, 不具备访问权限"
+            }
 
 + Response 404 (application/json)
 
-			{
-				"status": 404,
-				"code": 40410,
-				"message": "咨询不存在，或已被删除"
-			}
+            {
+                "status": 404,
+                "code": 40410,
+                "message": "咨询不存在，或已被删除"
+            }
 
 + Response 404 (application/json)
 
-			{
-				"status": 404,
-				"code": 4001,
-				"message": "商品或sku不存在, 或已下架"
-			}
+            {
+                "status": 404,
+                "code": 4001,
+                "message": "商品或sku不存在, 或已下架"
+            }
 
 
 ## 购买 [/users/{id}/userProductOrders]
@@ -828,142 +828,142 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
 + Parameters
 
-	+ id: 1 (number) - 用户id
+    + id: 1 (number) - 用户id
 
 + Request (application/json)
 
-	+ Headers
+    + Headers
 
-			timestamp: 1478840722
-			app-key: 92lsk20ks
-			sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-			api-version: 2
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
 
-	+ Attributes
+    + Attributes
 
-		+ user_product_id: 1 (required) - 用户商品id
-		+ shipping_address_id: 4 (required) - 收货地址id
-		+ memo (optional, string) - 备注内容, 最多255字
+        + user_product_id: 1 (required) - 用户商品id
+        + shipping_address_id: 4 (required) - 收货地址id
+        + memo (optional, string) - 备注内容, 最多255字
 
 
 + Response 200 (application/json)
 
-			{
-			  "total_price": 157.7,
-			  "original_price": 157.7,
-			  "postage": 0,
-			  "coupon_price": 0,
-			  "available_coupons": []
-			}
+            {
+              "total_price": 157.7,
+              "original_price": 157.7,
+              "postage": 0,
+              "coupon_price": 0,
+              "available_coupons": []
+            }
 
 
 + Response 403 (application/json)
 
-			{
-			  "status": 403,
-			  "code": 40311,
-			  "message": "该商品已售出"
-			}
+            {
+              "status": 403,
+              "code": 40311,
+              "message": "该商品已售出"
+            }
 
 
 + Response 403 (application/json)
 
-			{
-				"status": 403,
-				"code": 40312,
-				"message": "您不能购买自己发布的商品"
-			}
+            {
+                "status": 403,
+                "code": 40312,
+                "message": "您不能购买自己发布的商品"
+            }
 
 + Response 404 (application/json)
 
-			{
-			  "status": 404,
-			  "code": 4045,
-			  "message": "收货地址不存在"
-			}
+            {
+              "status": 404,
+              "code": 4045,
+              "message": "收货地址不存在"
+            }
 
 
 ### 生成订单 [POST]
 
 + Parameters
 
-	+ id: 1 (number) - 用户id
+    + id: 1 (number) - 用户id
 
 + Request (application/json)
 
-	+ Headers
+    + Headers
 
-			timestamp: 1478840722
-			app-key: 92lsk20ks
-			sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-			api-version: 2
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
 
-	+ Attributes
+    + Attributes
 
-		+ user_product_id: 1 (required) - 用户商品id
-		+ shipping_address_id: 4 (required) - 收货地址id
-		+ memo (optional, string) - 备注内容, 最多255字
+        + user_product_id: 1 (required) - 用户商品id
+        + shipping_address_id: 4 (required) - 收货地址id
+        + memo (optional, string) - 备注内容, 最多255字
 
 + Response 201 (application/json)
 
-			{
-				"id": 71,
-				"order_no": "M1612158590292881939",
-				"status": 0,
-				"user_id": 2,
-				"return_id": null,
-				"amount": 1,
-				"original_price": "129.00",
-				"total_price": "138.80",
-				"coupon_price": "0.00",
-				"memo": "这是备注",
-				"created_at": "2016-12-15 17:07:59",
-				"updated_at": "2016-12-15 17:07:59",
-				"deleted_at": null,
-				"cancel_id": null,
-				"cancel_description": null,
-				"pay_platform_id": null,
-				"pay_platform_trade_no": null,
-				"coupon_id": null,
-				"coupon_group_id": null,
-				"is_invoice": 0,
-				"invoice_type": null,
-				"invoiced": null,
-				"express_id": null,
-				"tracking_number": null,
-				"express_traces": null,
-				"express_refresh": "2016-12-15 17:07:59",
-				"dispatched_at": null,
-				"received_at": null,
-				"is_refunded": null,
-				"is_restored_stock": 0,
-				"seller_id": 1
-			}
+            {
+                "id": 71,
+                "order_no": "M1612158590292881939",
+                "status": 0,
+                "user_id": 2,
+                "return_id": null,
+                "amount": 1,
+                "original_price": "129.00",
+                "total_price": "138.80",
+                "coupon_price": "0.00",
+                "memo": "这是备注",
+                "created_at": "2016-12-15 17:07:59",
+                "updated_at": "2016-12-15 17:07:59",
+                "deleted_at": null,
+                "cancel_id": null,
+                "cancel_description": null,
+                "pay_platform_id": null,
+                "pay_platform_trade_no": null,
+                "coupon_id": null,
+                "coupon_group_id": null,
+                "is_invoice": 0,
+                "invoice_type": null,
+                "invoiced": null,
+                "express_id": null,
+                "tracking_number": null,
+                "express_traces": null,
+                "express_refresh": "2016-12-15 17:07:59",
+                "dispatched_at": null,
+                "received_at": null,
+                "is_refunded": null,
+                "is_restored_stock": 0,
+                "seller_id": 1
+            }
 
 + Response 403 (application/json)
 
-			{
-			  "status": 403,
-			  "code": 40311,
-			  "message": "该商品已售出"
-			}
+            {
+              "status": 403,
+              "code": 40311,
+              "message": "该商品已售出"
+            }
 
 
 + Response 403 (application/json)
 
-			{
-				"status": 403,
-				"code": 40312,
-				"message": "您不能购买自己发布的商品"
-			}
+            {
+                "status": 403,
+                "code": 40312,
+                "message": "您不能购买自己发布的商品"
+            }
 
 + Response 404 (application/json)
 
-			{
-			  "status": 404,
-			  "code": 4045,
-			  "message": "收货地址不存在"
-			}
+            {
+              "status": 404,
+              "code": 4045,
+              "message": "收货地址不存在"
+            }
 
 
 
@@ -975,131 +975,131 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
 + Parameters
 
-	+ userId: 1 (number) - 销售者用户id
+    + userId: 1 (number) - 销售者用户id
 
 
 + Request (application/json)
 
-	+ Headers
+    + Headers
 
-			timestamp: 1478840722
-			app-key: 92lsk20ks
-			sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-			api-version: 2
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
 
 + Response 200 (applicaiton/json)
 
 
-			{
-			  "total": 1,
-			  "per_page": 15,
-			  "current_page": 1,
-			  "last_page": 1,
-			  "next_page_url": null,
-			  "prev_page_url": null,
-			  "from": 1,
-			  "to": 1,
-			  "data": [
-				{
-				  "id": 51,
-				  "order_no": "M1612266559738245862",
-				  "status": 3,
-				  "user_id": 148,
-				  "return_id": null,
-				  "amount": 1,
-				  "original_price": "0.10",
-				  "total_price": "0.10",
-				  "coupon_price": "0.00",
-				  "memo": "记得发快递",
-				  "created_at": "2016-12-26 15:44:05",
-				  "updated_at": "2016-12-28 13:00:06",
-				  "deleted_at": null,
-				  "cancel_id": null,
-				  "cancel_description": null,
-				  "pay_platform_id": 1,
-				  "pay_platform_trade_no": "2016122621001004200209606031",
-				  "coupon_id": null,
-				  "coupon_group_id": null,
-				  "is_invoice": 0,
-				  "invoice_type": null,
-				  "invoiced": null,
-				  "express_id": 3,
-				  "tracking_number": "12345678996",
-				  "express_traces": null,
-				  "express_refresh": "2016-12-26 15:44:05",
-				  "dispatched_at": "2016-12-28 10:17:26",
-				  "received_at": "2016-12-28 10:19:49",
-				  "is_refunded": null,
-				  "is_restored_stock": 0,
-				  "seller_id": 2,
-				  "platform_address": {
-					"province": "上海市",
-					"city": "上海市",
-					"area": "黄浦区",
-					"street": "人民东路332号",
-					"room": "外滩soho F座",
-					"phone": "128123123213",
-					"real_name": "上海烨历网络科技有限公司"
-				  },
-				  "items": [
-					{
-					  "id": 145,
-					  "order_id": 51,
-					  "product_id": null,
-					  "product_item_id": null,
-					  "user_product_id": 16,
-					  "amount": 1,
-					  "unit_price": "0.10",
-					  "total_price": "0.10",
-					  "apply_id": null,
-					  "return_id": null,
-					  "is_returned": 0,
-					  "is_applied": 0,
-					  "created_at": "2016-12-26 15:44:05",
-					  "updated_at": "2016-12-26 15:44:05",
-					  "user_product": {
-						"id": 16,
-						"user_id": 129,
-						"title": "原装进口东方明珠模型",
-						"keywords": null,
-						"description": "这是去年买的东方明珠模型，全新，拆过，但是没有用过。买的价格是 999，现在价格还涨了",
-						"images": [
-						  "http://devapi.uzhenbao.com/uploads/userGoods/20161226153819506526.jpg"
-						],
-						"price": "0.10",
-						"original_price": "999.00",
-						"category_id": 5,
-						"is_sold": 1,
-						"is_audited": 1,
-						"quality": 99,
-						"delivery_day": 3,
-						"updated_at": "2016-12-28 11:41:36",
-						"created_at": "2016-12-26 15:38:19",
-						"sort": 0,
-						"audited_at": "2016-12-26 15:43:22",
-						"postage": "0.00",
-						"status": 1,
-						"favorites": 0,
-						"views": 21
-					  }
-					}
-				  ],
-				  "user": {
-					"id": 148,
-					"name": "宝宝33014641",
-					"created_at": "2016-12-05 17:57:12",
-					"updated_at": "2016-12-26 14:56:56",
-					"avatar": {
-					  "avatar": "http://devapi.uzhenbao.com/uploads/users/14827354167824_avatar.jpg",
-					  "thumb": "http://devapi.uzhenbao.com/uploads/users/thumb_14827354167824_avatar.jpg"
-					},
-					"summary": "",
-					"level": 1,
-					"forum_level": 0
-				  }
-				}
-			  ]
-			}
+            {
+              "total": 1,
+              "per_page": 15,
+              "current_page": 1,
+              "last_page": 1,
+              "next_page_url": null,
+              "prev_page_url": null,
+              "from": 1,
+              "to": 1,
+              "data": [
+                {
+                  "id": 51,
+                  "order_no": "M1612266559738245862",
+                  "status": 3,
+                  "user_id": 148,
+                  "return_id": null,
+                  "amount": 1,
+                  "original_price": "0.10",
+                  "total_price": "0.10",
+                  "coupon_price": "0.00",
+                  "memo": "记得发快递",
+                  "created_at": "2016-12-26 15:44:05",
+                  "updated_at": "2016-12-28 13:00:06",
+                  "deleted_at": null,
+                  "cancel_id": null,
+                  "cancel_description": null,
+                  "pay_platform_id": 1,
+                  "pay_platform_trade_no": "2016122621001004200209606031",
+                  "coupon_id": null,
+                  "coupon_group_id": null,
+                  "is_invoice": 0,
+                  "invoice_type": null,
+                  "invoiced": null,
+                  "express_id": 3,
+                  "tracking_number": "12345678996",
+                  "express_traces": null,
+                  "express_refresh": "2016-12-26 15:44:05",
+                  "dispatched_at": "2016-12-28 10:17:26",
+                  "received_at": "2016-12-28 10:19:49",
+                  "is_refunded": null,
+                  "is_restored_stock": 0,
+                  "seller_id": 2,
+                  "platform_address": {
+                    "province": "上海市",
+                    "city": "上海市",
+                    "area": "黄浦区",
+                    "street": "人民东路332号",
+                    "room": "外滩soho F座",
+                    "phone": "128123123213",
+                    "real_name": "上海烨历网络科技有限公司"
+                  },
+                  "items": [
+                    {
+                      "id": 145,
+                      "order_id": 51,
+                      "product_id": null,
+                      "product_item_id": null,
+                      "user_product_id": 16,
+                      "amount": 1,
+                      "unit_price": "0.10",
+                      "total_price": "0.10",
+                      "apply_id": null,
+                      "return_id": null,
+                      "is_returned": 0,
+                      "is_applied": 0,
+                      "created_at": "2016-12-26 15:44:05",
+                      "updated_at": "2016-12-26 15:44:05",
+                      "user_product": {
+                        "id": 16,
+                        "user_id": 129,
+                        "title": "原装进口东方明珠模型",
+                        "keywords": null,
+                        "description": "这是去年买的东方明珠模型，全新，拆过，但是没有用过。买的价格是 999，现在价格还涨了",
+                        "images": [
+                          "http://devapi.uzhenbao.com/uploads/userGoods/20161226153819506526.jpg"
+                        ],
+                        "price": "0.10",
+                        "original_price": "999.00",
+                        "category_id": 5,
+                        "is_sold": 1,
+                        "is_audited": 1,
+                        "quality": 99,
+                        "delivery_day": 3,
+                        "updated_at": "2016-12-28 11:41:36",
+                        "created_at": "2016-12-26 15:38:19",
+                        "sort": 0,
+                        "audited_at": "2016-12-26 15:43:22",
+                        "postage": "0.00",
+                        "status": 1,
+                        "favorites": 0,
+                        "views": 21
+                      }
+                    }
+                  ],
+                  "user": {
+                    "id": 148,
+                    "name": "宝宝33014641",
+                    "created_at": "2016-12-05 17:57:12",
+                    "updated_at": "2016-12-26 14:56:56",
+                    "avatar": {
+                      "avatar": "http://devapi.uzhenbao.com/uploads/users/14827354167824_avatar.jpg",
+                      "thumb": "http://devapi.uzhenbao.com/uploads/users/thumb_14827354167824_avatar.jpg"
+                    },
+                    "summary": "",
+                    "level": 1,
+                    "forum_level": 0
+                  }
+                }
+              ]
+            }
 
 
 
@@ -1107,174 +1107,174 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
 + Parameters
 
-	+ userId: 1 (number) - 销售者用户id
-	+ id: 1 (number) - 订单id
+    + userId: 1 (number) - 销售者用户id
+    + id: 1 (number) - 订单id
 
 + Request (application/json)
 
-	+ Headers
+    + Headers
 
-			timestamp: 1478840722
-			app-key: 92lsk20ks
-			sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-			api-version: 2
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
 
 + Response 200 (applicaiton/json)
 
-			{
-			  "id": 51,
-			  "order_no": "M1612266559738245862",
-			  "status": 3,
-			  "user_id": 148,
-			  "return_id": null,
-			  "amount": 1,
-			  "original_price": "0.10",
-			  "total_price": "0.10",
-			  "coupon_price": "0.00",
-			  "memo": "记得发快递",
-			  "created_at": "2016-12-26 15:44:05",
-			  "updated_at": "2016-12-28 13:00:06",
-			  "deleted_at": null,
-			  "cancel_id": null,
-			  "cancel_description": null,
-			  "pay_platform_id": 1,
-			  "pay_platform_trade_no": "2016122621001004200209606031",
-			  "coupon_id": null,
-			  "coupon_group_id": null,
-			  "is_invoice": 0,
-			  "invoice_type": null,
-			  "invoiced": null,
-			  "express_id": 3,
-			  "tracking_number": "12345678996",
-			  "express_traces": null,
-			  "express_refresh": "2016-12-26 15:44:05",
-			  "dispatched_at": "2016-12-28 10:17:26",
-			  "received_at": "2016-12-28 10:19:49",
-			  "is_refunded": null,
-			  "is_restored_stock": 0,
-			  "seller_id": 2,
-			  "platform_address": {
-				"province": "上海市",
-				"city": "上海市",
-				"area": "黄浦区",
-				"street": "人民东路332号",
-				"room": "外滩soho F座",
-				"phone": "128123123213",
-				"real_name": "上海烨历网络科技有限公司"
-			  },
-			  "express": {
-				"id": 3,
-				"name": "申通快递",
-				"alias": "ST"
-			  },
-			  "items": [
-				{
-				  "id": 145,
-				  "order_id": 51,
-				  "product_id": null,
-				  "product_item_id": null,
-				  "user_product_id": 16,
-				  "amount": 1,
-				  "unit_price": "0.10",
-				  "total_price": "0.10",
-				  "apply_id": null,
-				  "return_id": null,
-				  "is_returned": 0,
-				  "is_applied": 0,
-				  "created_at": "2016-12-26 15:44:05",
-				  "updated_at": "2016-12-26 15:44:05",
-				  "user_product": {
-					"id": 16,
-					"user_id": 129,
-					"title": "原装进口东方明珠模型",
-					"keywords": null,
-					"description": "这是去年买的东方明珠模型，全新，拆过，但是没有用过。买的价格是 999，现在价格还涨了",
-					"images": [
-					  "http://devapi.uzhenbao.com/uploads/userGoods/20161226153819506526.jpg"
-					],
-					"price": "0.10",
-					"original_price": "999.00",
-					"category_id": 5,
-					"is_sold": 1,
-					"is_audited": 1,
-					"quality": 99,
-					"delivery_day": 3,
-					"updated_at": "2016-12-28 11:41:36",
-					"created_at": "2016-12-26 15:38:19",
-					"sort": 0,
-					"audited_at": "2016-12-26 15:43:22",
-					"postage": "0.00",
-					"status": 1,
-					"favorites": 0,
-					"views": 21
-				  }
-				}
-			  ],
-			  "seller": {
-				"id": 2,
-				"name": "哈哈",
-				"created_at": "2016-11-28 19:44:45",
-				"updated_at": "2016-12-15 16:33:53",
-				"avatar": {
-				  "avatar": "http://devapi.uzhenbao.com/uploads/users/14817908332462_avatar.jpg",
-				  "thumb": "http://devapi.uzhenbao.com/uploads/users/thumb_14817908332462_avatar.jpg"
-				},
-				"summary": "",
-				"level": 1,
-				"forum_level": 13
-			  },
-			  "user": {
-				"id": 148,
-				"name": "宝宝33014641",
-				"created_at": "2016-12-05 17:57:12",
-				"updated_at": "2016-12-26 14:56:56",
-				"avatar": {
-				  "avatar": "http://devapi.uzhenbao.com/uploads/users/14827354167824_avatar.jpg",
-				  "thumb": "http://devapi.uzhenbao.com/uploads/users/thumb_14827354167824_avatar.jpg"
-				},
-				"summary": "",
-				"level": 1,
-				"forum_level": 0
-			  }
-			}
+            {
+              "id": 51,
+              "order_no": "M1612266559738245862",
+              "status": 3,
+              "user_id": 148,
+              "return_id": null,
+              "amount": 1,
+              "original_price": "0.10",
+              "total_price": "0.10",
+              "coupon_price": "0.00",
+              "memo": "记得发快递",
+              "created_at": "2016-12-26 15:44:05",
+              "updated_at": "2016-12-28 13:00:06",
+              "deleted_at": null,
+              "cancel_id": null,
+              "cancel_description": null,
+              "pay_platform_id": 1,
+              "pay_platform_trade_no": "2016122621001004200209606031",
+              "coupon_id": null,
+              "coupon_group_id": null,
+              "is_invoice": 0,
+              "invoice_type": null,
+              "invoiced": null,
+              "express_id": 3,
+              "tracking_number": "12345678996",
+              "express_traces": null,
+              "express_refresh": "2016-12-26 15:44:05",
+              "dispatched_at": "2016-12-28 10:17:26",
+              "received_at": "2016-12-28 10:19:49",
+              "is_refunded": null,
+              "is_restored_stock": 0,
+              "seller_id": 2,
+              "platform_address": {
+                "province": "上海市",
+                "city": "上海市",
+                "area": "黄浦区",
+                "street": "人民东路332号",
+                "room": "外滩soho F座",
+                "phone": "128123123213",
+                "real_name": "上海烨历网络科技有限公司"
+              },
+              "express": {
+                "id": 3,
+                "name": "申通快递",
+                "alias": "ST"
+              },
+              "items": [
+                {
+                  "id": 145,
+                  "order_id": 51,
+                  "product_id": null,
+                  "product_item_id": null,
+                  "user_product_id": 16,
+                  "amount": 1,
+                  "unit_price": "0.10",
+                  "total_price": "0.10",
+                  "apply_id": null,
+                  "return_id": null,
+                  "is_returned": 0,
+                  "is_applied": 0,
+                  "created_at": "2016-12-26 15:44:05",
+                  "updated_at": "2016-12-26 15:44:05",
+                  "user_product": {
+                    "id": 16,
+                    "user_id": 129,
+                    "title": "原装进口东方明珠模型",
+                    "keywords": null,
+                    "description": "这是去年买的东方明珠模型，全新，拆过，但是没有用过。买的价格是 999，现在价格还涨了",
+                    "images": [
+                      "http://devapi.uzhenbao.com/uploads/userGoods/20161226153819506526.jpg"
+                    ],
+                    "price": "0.10",
+                    "original_price": "999.00",
+                    "category_id": 5,
+                    "is_sold": 1,
+                    "is_audited": 1,
+                    "quality": 99,
+                    "delivery_day": 3,
+                    "updated_at": "2016-12-28 11:41:36",
+                    "created_at": "2016-12-26 15:38:19",
+                    "sort": 0,
+                    "audited_at": "2016-12-26 15:43:22",
+                    "postage": "0.00",
+                    "status": 1,
+                    "favorites": 0,
+                    "views": 21
+                  }
+                }
+              ],
+              "seller": {
+                "id": 2,
+                "name": "哈哈",
+                "created_at": "2016-11-28 19:44:45",
+                "updated_at": "2016-12-15 16:33:53",
+                "avatar": {
+                  "avatar": "http://devapi.uzhenbao.com/uploads/users/14817908332462_avatar.jpg",
+                  "thumb": "http://devapi.uzhenbao.com/uploads/users/thumb_14817908332462_avatar.jpg"
+                },
+                "summary": "",
+                "level": 1,
+                "forum_level": 13
+              },
+              "user": {
+                "id": 148,
+                "name": "宝宝33014641",
+                "created_at": "2016-12-05 17:57:12",
+                "updated_at": "2016-12-26 14:56:56",
+                "avatar": {
+                  "avatar": "http://devapi.uzhenbao.com/uploads/users/14827354167824_avatar.jpg",
+                  "thumb": "http://devapi.uzhenbao.com/uploads/users/thumb_14827354167824_avatar.jpg"
+                },
+                "summary": "",
+                "level": 1,
+                "forum_level": 0
+              }
+            }
 
 
 ### 发货 [PUT /sellers/{userId}/orders/{id}]
 
 + Parameters
 
-	+ userId: 1 (number) - 销售者用户id
-	+ id: 1 (number) - 订单id
+    + userId: 1 (number) - 销售者用户id
+    + id: 1 (number) - 订单id
 
 + Request (application/json)
 
-	+ Headers
+    + Headers
 
-			timestamp: 1478840722
-			app-key: 92lsk20ks
-			sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-			api-version: 2
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
 
-	+ Attributes
+    + Attributes
 
-		+ tracking_number: 91282929291 (string) - 快递运单号
-		+ express_id: 1 (number) - 快递id
+        + tracking_number: 91282929291 (string) - 快递运单号
+        + express_id: 1 (number) - 快递id
 
 + Response 201 (applicaiton/json)
 
-			{
-				"status": 201,
-				"code": 201,
-				"message": "保存成功"
-			}
+            {
+                "status": 201,
+                "code": 201,
+                "message": "保存成功"
+            }
 
 + Response 409 (applicaiton/json)
 
-			{
-				"status": 409,
-				"code": 40910,
-				"message": "订单已发货"
-			}
+            {
+                "status": 409,
+                "code": 40910,
+                "message": "订单已发货"
+            }
 
 
 ## 银行卡 [/users/{id}/bankcard]
@@ -1294,85 +1294,85 @@ Request 参数说明
 
 + Parameters
 
-	+ id: 1 - 用户id
+    + id: 1 - 用户id
 
 + Request (application/json)
 
-	+ Headers
+    + Headers
 
-			timestamp: 1478840722
-			app-key: 92lsk20ks
-			sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-			api-version: 2
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
 
-	+ Attributes
+    + Attributes
 
-		+ number: 1229198281854829192 (string) - 银行卡号
-		+ real_name: 张三 (string) - 真实姓名
-		+ name: 中国工商银行 (string) - 发卡银行
+        + number: 1229198281854829192 (string) - 银行卡号
+        + real_name: 张三 (string) - 真实姓名
+        + name: 中国工商银行 (string) - 发卡银行
 
 
 + Response 201 (application/json)
 
 
-			{
-				"number": "1231231232131321313",
-				"real_name": "张三",
-				"name": "中国工商银行",
-				"user_id": 2,
-				"updated_at": "2016-12-28 19:05:24",
-				"created_at": "2016-12-28 19:05:24"
-			}
+            {
+                "number": "1231231232131321313",
+                "real_name": "张三",
+                "name": "中国工商银行",
+                "user_id": 2,
+                "updated_at": "2016-12-28 19:05:24",
+                "created_at": "2016-12-28 19:05:24"
+            }
 
 
 + Response 409 (application/json)
 
-			{
-				"status": 409,
-				"code": 409,
-				"message": "资源已存在"
-			}
+            {
+                "status": 409,
+                "code": 409,
+                "message": "资源已存在"
+            }
 
 ## 更新 [PUT]
 
 + Parameters
 
-	+ id: 1 - 用户id
+    + id: 1 - 用户id
 
 + Request (application/json)
 
-	+ Headers
+    + Headers
 
-			timestamp: 1478840722
-			app-key: 92lsk20ks
-			sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-			api-version: 2
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
 
-	+ Attributes
+    + Attributes
 
-		+ number: 1229198281854829192 (string) - 银行卡号
-		+ real_name: 张三 (string) - 真实姓名
-		+ name: 中国工商银行 (string) - 发卡银行
+        + number: 1229198281854829192 (string) - 银行卡号
+        + real_name: 张三 (string) - 真实姓名
+        + name: 中国工商银行 (string) - 发卡银行
 
 
 + Response 201 (application/json)
 
 
-			{
-				"number": "1231231232131321313",
-				"real_name": "张三",
-				"name": "中国工商银行",
-				"user_id": 2,
-				"updated_at": "2016-12-28 19:05:24",
-				"created_at": "2016-12-28 19:05:24"
-			}
+            {
+                "number": "1231231232131321313",
+                "real_name": "张三",
+                "name": "中国工商银行",
+                "user_id": 2,
+                "updated_at": "2016-12-28 19:05:24",
+                "created_at": "2016-12-28 19:05:24"
+            }
 
 
 + Response 404 (application/json)
 
-			{
-				"status": 409,
-				"code": 409,
-				"message": "资源不存在"
-			}
+            {
+                "status": 409,
+                "code": 409,
+                "message": "资源不存在"
+            }
 
