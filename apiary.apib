@@ -359,34 +359,39 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 + Response 200 (application/json)
 
             {
-              "total": 1,
+              "total": 15,
               "per_page": 15,
               "current_page": 1,
               "last_page": 1,
               "next_page_url": null,
               "prev_page_url": null,
               "from": 1,
-              "to": 1,
+              "to": 15,
               "data": [
                 {
-                  "id": 4,
+                  "id": 18,
                   "user_id": 1,
-                  "title": "测试标题",
+                  "title": "这是测试标题",
                   "keywords": null,
-                  "description": "这是商品详情描述",
+                  "description": "这是描述",
                   "images": [
-                    "http://devapi.uzhenbao.com/uploads/userProducts/20161212135950152541.png",
-                    "http://devapi.uzhenbao.com/uploads/userProducts/20161212135950609335.png"
+                    "http://devapi.uzhenbao.com/uploads/userProduct/20161228110300288924.png"
                   ],
-                  "price": "99.00",
+                  "price": "129.00",
                   "original_price": "199.00",
                   "category_id": 1,
                   "is_sold": 0,
-                  "is_audited": 1,
+                  "is_audited": 0,
                   "quality": 99,
                   "delivery_day": 1,
-                  "updated_at": "2016-12-12 13:59:50",
-                  "created_at": "2016-12-12 13:59:50"
+                  "updated_at": "2016-12-28 14:02:25",
+                  "created_at": "2016-12-28 11:03:00",
+                  "sort": 0,
+                  "audited_at": null,
+                  "postage": "0.00",
+                  "status": 0,
+                  "favorites": 0,
+                  "views": 6
                 }
               ]
             }
@@ -410,30 +415,34 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 + Response 200 (application/json)
 
             {
-              "id": 4,
+              "id": 18,
               "user_id": 1,
-              "title": "测试标题",
+              "title": "这是测试标题",
               "keywords": null,
-              "description": "这是商品详情描述",
+              "description": "这是描述",
               "images": [
-                "http://devapi.uzhenbao.com/uploads/userProducts/20161212135950152541.png",
-                "http://devapi.uzhenbao.com/uploads/userProducts/20161212135950609335.png"
+                "http://devapi.uzhenbao.com/uploads/userProduct/20161228110300288924.png"
               ],
-              "price": "99.00",
+              "price": "129.00",
               "original_price": "199.00",
               "category_id": 1,
               "is_sold": 0,
-              "is_audited": 1,
-              "quality": 99,
-              "delivery_day": 1,
-              "updated_at": "2016-12-12 13:59:50",
-              "created_at": "2016-12-12 13:59:50",
-              "one_quality": {
+              "is_audited": 0,
+              "quality": {
                 "id": 2,
                 "name": 99,
                 "description": "商品拆包\n轻微使用"
               },
-              "one_user": {
+              "delivery_day": 1,
+              "updated_at": "2016-12-28 12:06:59",
+              "created_at": "2016-12-28 11:03:00",
+              "sort": 0,
+              "audited_at": null,
+              "postage": "0.00",
+              "status": 0,
+              "favorites": 0,
+              "views": 6,
+              "user": {
                 "id": 1,
                 "name": "宝宝30832065",
                 "created_at": "2016-11-28 19:34:25",
@@ -444,11 +453,9 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
                 },
                 "summary": "",
                 "level": 1,
-                "forum_level": 2,
-                "is_seller": 0
+                "forum_level": 2
               }
             }
-
 
 ### 发布 [POST]
 
@@ -804,7 +811,7 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
             }
 
 
-## 购买 [/users/{id}/userProductsOrders]
+## 购买 [/users/{id}/userProductOrders]
 
 购买商品APP执行流程: `预览订单` -> `生成订单` -> `选择支付方式获取平台交易信息` -> `客户端向支付平台发起交易` ->
 `平台返回结果`
@@ -813,11 +820,11 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
 | Key | Value | Data Type | Required | Description |
 |---|---|---|---|---|
-| `user_goods_id` | 1 | number | required | 用户商品id |
+| `user_product_id` | 1 | number | required | 用户商品id |
 | `shipping_address_id` | 1 | number | required | 收货地址id |
 | `memo` | 这是备注 | string | optional | 备注, 最多255字 |
 
-### 预览订单 [POST /users/{id}/userProductsOrders/preview]
+### 预览订单 [POST /users/{id}/userProductOrders/preview]
 
 + Parameters
 
@@ -834,7 +841,7 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
     + Attributes
 
-        + user_goods_id: 1 (required) - 用户商品id
+        + user_product_id: 1 (required) - 用户商品id
         + shipping_address_id: 4 (required) - 收货地址id
         + memo (optional, string) - 备注内容, 最多255字
 
@@ -893,7 +900,7 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
     + Attributes
 
-        + user_goods_id: 1 (required) - 用户商品id
+        + user_product_id: 1 (required) - 用户商品id
         + shipping_address_id: 4 (required) - 收货地址id
         + memo (optional, string) - 备注内容, 最多255字
 
@@ -982,6 +989,7 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
 + Response 200 (applicaiton/json)
 
+
             {
               "total": 1,
               "per_page": 15,
@@ -995,7 +1003,7 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
                 {
                   "id": 51,
                   "order_no": "M1612266559738245862",
-                  "status": 1,
+                  "status": 3,
                   "user_id": 148,
                   "return_id": null,
                   "amount": 1,
@@ -1004,7 +1012,7 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
                   "coupon_price": "0.00",
                   "memo": "记得发快递",
                   "created_at": "2016-12-26 15:44:05",
-                  "updated_at": "2016-12-27 10:08:47",
+                  "updated_at": "2016-12-28 13:00:06",
                   "deleted_at": null,
                   "cancel_id": null,
                   "cancel_description": null,
@@ -1015,16 +1023,16 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
                   "is_invoice": 0,
                   "invoice_type": null,
                   "invoiced": null,
-                  "express_id": null,
-                  "tracking_number": null,
+                  "express_id": 3,
+                  "tracking_number": "12345678996",
                   "express_traces": null,
                   "express_refresh": "2016-12-26 15:44:05",
-                  "dispatched_at": null,
-                  "received_at": null,
+                  "dispatched_at": "2016-12-28 10:17:26",
+                  "received_at": "2016-12-28 10:19:49",
                   "is_refunded": null,
                   "is_restored_stock": 0,
-                  "seller_id": 4,
-                  "one_platform_address": {
+                  "seller_id": 2,
+                  "platform_address": {
                     "province": "上海市",
                     "city": "上海市",
                     "area": "黄浦区",
@@ -1033,13 +1041,13 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
                     "phone": "128123123213",
                     "real_name": "上海烨历网络科技有限公司"
                   },
-                  "many_goods": [
+                  "items": [
                     {
                       "id": 145,
                       "order_id": 51,
-                      "goods_id": null,
-                      "goods_sku_id": null,
-                      "user_goods_id": 16,
+                      "product_id": null,
+                      "product_item_id": null,
+                      "user_product_id": 16,
                       "amount": 1,
                       "unit_price": "0.10",
                       "total_price": "0.10",
@@ -1049,14 +1057,14 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
                       "is_applied": 0,
                       "created_at": "2016-12-26 15:44:05",
                       "updated_at": "2016-12-26 15:44:05",
-                      "one_user_goods": {
+                      "user_product": {
                         "id": 16,
                         "user_id": 129,
                         "title": "原装进口东方明珠模型",
                         "keywords": null,
                         "description": "这是去年买的东方明珠模型，全新，拆过，但是没有用过。买的价格是 999，现在价格还涨了",
                         "images": [
-                          "http://devapi.uzhenbao.com/uploads/userProducts/20161226153819506526.jpg"
+                          "http://devapi.uzhenbao.com/uploads/userGoods/20161226153819506526.jpg"
                         ],
                         "price": "0.10",
                         "original_price": "999.00",
@@ -1065,18 +1073,18 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
                         "is_audited": 1,
                         "quality": 99,
                         "delivery_day": 3,
-                        "updated_at": "2016-12-26 15:45:40",
+                        "updated_at": "2016-12-28 11:41:36",
                         "created_at": "2016-12-26 15:38:19",
                         "sort": 0,
                         "audited_at": "2016-12-26 15:43:22",
                         "postage": "0.00",
                         "status": 1,
                         "favorites": 0,
-                        "views": 6
+                        "views": 21
                       }
                     }
                   ],
-                  "one_user": {
+                  "user": {
                     "id": 148,
                     "name": "宝宝33014641",
                     "created_at": "2016-12-05 17:57:12",
@@ -1116,7 +1124,7 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
             {
               "id": 51,
               "order_no": "M1612266559738245862",
-              "status": 1,
+              "status": 3,
               "user_id": 148,
               "return_id": null,
               "amount": 1,
@@ -1125,7 +1133,7 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
               "coupon_price": "0.00",
               "memo": "记得发快递",
               "created_at": "2016-12-26 15:44:05",
-              "updated_at": "2016-12-27 10:08:47",
+              "updated_at": "2016-12-28 13:00:06",
               "deleted_at": null,
               "cancel_id": null,
               "cancel_description": null,
@@ -1136,16 +1144,16 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
               "is_invoice": 0,
               "invoice_type": null,
               "invoiced": null,
-              "express_id": null,
-              "tracking_number": null,
+              "express_id": 3,
+              "tracking_number": "12345678996",
               "express_traces": null,
               "express_refresh": "2016-12-26 15:44:05",
-              "dispatched_at": null,
-              "received_at": null,
+              "dispatched_at": "2016-12-28 10:17:26",
+              "received_at": "2016-12-28 10:19:49",
               "is_refunded": null,
               "is_restored_stock": 0,
-              "seller_id": 4,
-              "one_platform_address": {
+              "seller_id": 2,
+              "platform_address": {
                 "province": "上海市",
                 "city": "上海市",
                 "area": "黄浦区",
@@ -1154,14 +1162,18 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
                 "phone": "128123123213",
                 "real_name": "上海烨历网络科技有限公司"
               },
-              "one_express": null,
-              "many_goods": [
+              "express": {
+                "id": 3,
+                "name": "申通快递",
+                "alias": "ST"
+              },
+              "items": [
                 {
                   "id": 145,
                   "order_id": 51,
-                  "goods_id": null,
-                  "goods_sku_id": null,
-                  "user_goods_id": 16,
+                  "product_id": null,
+                  "product_item_id": null,
+                  "user_product_id": 16,
                   "amount": 1,
                   "unit_price": "0.10",
                   "total_price": "0.10",
@@ -1171,14 +1183,14 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
                   "is_applied": 0,
                   "created_at": "2016-12-26 15:44:05",
                   "updated_at": "2016-12-26 15:44:05",
-                  "one_user_goods": {
+                  "user_product": {
                     "id": 16,
                     "user_id": 129,
                     "title": "原装进口东方明珠模型",
                     "keywords": null,
                     "description": "这是去年买的东方明珠模型，全新，拆过，但是没有用过。买的价格是 999，现在价格还涨了",
                     "images": [
-                      "http://devapi.uzhenbao.com/uploads/userProducts/20161226153819506526.jpg"
+                      "http://devapi.uzhenbao.com/uploads/userGoods/20161226153819506526.jpg"
                     ],
                     "price": "0.10",
                     "original_price": "999.00",
@@ -1187,31 +1199,31 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
                     "is_audited": 1,
                     "quality": 99,
                     "delivery_day": 3,
-                    "updated_at": "2016-12-26 15:45:40",
+                    "updated_at": "2016-12-28 11:41:36",
                     "created_at": "2016-12-26 15:38:19",
                     "sort": 0,
                     "audited_at": "2016-12-26 15:43:22",
                     "postage": "0.00",
                     "status": 1,
                     "favorites": 0,
-                    "views": 6
+                    "views": 21
                   }
                 }
               ],
-              "one_seller": {
-                "id": 4,
-                "name": "宝宝46228510",
-                "created_at": "2016-11-29 11:11:03",
-                "updated_at": "2016-11-30 14:16:23",
+              "seller": {
+                "id": 2,
+                "name": "哈哈",
+                "created_at": "2016-11-28 19:44:45",
+                "updated_at": "2016-12-15 16:33:53",
                 "avatar": {
-                  "avatar": "http://devapi.uzhenbao.com/default/avatar.jpg",
-                  "thumb": "http://devapi.uzhenbao.com/default/avatar.jpg"
+                  "avatar": "http://devapi.uzhenbao.com/uploads/users/14817908332462_avatar.jpg",
+                  "thumb": "http://devapi.uzhenbao.com/uploads/users/thumb_14817908332462_avatar.jpg"
                 },
                 "summary": "",
                 "level": 1,
-                "forum_level": 0
+                "forum_level": 13
               },
-              "one_user": {
+              "user": {
                 "id": 148,
                 "name": "宝宝33014641",
                 "created_at": "2016-12-05 17:57:12",
