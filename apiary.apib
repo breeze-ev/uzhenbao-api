@@ -1285,7 +1285,7 @@ Request 参数说明
 | Key | Value | Length | Required | Description |
 |---|---|---|---|---|
 |`number`| 1229198281854829192 | [16, 19] | true | 银行卡号 |
-|`real_name`| 张三 | (0, 4] | true | 户主真实姓名 |
+|`real_name`| 张三 | (0, 15] | true | 户主真实姓名 |
 |`name`| 中国工商银行 | (0, 20] | true | 发卡银行 |
 
 
@@ -1371,7 +1371,44 @@ Request 参数说明
 + Response 404 (application/json)
 
             {
-                "status": 409,
-                "code": 409,
+                "status": 404,
+                "code": 404,
                 "message": "资源不存在"
+            }
+
+### 获取 [GET]
+
++ Parameters
+
+    + id: 1 - 用户id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
+
++ Response 201 (application/json)
+
+            {
+              "user_id": 2,
+              "name": "中国工商银行",
+              "number": "1231231232131321313",
+              "real_name": "张三",
+              "is_default": 0,
+              "updated_at": "2016-12-28 19:05:24",
+              "created_at": "2016-12-28 19:05:24"
+            }
+
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 404,
+                "资源不存在"
             }
