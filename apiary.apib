@@ -214,6 +214,9 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
 
 
+# Group 平台商品
+
+
 
 
 
@@ -1411,4 +1414,365 @@ Request 参数说明
                 "status": 404,
                 "code": 404,
                 "资源不存在"
+            }
+
+
+# Group 订单
+
+## 订单 [/orders]
+
+### 列表 [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 200 (application/json)
+
+
+            {
+              "total": 2,
+              "per_page": 15,
+              "current_page": 1,
+              "last_page": 1,
+              "next_page_url": null,
+              "prev_page_url": null,
+              "from": 1,
+              "to": 2,
+              "data": [
+                {
+                  "id": 10,
+                  "order_no": "M1612296934901741768",
+                  "status": "1.1",
+                  "user_id": 11,
+                  "return_id": null,
+                  "amount": 1,
+                  "original_price": "0.01",
+                  "total_price": "0.01",
+                  "coupon_price": "0.00",
+                  "memo": null,
+                  "created_at": "2016-12-29 16:55:41",
+                  "updated_at": "2016-12-29 18:14:01",
+                  "deleted_at": null,
+                  "cancel_id": null,
+                  "cancel_description": null,
+                  "pay_platform_id": 1,
+                  "pay_platform_trade_no": "2016122921001004440213104406",
+                  "coupon_id": null,
+                  "coupon_group_id": null,
+                  "is_invoice": 0,
+                  "invoice_type": null,
+                  "invoiced": null,
+                  "express_id": 2,
+                  "tracking_number": "560468750766",
+                  "express_traces": [
+                    {
+                      "AcceptTime": "2016-12-27 17:17:43",
+                      "AcceptStation": "客户 签收人: 本人签收 已签收 感谢使用圆通速递，期待再次为您服务"
+                    },
+                    {
+                      "AcceptTime": "2016-12-27 14:34:46",
+                      "AcceptStation": "【安徽省六安市叶集实验区公司】 派件人: 管家宝 派件中 派件员电话18956424978"
+                    },
+                    {
+                      "AcceptTime": "2016-12-27 08:30:16",
+                      "AcceptStation": "【合肥转运中心】 已发出 下一站 【安徽省六安市公司】"
+                    },
+                    {
+                      "AcceptTime": "2016-12-27 06:26:18",
+                      "AcceptStation": "【合肥转运中心】 已收入"
+                    },
+                    {
+                      "AcceptTime": "2016-12-26 20:40:46",
+                      "AcceptStation": "【金华转运中心】 已发出 下一站 【合肥转运中心】"
+                    },
+                    {
+                      "AcceptTime": "2016-12-26 20:39:58",
+                      "AcceptStation": "【金华转运中心】 已收入"
+                    },
+                    {
+                      "AcceptTime": "2016-12-26 18:12:07",
+                      "AcceptStation": "【永康圆通市场一部公司】 已发出 下一站 【浙江省金华市永康市公司】"
+                    },
+                    {
+                      "AcceptTime": "2016-12-26 18:10:47",
+                      "AcceptStation": "【永康圆通市场一部公司】 已收件"
+                    }
+                  ],
+                  "express_refresh": "2016-12-29 18:14:01",
+                  "dispatched_at": "2016-12-29 17:30:08",
+                  "received_at": null,
+                  "is_refunded": null,
+                  "is_restored_stock": 0,
+                  "seller_id": 13,
+                  "items": [],
+                  "user": {
+                    "id": 11,
+                    "name": "宝宝37412828",
+                    "created_at": "2016-12-29 13:03:12",
+                    "updated_at": "2016-12-29 13:03:12",
+                    "avatar": {
+                      "avatar": "http://devapi.uzhenbao.com/default/avatar.jpg",
+                      "thumb": "http://devapi.uzhenbao.com/default/avatar.jpg"
+                    },
+                    "summary": "",
+                    "level": 1,
+                    "forum_level": 0
+                  },
+                  "shipping_address": null
+                },
+                {
+                  "id": 8,
+                  "order_no": "M1612296934901741769",
+                  "status": "1",
+                  "user_id": 11,
+                  "return_id": null,
+                  "amount": 1,
+                  "original_price": "0.01",
+                  "total_price": "0.01",
+                  "coupon_price": "0.00",
+                  "memo": null,
+                  "created_at": "2016-12-29 16:55:41",
+                  "updated_at": "2016-12-29 18:12:20",
+                  "deleted_at": null,
+                  "cancel_id": null,
+                  "cancel_description": null,
+                  "pay_platform_id": 1,
+                  "pay_platform_trade_no": "2016122921001004440213104406",
+                  "coupon_id": null,
+                  "coupon_group_id": null,
+                  "is_invoice": 0,
+                  "invoice_type": null,
+                  "invoiced": null,
+                  "express_id": 2,
+                  "tracking_number": "560468750766",
+                  "express_traces": null,
+                  "express_refresh": "2016-12-29 16:55:41",
+                  "dispatched_at": "2016-12-29 17:30:08",
+                  "received_at": null,
+                  "is_refunded": null,
+                  "is_restored_stock": 0,
+                  "seller_id": 13,
+                  "items": [
+                    {
+                      "id": 157,
+                      "order_id": 8,
+                      "product_id": null,
+                      "product_item_id": null,
+                      "user_product_id": 25,
+                      "amount": 1,
+                      "unit_price": "0.01",
+                      "total_price": "0.01",
+                      "apply_id": null,
+                      "return_id": null,
+                      "is_returned": 0,
+                      "is_applied": 0,
+                      "created_at": "2016-12-29 16:55:41",
+                      "updated_at": "2016-12-29 16:55:41",
+                      "product": null,
+                      "product_return": null,
+                      "product_return_apply": null,
+                      "product_items": [],
+                      "user_product": {
+                        "id": 25,
+                        "user_id": 2,
+                        "title": "测试",
+                        "keywords": null,
+                        "description": "测试",
+                        "images": [
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20161229165049873271.jpg",
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20161229165049784924.jpg",
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20161229165049272520.jpg",
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20161229165049993895.jpg",
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20161229165049339866.jpg",
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20161229165049444149.jpg",
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20161229165049601877.jpg",
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20161229165049427527.jpg"
+                        ],
+                        "price": "0.01",
+                        "original_price": "10.00",
+                        "category_id": 2,
+                        "is_sold": 1,
+                        "is_audited": 1,
+                        "quality": 99,
+                        "delivery_day": 3,
+                        "updated_at": "2016-12-29 17:11:36",
+                        "created_at": "2016-12-29 16:50:49",
+                        "sort": 0,
+                        "audited_at": "2016-12-29 16:50:58",
+                        "postage": "0.00",
+                        "status": 1,
+                        "favorites": 0,
+                        "views": 8
+                      }
+                    }
+                  ],
+                  "user": {
+                    "id": 11,
+                    "name": "宝宝37412828",
+                    "created_at": "2016-12-29 13:03:12",
+                    "updated_at": "2016-12-29 13:03:12",
+                    "avatar": {
+                      "avatar": "http://devapi.uzhenbao.com/default/avatar.jpg",
+                      "thumb": "http://devapi.uzhenbao.com/default/avatar.jpg"
+                    },
+                    "summary": "",
+                    "level": 1,
+                    "forum_level": 0
+                  },
+                  "shipping_address": {
+                    "order_id": 8,
+                    "province": "上海市",
+                    "city": "上海市",
+                    "area": "黄浦区",
+                    "street": "人民路322号",
+                    "room": "测试",
+                    "phone": "18282755566",
+                    "real_name": "测试2",
+                    "updated_at": "2016-12-29 16:55:41",
+                    "created_at": "2016-12-29 16:55:41"
+                  }
+                }
+              ]
+            }
+
+
+### 详情 [GET /orders/{id}]
+
++ Parameters
+
+    + id: 1 - 订单id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 200 (application/json)
+
+            {
+              "id": 8,
+              "order_no": "M1612296934901741769",
+              "status": "1",
+              "user_id": 11,
+              "return_id": null,
+              "amount": 1,
+              "original_price": "0.01",
+              "total_price": "0.01",
+              "coupon_price": "0.00",
+              "memo": null,
+              "created_at": "2016-12-29 16:55:41",
+              "updated_at": "2016-12-29 18:12:20",
+              "deleted_at": null,
+              "cancel_id": null,
+              "cancel_description": null,
+              "pay_platform_id": 1,
+              "pay_platform_trade_no": "2016122921001004440213104406",
+              "coupon_id": null,
+              "coupon_group_id": null,
+              "is_invoice": 0,
+              "invoice_type": null,
+              "invoiced": null,
+              "express_id": 2,
+              "tracking_number": "560468750766",
+              "express_traces": null,
+              "express_refresh": "2016-12-29 16:55:41",
+              "dispatched_at": "2016-12-29 17:30:08",
+              "received_at": null,
+              "is_refunded": null,
+              "is_restored_stock": 0,
+              "seller_id": 13,
+              "items": [
+                {
+                  "id": 157,
+                  "order_id": 8,
+                  "product_id": null,
+                  "product_item_id": null,
+                  "user_product_id": 25,
+                  "amount": 1,
+                  "unit_price": "0.01",
+                  "total_price": "0.01",
+                  "apply_id": null,
+                  "return_id": null,
+                  "is_returned": 0,
+                  "is_applied": 0,
+                  "created_at": "2016-12-29 16:55:41",
+                  "updated_at": "2016-12-29 16:55:41",
+                  "product": null,
+                  "product_return": null,
+                  "product_return_apply": null,
+                  "product_items": [],
+                  "user_product": {
+                    "id": 25,
+                    "user_id": 2,
+                    "title": "测试",
+                    "keywords": null,
+                    "description": "测试",
+                    "images": [
+                      "http://devapi.uzhenbao.com/uploads/userProduct/20161229165049873271.jpg",
+                      "http://devapi.uzhenbao.com/uploads/userProduct/20161229165049784924.jpg",
+                      "http://devapi.uzhenbao.com/uploads/userProduct/20161229165049272520.jpg",
+                      "http://devapi.uzhenbao.com/uploads/userProduct/20161229165049993895.jpg",
+                      "http://devapi.uzhenbao.com/uploads/userProduct/20161229165049339866.jpg",
+                      "http://devapi.uzhenbao.com/uploads/userProduct/20161229165049444149.jpg",
+                      "http://devapi.uzhenbao.com/uploads/userProduct/20161229165049601877.jpg",
+                      "http://devapi.uzhenbao.com/uploads/userProduct/20161229165049427527.jpg"
+                    ],
+                    "price": "0.01",
+                    "original_price": "10.00",
+                    "category_id": 2,
+                    "is_sold": 1,
+                    "is_audited": 1,
+                    "quality": 99,
+                    "delivery_day": 3,
+                    "updated_at": "2016-12-29 17:11:36",
+                    "created_at": "2016-12-29 16:50:49",
+                    "sort": 0,
+                    "audited_at": "2016-12-29 16:50:58",
+                    "postage": "0.00",
+                    "status": 1,
+                    "favorites": 0,
+                    "views": 8
+                  }
+                }
+              ],
+              "user": {
+                "id": 11,
+                "name": "宝宝37412828",
+                "created_at": "2016-12-29 13:03:12",
+                "updated_at": "2016-12-29 13:03:12",
+                "avatar": {
+                  "avatar": "http://devapi.uzhenbao.com/default/avatar.jpg",
+                  "thumb": "http://devapi.uzhenbao.com/default/avatar.jpg"
+                },
+                "summary": "",
+                "level": 1,
+                "forum_level": 0
+              },
+              "shipping_address": {
+                "order_id": 8,
+                "province": "上海市",
+                "city": "上海市",
+                "area": "黄浦区",
+                "street": "人民路322号",
+                "room": "测试",
+                "phone": "18282755566",
+                "real_name": "测试2",
+                "updated_at": "2016-12-29 16:55:41",
+                "created_at": "2016-12-29 16:55:41"
+              },
+              "express": {
+                "id": 2,
+                "name": "圆通快递",
+                "alias": "YTO"
+              }
             }
