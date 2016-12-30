@@ -643,8 +643,6 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
             }
 
 
-
-
 ### 生成订单 [POST /users/{userId}/orders]
 
 生成订单时可选传购物车`id`, 当订单生成后由系统删除购物车内商品,
@@ -787,7 +785,7 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
             timestamp: 1478840722
             app-key: 92lsk20ks
             sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 1
+            api-version: 2
             user-id: 22
             access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
 
@@ -812,7 +810,7 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
             timestamp: 1478840722
             app-key: 92lsk20ks
             sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 1
+            api-version: 2
             user-id: 22
             access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
 
@@ -832,11 +830,160 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
             }
 
 
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 40411,
+                "message": "订单不存在"
+            }
 
 
 
 
 
+
+
+## 售后 [/productReturns]
+
+支持7天无理由的商品可以直接进行商品退换, 不支持7天无理由或超出7天无理由期限的商品可申请退换
+
+
+### 申请退换 [POST /productReturnApplies]
+
++ Request (application/json)
+
+    + Headers
+
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
+    + Attributes
+
+        + order_id: 131 (number, required) - 订单id
+        + product_id: 110 (number, required) - 商品id
+        + product_item_id: 90 (number, required) - 商品sku id
+        + return_type: 0 (number, required) - 0 退货, 1 换货
+        + description: 不想要了 (string, required) - 申请退换货说明, 最多512个字
+        + images (optional, array)
+            + (object) - image, multipart/form-data, 图片数组, key为images[i] i为数组下标, 最多可上传9张图片
+
+
++ Response 201 (application/json)
+
+            {
+                "status": 201,
+                "code", 201,
+                "message": "保存成功"
+            }
+
++ Response 409 (application/json)
+
+            {
+                "status": 409,
+                "code": 4099,
+                "message": "该商品已申请过退换货"
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 404,
+                "message": "订单不存在"
+            }
+
++ Response 403 (application/json)
+
+            {
+                "status": 403,
+                "code": 4037,
+                "message": "商品不满足退换条件"
+            }
+
+
+### 退换 [POST]
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
+    + Attributes
+
+        + order_id: 131 (number, required) - 订单id
+        + product_id: 110 (number, required) - 商品id
+        + goods_sku_id: 90 (number, required) - 商品sku id
+        + return_type: 0 (number, required) - 0 退货, 1 换货
+        + description: 不想要了 (string, optional) - 退换货说明, 最多255个字
+        + express_name: 顺丰速运 (string, required) - 快递承运商, 最多255个字
+        + tracking_number: 873839022910 (string, required) - 运单号, 最多255个字
+        + amount: 1 (number, required) - 退换数量, 注意不能超过已购买的总数量
+
+
++ Response 201 (application/json)
+
+            {
+                "status": 201,
+                "code": 201,
+                "message": "保存成功"
+            }
+
++ Response 409 (application/json)
+
+            {
+                "status": 409,
+                "code": 4098,
+                "message": "该商品已退换"
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 404,
+                "message": "订单不存在"
+            }
+
++ Response 403 (application/json)
+
+            {
+                "status": 403,
+                "code": 4034,
+                "message": "超出订单购买数量"
+            }
+
+
++ Response 403 (application/json)
+
+            {
+                "status": 403,
+                "code": 4035,
+                "message": "该商品不支持直接退换或超出可无理由退换期限"
+            }
+
++ Response 403 (application/json)
+
+            {
+                "status": 403,
+                "code": 4036,
+                "message": "退换申请不存在"
+            }
+
++ Response 403 (application/json)
+
+            {
+                "status": 403,
+                "code": 4037,
+                "message": "商品不满足退换条件"
+            }
 
 
 # Group 用户商品
@@ -853,7 +1000,6 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
             app-key: 92lsk20ks
             sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
             api-version: 2
-
 
 + Response 200 (application/json)
 
@@ -1109,7 +1255,7 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
         + description: 阿玛尼正品包..... (string, required) - 商品详描述, 最多512字
         + quality: 100 (number, required) - 成色质量, 100, 99, 95, 90, 85, 80, 70
         + delivery_day: 0 (string, required) - 付款后多少天发货, 0: 立即发货; 3: 3天内发货; 5: 5天内发货; 10: 10天内发货; -1: 10天以上,不确定时间发货
-        + images: (required, array)
+        + images (required, array)
             + (object) - image, multipart/form-data
 
 
