@@ -454,6 +454,391 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
             }
 
 
+
+# 购买商品 [/users/{userId}]
+
+购买商品APP执行流程: `预览订单` -> `生成订单` -> `选择支付方式获取平台交易信息` -> `客户端向支付平台发起交易` ->
+`平台返回结果`
+
+
+预览订单及生成订单 数据字段
+| Key | Value | Data Type | Required | Description |
+|---|---|---|---|---|
+| items | object | array | required | 购买商品清单 |
+| object.product_id| 1 | number | required | 商品id |
+| object.product_item_id | 1 | number | required | 商品skuid |
+| object.amount | 1 | number | required | 购买数量 |
+| object.car_id| 1 | number | optional | 购物车对应id |
+| shipping_address_id | 1 | number | required | 收货地址id |
+| coupon_id | 1 | number | optional | 优惠券id |
+| memo | 这是备注 | string | optional | 备注, 最多255字 |
+
+### 预览订单 [POST /users/{userId}/orders/preview]
+
+生成订单前使用此接口确认库存, 优惠及价格信息, 是否可使用优惠券等, 提交的数据可与生成订单保持一致
+
+
++ Parameters
+
+    + userId: 22 - 已登录用户id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
+    + Attributes
+
+        + orders (array, required)
+            + (object)
+                + product_id: 2 (required) - id of a goods
+                + product_item_id: 23 (required) - id of a goods sku
+                + amount: 1 (required) - buy amounts
+                + car_id: 2 (optional) - shopping car id
+            + (object)
+                + product_id: 2 (required) - id of a goods
+                + product_item_id: 23 (required) - id of a goods sku
+                + amount: 1 (required) - buy amounts
+                + car_id: 3 (optional) - shopping car id
+        + shipping_address_id: 4 (required) - 收货地址id
+        + is_invoice: 0 (required, number) - 默认0 不开具发票, 1 开发票
+        + coupon_id: 1 (optional, number) - 优惠券id
+        + memo: 这是备注内容 (optional, string) - 备注内容, 最多255字
+
+
++ Response 200 (application/json)
+
+            {
+              "total_price": 157.7,
+              "original_price": 157.7,
+              "postage": 0,
+              "coupon_price": 0,
+              "available_coupons": [
+                {
+                  "id": 66,
+                  "coupon_id": 5,
+                  "coupon_no_id": 20,
+                  "user_id": 22,
+                  "created_at": "2016-10-12 17:53:53",
+                  "updated_at": "2016-10-12 19:31:06",
+                  "is_used": 0,
+                  "expired_at": "2016-10-01 19:30:50",
+                  "one_coupon": {
+                    "id": 5,
+                    "name": "测试",
+                    "amount": 100,
+                    "allowance": 92,
+                    "cash": "0.11",
+                    "overflow_price": "0.00",
+                    "created_at": "2016-10-10 15:35:39",
+                    "updated_at": "2016-10-13 10:23:33",
+                    "expired_at": "2016-10-21 00:00:00",
+                    "deleted_at": null,
+                    "issue_id": 1,
+                    "start_at": null,
+                    "end_at": null,
+                    "category_id": 0,
+                    "one_category": null
+                  }
+                },
+                {
+                  "id": 67,
+                  "coupon_id": 5,
+                  "coupon_no_id": 79,
+                  "user_id": 22,
+                  "created_at": "2016-10-12 17:56:06",
+                  "updated_at": "2016-10-12 19:31:03",
+                  "is_used": 0,
+                  "expired_at": "2016-10-01 19:30:50",
+                  "one_coupon": {
+                    "id": 5,
+                    "name": "测试",
+                    "amount": 100,
+                    "allowance": 92,
+                    "cash": "0.11",
+                    "overflow_price": "0.00",
+                    "created_at": "2016-10-10 15:35:39",
+                    "updated_at": "2016-10-13 10:23:33",
+                    "expired_at": "2016-10-21 00:00:00",
+                    "deleted_at": null,
+                    "issue_id": 1,
+                    "start_at": null,
+                    "end_at": null,
+                    "category_id": 0,
+                    "one_category": null
+                  }
+                }
+              ]
+            }
+
+
++ Response 404 (application/json)
+
+            {
+              "status": 404,
+              "code": 4045,
+              "message": "收货地址不存在"
+            }
+
++ Response 404 (application/json)
+
+            {
+              "status": 404
+              "code": 4001,
+              "message": "商品Sku不存在,或已下架",
+              "ids": [
+                {
+                "product_id": "1",
+                "product_item_id": "1"
+                },
+                {
+                "product_id": "2",
+                "product_item_id": "11"
+                },
+                {
+                "product_id": "14",
+                "product_item_id": "13"
+                }
+              ]
+            }
+
++ Response 403 (application/json)
+
+            {
+              "status": 403,
+              "code": 4002,
+              "message": "商品库存不足",
+              "ids": [
+                {
+                "product_id": "2",
+                "product_item_id": "12"
+                },
+                {
+                "product_id": "2",
+                "product_item_id": "12"
+                }
+              ]
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 4046,
+                "message": "优惠券不存在"
+            }
+
++ Response 403 (application/json)
+
+            {
+                "status": 403,
+                "code": 4005,
+                "message": "优惠券不可使用"
+            }
+
+
+
+
+### 生成订单 [POST /users/{userId}/orders]
+
+生成订单时可选传购物车`id`, 当订单生成后由系统删除购物车内商品,
+不传订单`id`的场景为不加入购物车直接购买, 此操作为入库操作, 但是由于库存等其它不确定的因素存在, 仍有很多可能导致交易中止, 移动端应再次处理相应逻辑
+
++ Parameter
+
+    + userId: 22 - 已登录用户id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
+    + Attributes
+
+        + orders (array, required)
+            + (object)
+                + product_id: 2 (required) - id of a goods
+                + product_item_id: 23 (required) - id of a goods sku
+                + amount: 1 (required) - buy amounts
+                + car_id: 2 (optional) - shopping car id
+            + (object)
+                + product_id: 2 (required) - id of a goods
+                + product_item_id: 23 (required) - id of a goods sku
+                + amount: 1 (required) - buy amounts
+                + car_id: 3 (optional) - shopping car id
+        + shipping_address_id: 4 (required) - 收货地址id
+        + is_invoice: 0 (required, number) - 默认0 不开具发票, 1 开发票
+        + coupon_id: 1 (optional, number) - 优惠券id
+        + memo: 这是备注内容 (optional, string) - 备注内容, 最大字符:512
+
++ Response 201 (application/json)
+
+            {
+                "id": 684,
+                "order_no": "M1610192008047292197",
+                "status": 0,
+                "user_id": 22,
+                "amount": 3,
+                "total_price": "54000.00",
+                "memo": "哈哈",
+                "updated_at": "2016-10-19 11:20:41",
+                "created_at": "2016-10-19 11:20:41",
+                "deleted_at": null,
+                "cancel_id": null,
+                "cancel_description": null,
+                "express_id": null,
+                "tracking_number": null,
+                "pay_platform_id": null,
+                "coupon_id": null,
+                "is_invoice": 0,
+                "invoice_type": null,
+                "invoiced": null
+            }
+
++ Response 404 (application/json)
+
+            {
+              "status": 404,
+              "code": 4045,
+              "message": "收货地址不存在"
+            }
+
++ Response 404 (application/json)
+
+            {
+              "status": 404,
+              "code": 4001,
+              "message": "商品或库存量不存在,或已下架",
+              "ids": [
+                {
+                "product_id": "1",
+                "product_item_id": "1"
+                },
+                {
+                "product_id": "2",
+                "product_item_id": "11"
+                },
+                {
+                "product_id": "14",
+                "product_item_id": "13"
+                }
+              ]
+            }
+
++ Response 403 (application/json)
+
+            {
+              "status": 403,
+              "code": 4002,
+              "message": "商品库存不足",
+              "ids": [
+                {
+                "product_id": "2",
+                "product_item_id": "12"
+                },
+                {
+                "product_id": "2",
+                "product_item_id": "12"
+                }
+              ]
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 4046,
+                "message": "优惠券不存在"
+            }
+
++ Response 403 (application/json)
+
+            {
+                "status": 403,
+                "code": 4005,
+                "message": "优惠券不可使用"
+            }
+
+
+### 支付宝支付 [GET /users/{userId}/orders/{id}/alipay]
+
++ Parameters
+
+    + userId: 22 (number) - 当前用户id
+    + id: 1 (number) - 订单id, 注意非 orderNo
+
++ Request (application/json)
+
+    + Headers
+
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 1
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Response 200 (application/json)
+
+            {
+              "pay_platform_id": 1,
+              "order_string": "alipay_sdk=lokielse%2Fomnipay-alipay&app_id=2016101802222984&biz_content=%7B%22subject%22%3A%22test%22%2C%22out_trade_no%22%3A%22M1609278990572370534%22%2C%22total_amount%22%3A%222000.00%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%7D&charset=UTF-8&format=JSON&method=alipay.trade.app.pay&notify_url=http%3A%2F%2Fv1.api.y-r-one.com%2Falipay%2Fnotify&sign_type=RSA&timestamp=2016-10-19+13%3A01%3A54&version=1.0&sign=gSy4qXzWmVm718TqjWw%2Bpl13yh0zfWrxX10QfUxbggVP6wJsa68673n%2Bop5KiSTU0PL2OqQFRcl0s5eIThvs8iMi2stW8fvk23JeiHbg35gSkuffc2No2IyzWOPgW9c10SxA3rx%2BG2FtB9QgzuNwLJBKBGRkG7UVjjsZJimr8mM%3D"
+            }
+
+
+### 微信支付 [GET /users/{userId}/orders/{id}/wechat]
+
++ Parameters
+
+    + id: 22 (number) - 用户id
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 1
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Response 200 (application/json)
+
+            {
+              "pay_platform_id": 2,
+              "order_info": {
+                "appid": "wxf4110050c5a73bf4",
+                "partnerid": "1414572802",
+                "prepayid": "wx20161123143139f08fc830f80637825521",
+                "noncestr": "089775b083184556bbb204e7d85ec0d0",
+                "timestamp": 1479882699,
+                "sign": "A4DD4C8CC35E3CD2528406CD9A07554A",
+                "packagevalue": "Sign=WXPay"
+              }
+            }
+
+
+
+
+
+
+
+
+
 # Group 用户商品
 
 ## 分类列表 [/userProducts/categories]
@@ -701,529 +1086,6 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
                 "status": 404,
                 "message": "此商品已下架或不存在"
             }
-
-
-## 购买商品 [/users/{userId}]
-
-购买商品APP执行流程: `预览订单` -> `生成订单` -> `选择支付方式获取平台交易信息` -> `客户端向支付平台发起交易` ->
-`平台返回结果`
-
-
-预览订单及生成订单 数据字段
-| Key | Value | Data Type | Required | Description |
-|---|---|---|---|---|
-| items | object | array | required | 购买商品清单 |
-| items.product_id| 1 | number | required | 商品id |
-| items.product_item_id | 1 | number | required | 商品库存项id |
-| object.amount | 1 | number | required | 购买数量 |
-| object.car_id| 1 | number | optional | 购物车对应id |
-| shipping_address_id | 1 | number | required | 收货地址id |
-| coupon_id | 1 | number | optional | 优惠券id |
-| memo | 这是备注 | string | optional | 备注, 最多255字 |
-
-### 预览订单 [POST /users/{userId}/orders/preview]
-
-生成订单前使用此接口确认库存, 优惠及价格信息, 是否可使用优惠券等, 提交的数据可与生成订单保持一致
-
-
-+ Parameters
-
-    + userId: 22 - 已登录用户id
-
-+ Request (application/json)
-
-    + Headers
-
-            timestamp: 1478840722
-            app-key: 92lsk20ks
-            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 2
-            user-id: 22
-            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
-
-    + Attributes
-
-        + orders (array, required)
-            + (object)
-                + product_id: 2 (required) - id of a goods
-                + product_item_id: 23 (required) - id of a goods sku
-                + amount: 1 (required) - buy amounts
-                + car_id: 2 (optional) - shopping car id
-            + (object)
-                + product_id: 2 (required) - id of a goods
-                + product_item_id: 23 (required) - id of a goods sku
-                + amount: 1 (required) - buy amounts
-                + car_id: 3 (optional) - shopping car id
-        + shipping_address_id: 4 (required) - 收货地址id
-        + is_invoice: 0 (required, number) - 默认0 不开具发票, 1 开发票
-        + coupon_id: 1 (optional, number) - 优惠券id
-        + memo: 这是备注内容 (optional, string) - 备注内容, 最多255字
-
-
-+ Response 200 (application/json)
-
-            {
-              "total_price": 157.7,
-              "original_price": 157.7,
-              "postage": 0,
-              "coupon_price": 0,
-              "available_coupons": [
-                {
-                  "id": 66,
-                  "coupon_id": 5,
-                  "coupon_no_id": 20,
-                  "user_id": 22,
-                  "created_at": "2016-10-12 17:53:53",
-                  "updated_at": "2016-10-12 19:31:06",
-                  "is_used": 0,
-                  "expired_at": "2016-10-01 19:30:50",
-                  "one_coupon": {
-                    "id": 5,
-                    "name": "测试",
-                    "amount": 100,
-                    "allowance": 92,
-                    "cash": "0.11",
-                    "overflow_price": "0.00",
-                    "created_at": "2016-10-10 15:35:39",
-                    "updated_at": "2016-10-13 10:23:33",
-                    "expired_at": "2016-10-21 00:00:00",
-                    "deleted_at": null,
-                    "issue_id": 1,
-                    "start_at": null,
-                    "end_at": null,
-                    "category_id": 0,
-                    "one_category": null
-                  }
-                },
-                {
-                  "id": 67,
-                  "coupon_id": 5,
-                  "coupon_no_id": 79,
-                  "user_id": 22,
-                  "created_at": "2016-10-12 17:56:06",
-                  "updated_at": "2016-10-12 19:31:03",
-                  "is_used": 0,
-                  "expired_at": "2016-10-01 19:30:50",
-                  "one_coupon": {
-                    "id": 5,
-                    "name": "测试",
-                    "amount": 100,
-                    "allowance": 92,
-                    "cash": "0.11",
-                    "overflow_price": "0.00",
-                    "created_at": "2016-10-10 15:35:39",
-                    "updated_at": "2016-10-13 10:23:33",
-                    "expired_at": "2016-10-21 00:00:00",
-                    "deleted_at": null,
-                    "issue_id": 1,
-                    "start_at": null,
-                    "end_at": null,
-                    "category_id": 0,
-                    "one_category": null
-                  }
-                }
-              ]
-            }
-
-
-+ Response 404 (application/json)
-
-            {
-              "status": 404,
-              "code": 4045,
-              "message": "收货地址不存在"
-            }
-
-+ Response 404 (application/json)
-
-            {
-              "status": 404
-              "code": 4001,
-              "message": "商品或库存量不存在, 或已下架",
-              "ids": [
-                {
-                "product_id": "1",
-                "product_item_id": "1"
-                },
-                {
-                "product_id": "2",
-                "product_item_id": "11"
-                },
-                {
-                "product_id": "14",
-                "product_item_id": "13"
-                }
-              ]
-            }
-
-+ Response 403 (application/json)
-
-            {
-              "status": 403,
-              "code": 4002,
-              "message": "商品库存不足",
-              "ids": [
-                {
-                "product_id": "2",
-                "product_item_id": "12"
-                },
-                {
-                "product_id": "2",
-                "product_item_id": "12"
-                }
-              ]
-            }
-
-+ Response 404 (application/json)
-
-            {
-                "status": 404,
-                "code": 4046,
-                "message": "优惠券不存在"
-            }
-
-+ Response 403 (application/json)
-
-            {
-                "status": 403,
-                "code": 4005,
-                "message": "优惠券不可使用"
-            }
-
-
-
-
-### 生成订单 [POST /users/{userId}/orders]
-
-生成订单时可选传购物车`id`, 当订单生成后由系统删除购物车内商品,
-不传订单`id`的场景为不加入购物车直接购买, 此操作为入库操作, 但是由于库存等其它不确定的因素存在, 仍有很多可能导致交易中止, 移动端应再次处理相应逻辑
-
-+ Parameter
-
-    + userId: 22 - 已登录用户id
-
-+ Request (application/json)
-
-    + Headers
-
-            timestamp: 1478840722
-            app-key: 92lsk20ks
-            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 2
-            user-id: 22
-            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
-
-    + Attributes
-
-        + orders (array, required)
-            + (object)
-                + product_id: 2 (required) - id of a goods
-                + product_item_id: 23 (required) - id of a goods sku
-                + amount: 1 (required) - buy amounts
-                + car_id: 2 (optional) - shopping car id
-            + (object)
-                + product_id: 2 (required) - id of a goods
-                + product_item_id: 23 (required) - id of a goods sku
-                + amount: 1 (required) - buy amounts
-                + car_id: 3 (optional) - shopping car id
-        + shipping_address_id: 4 (required) - 收货地址id
-        + is_invoice: 0 (required, number) - 默认0 不开具发票, 1 开发票
-        + coupon_id: 1 (optional, number) - 优惠券id
-        + memo: 这是备注内容 (optional, string) - 备注内容, 最大字符:512
-
-+ Response 201 (application/json)
-
-            {
-                "id": 684,
-                "order_no": "M1610192008047292197",
-                "status": 0,
-                "user_id": 22,
-                "amount": 3,
-                "total_price": "54000.00",
-                "memo": "哈哈",
-                "updated_at": "2016-10-19 11:20:41",
-                "created_at": "2016-10-19 11:20:41",
-                "deleted_at": null,
-                "cancel_id": null,
-                "cancel_description": null,
-                "express_id": null,
-                "tracking_number": null,
-                "pay_platform_id": null,
-                "coupon_id": null,
-                "is_invoice": 0,
-                "invoice_type": null,
-                "invoiced": null
-            }
-
-+ Response 404 (application/json)
-
-            {
-              "status": 404,
-              "code": 4045,
-              "message": "收货地址不存在"
-            }
-
-+ Response 404 (application/json)
-
-            {
-              "status": 404,
-              "code": 4001,
-              "message": "商品Sku不存在,或已下架",
-              "ids": [
-                {
-                "product_id": "1",
-                "product_item_id": "1"
-                },
-                {
-                "product_id": "2",
-                "product_item_id": "11"
-                },
-                {
-                "product_id": "14",
-                "product_item_id": "13"
-                }
-              ]
-            }
-
-+ Response 403 (application/json)
-
-            {
-              "status": 403,
-              "code": 4002,
-              "message": "商品库存不足",
-              "ids": [
-                {
-                "product_id": "2",
-                "product_item_id": "12"
-                },
-                {
-                "product_id": "2",
-                "product_item_id": "12"
-                }
-              ]
-            }
-
-+ Response 404 (application/json)
-
-            {
-                "status": 404,
-                "code": 4046,
-                "message": "优惠券不存在"
-            }
-
-+ Response 403 (application/json)
-
-            {
-                "status": 403,
-                "code": 4005,
-                "message": "优惠券不可使用"
-            }
-
-
-### 支付宝支付 [GET /users/{userId}/orders/{id}/alipay]
-
-+ Parameters
-
-    + userId: 22 (number) - 当前用户id
-    + id: 1 (number) - 订单id, 注意非 orderNo
-
-+ Request (application/json)
-
-    + Headers
-
-
-            timestamp: 1478840722
-            app-key: 92lsk20ks
-            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 1
-            user-id: 22
-            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
-
-+ Response 200 (application/json)
-
-            {
-              "pay_platform_id": 1,
-              "order_string": "alipay_sdk=lokielse%2Fomnipay-alipay&app_id=2016101802222984&biz_content=%7B%22subject%22%3A%22test%22%2C%22out_trade_no%22%3A%22M1609278990572370534%22%2C%22total_amount%22%3A%222000.00%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%7D&charset=UTF-8&format=JSON&method=alipay.trade.app.pay&notify_url=http%3A%2F%2Fv1.api.y-r-one.com%2Falipay%2Fnotify&sign_type=RSA&timestamp=2016-10-19+13%3A01%3A54&version=1.0&sign=gSy4qXzWmVm718TqjWw%2Bpl13yh0zfWrxX10QfUxbggVP6wJsa68673n%2Bop5KiSTU0PL2OqQFRcl0s5eIThvs8iMi2stW8fvk23JeiHbg35gSkuffc2No2IyzWOPgW9c10SxA3rx%2BG2FtB9QgzuNwLJBKBGRkG7UVjjsZJimr8mM%3D"
-            }
-
-
-### 微信支付 [GET /users/{userId}/orders/{id}/wechat]
-
-+ Parameters
-
-    + id: 22 (number) - 用户id
-
-+ Request
-
-    + Headers
-
-            timestamp: 1478840722
-            app-key: 92lsk20ks
-            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 1
-            user-id: 22
-            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
-
-+ Response 200 (application/json)
-
-            {
-              "pay_platform_id": 2,
-              "order_info": {
-                "appid": "wxf4110050c5a73bf4",
-                "partnerid": "1414572802",
-                "prepayid": "wx20161123143139f08fc830f80637825521",
-                "noncestr": "089775b083184556bbb204e7d85ec0d0",
-                "timestamp": 1479882699,
-                "sign": "A4DD4C8CC35E3CD2528406CD9A07554A",
-                "packagevalue": "Sign=WXPay"
-              }
-            }
-
-
-
-## 商品咨询 [/goods/{id}/consultations]
-
-商品咨询是用户对商品健介绍不足的一种补充信息, 移动端应将咨询内容应放在商品详情页中, 便于用户查看
-
-### 发表咨询 [POST]
-
-+ Parameter
-
-    + id: 21 - id of a goods
-
-+ Request (application/json)
-
-    + Headers
-
-            timestamp: 1478840722
-            app-key: 92lsk20ks
-            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 1
-
-    + Attributes
-
-        + user_id: 22 (optional) - id of an user
-        + content: 商品是真品吗 (required) - 咨询内容, 至少5个字, 最多255个字
-        + name: 小明 (required) - user name, 最多30个字
-
-+ Response 201 (application/json)
-
-              {
-                "status": "201",
-                "message": "发表成功"
-              }
-
-
-+ Response 404 (application/json)
-
-              {
-                "status": "404",
-                "message": "商品不存在,或已下架"
-              }
-
-
-### 获取咨询列表 [GET]
-
-+ Parameters
-
-    + id: 21 - id of a goods
-
-
-+ Request
-
-    + Headers
-
-            timestamp: 1478840722
-            app-key: 92lsk20ks
-            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 1
-
-+ Response 200
-
-            {
-                "total":7,
-                "per_page":15,
-                "current_page":1,
-                "last_page":1,
-                "next_page_url":null,
-                "prev_page_url":null,
-                "from":1,
-                "to":7,
-                "data":[
-                    {
-                        "id":6,
-                        "pid":0,
-                        "product_id":12,
-                        "name":"张三",
-                        "user_id":0,
-                        "content":"这是ummk是真的吗",
-                        "created_at":"2016-08-23 06:00:22",
-                        "updated_at":"2016-08-23 06:00:22"
-                    },
-                    {
-                        "id":7,
-                        "pid":0,
-                        "product_id":12,
-                        "name":"张三",
-                        "user_id":0,
-                        "content":"这是ummk是真的吗",
-                        "created_at":"2016-08-23 06:00:24",
-                        "updated_at":"2016-08-23 06:00:24"
-                    },
-                    {
-                        "id":8,
-                        "pid":0,
-                        "product_id":12,
-                        "name":"张三",
-                        "user_id":0,
-                        "content":"这是ummk是真的吗",
-                        "created_at":"2016-08-23 06:00:25",
-                        "updated_at":"2016-08-23 06:00:25"
-                    },
-                    {
-                        "id":9,
-                        "pid":0,
-                        "product_id":12,
-                        "name":"张三",
-                        "user_id":0,
-                        "content":"这是ummk是真的吗",
-                        "created_at":"2016-08-23 06:00:26",
-                        "updated_at":"2016-08-23 06:00:26"
-                    },
-                    {
-                        "id":10,
-                        "pid":0,
-                        "product_id":12,
-                        "name":"张三",
-                        "user_id":0,
-                        "content":"这是ummk是真的吗",
-                        "created_at":"2016-08-23 06:00:26",
-                        "updated_at":"2016-08-23 06:00:26"
-                    },
-                    {
-                        "id":11,
-                        "pid":0,
-                        "product_id":12,
-                        "name":"张三",
-                        "user_id":0,
-                        "content":"这是ummk是真的吗",
-                        "created_at":"2016-08-23 06:00:27",
-                        "updated_at":"2016-08-23 06:00:27"
-                    },
-                    {
-                        "id":12,
-                        "pid":0,
-                        "product_id":12,
-                        "name":"张三",
-                        "user_id":0,
-                        "content":"这是ummk是真的吗",
-                        "created_at":"2016-08-23 06:00:27",
-                        "updated_at":"2016-08-23 06:00:27"
-                    }
-                ]
-            }
-
-
 
 
 ### 发布 [POST]
