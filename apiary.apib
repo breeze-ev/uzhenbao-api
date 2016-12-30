@@ -217,7 +217,239 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 # Group 平台商品
 
 
+## 商品 [/products]
 
+### 列表 [GET]
+
+商品列表展示为全站商品, 提供分页, 可用于首页底部商品部分和搜索页面
+
+商品支持搜索,排序和筛选, 搜索支持按`title`搜索
+
+排序支持 `综合`, `销量`, `价格`,按`升序` 或 `降序` 排列, 注意根据不同的属性应设一个默认排序,
+例如用户点击销量应默认为`降序`, 而价格默认为`升序`
+
+通用筛选支持 `分类` 和 `价格`, 分类ID由分类API获取, 价格值为区间 用 `-` 连接表示, 例如`1-200`意为筛选价格1-200(含)之间的的商品,
+`-200` 为小于等于200的商品, `200-` 为大于等于200的商品
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
+    + Attributes
+
+        + perPage: 15 (optional, number) - default per page is 15
+        + sort (object, optional)
+            + price: desc - (asc)
+            + new: desc - (asc)
+            + comments: desc - (asc)
+            + sales: desc - (asc)
+        + filter (object, optional)
+            + price: 1-200 (string) - price interval
+            + category_id: 1 (number) - id from categories id
+
+        + search (object, optional)
+            + title: 男装
+
+
++ Response 200 (application/json)
+
+            {
+              "total": 2,
+              "per_page": 15,
+              "current_page": 1,
+              "last_page": 1,
+              "next_page_url": null,
+              "prev_page_url": null,
+              "from": 1,
+              "to": 2,
+              "data": [
+                {
+                  "id": 12,
+                  "category_id": 1,
+                  "user_id": 0,
+                  "title": "121",
+                  "keywords": "",
+                  "description": "",
+                  "price": "0.01",
+                  "reference_price": "0.00",
+                  "likes": 0,
+                  "sales": 0,
+                  "comments": 0,
+                  "views": 0,
+                  "favorites": 0,
+                  "product_no": "",
+                  "rebate": "0.00",
+                  "title_image": "http://devapi.uzhenbao.com/uploads/products/20161230105631577743.jpg",
+                  "postage": "0.00",
+                  "stock": 92,
+                  "sort": 0,
+                  "type": 0,
+                  "status": 1,
+                  "created_at": "2016-12-30 10:57:15",
+                  "updated_at": "2016-12-30 10:59:26",
+                  "flash_buy_id": 0,
+                  "group_buy_id": 0,
+                  "group_buy_preferential_price": "0.00",
+                  "week_return": 0,
+                  "seller_id": null,
+                  "sizes": null,
+                  "colors": null,
+                  "genders": null
+                },
+                {
+                  "id": 11,
+                  "category_id": 1,
+                  "user_id": 0,
+                  "title": "测试",
+                  "keywords": "",
+                  "description": "",
+                  "price": "0.01",
+                  "reference_price": "1.00",
+                  "likes": 0,
+                  "sales": 0,
+                  "comments": 0,
+                  "views": 0,
+                  "favorites": 0,
+                  "product_no": "",
+                  "rebate": "0.00",
+                  "title_image": "http://devapi.uzhenbao.com/uploads/products/20161230105411348894.jpg",
+                  "postage": "0.00",
+                  "stock": 33,
+                  "sort": 0,
+                  "type": 0,
+                  "status": 1,
+                  "created_at": "2016-12-30 10:27:28",
+                  "updated_at": "2016-12-30 10:57:54",
+                  "flash_buy_id": 0,
+                  "group_buy_id": 0,
+                  "group_buy_preferential_price": "0.00",
+                  "week_return": 1,
+                  "seller_id": null,
+                  "sizes": null,
+                  "colors": null,
+                  "genders": null
+                }
+              ]
+            }
+
+
+
+### 详情 [GET /product/{id}]
+
+商品内容为商品的全部信息, 包含商品库存量和价格详情, 移动端应根据库存量的组成信息实现相应的交互逻辑, 如颜色和尺寸的相互关系:
+点击颜色可供挑选的尺寸, 点击尺寸可供挑选的颜色;
+库存量与商品预览图的关系:用户在点击颜色时应根据库存量提供的image替换预览图. 注意尺寸和图片不存在的情况
+
+商品内容在用户已登录的情况下需要`user-id`和`access-token`验证用户身份, 该信息用于验证用户于该商品之间的联系,
+验证通过后会增加`is_favorite`字段, 否则不显示此字段
+
++ Parameters
+
+    + id: 2 (string) - id of goods
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22,
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Response 200 (application/json)
+
+            {
+              "id": 11,
+              "category_id": 1,
+              "user_id": 0,
+              "title": "测试",
+              "keywords": "",
+              "description": "",
+              "price": "0.01",
+              "reference_price": "1.00",
+              "likes": 0,
+              "sales": 0,
+              "comments": 0,
+              "views": 1,
+              "favorites": 0,
+              "product_no": "",
+              "rebate": "0.00",
+              "title_image": "http://devapi.uzhenbao.com/uploads/products/20161230105411348894.jpg",
+              "postage": "0.00",
+              "stock": 33,
+              "sort": 0,
+              "type": 0,
+              "status": 1,
+              "created_at": "2016-12-30 10:27:28",
+              "updated_at": "2016-12-30 10:57:54",
+              "flash_buy_id": 0,
+              "group_buy_id": 0,
+              "group_buy_preferential_price": "0.00",
+              "week_return": 1,
+              "seller_id": null,
+              "sizes": null,
+              "colors": null,
+              "genders": null,
+              "items": [
+                {
+                  "id": 21,
+                  "product_id": 11,
+                  "color": "1",
+                  "size": "1",
+                  "price": "0.01",
+                  "image": "/uploads/products/20161230105425926650.jpg",
+                  "stock": 11,
+                  "updated_at": "2016-12-30 10:55:27",
+                  "created_at": "2016-12-30 10:27:23"
+                },
+                {
+                  "id": 24,
+                  "product_id": 11,
+                  "color": "4",
+                  "size": "45",
+                  "price": "0.01",
+                  "image": "/uploads/products/20161230105454366477.jpg",
+                  "stock": 11,
+                  "updated_at": "2016-12-30 10:56:01",
+                  "created_at": "2016-12-30 10:56:01"
+                },
+                {
+                  "id": 27,
+                  "product_id": 11,
+                  "color": "2",
+                  "size": "22",
+                  "price": "0.01",
+                  "image": "/uploads/products/20161230105659652838.png",
+                  "stock": 11,
+                  "updated_at": "2016-12-30 10:57:49",
+                  "created_at": "2016-12-30 10:57:49"
+                }
+              ],
+              "detail": {
+                "product_id": 11,
+                "content": "<p><img class=\"fr-fin\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"https://devapi.uzhenbao.com/uploads/products/14830647156758_products.jpg\" width=\"300\"></p><p><br></p>",
+                "images": "[\"\\/uploads\\/products\\/20161230102506197456.png\"]",
+                "updated_at": "2016-12-30 10:27:28",
+                "created_at": "2016-12-30 10:27:28"
+              },
+              "flash_buy": null,
+              "group_buy": null,
+              "is_favorite": null
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "message": "此商品已下架或不存在"
+            }
 
 
 # Group 用户商品
