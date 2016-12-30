@@ -466,7 +466,7 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 |---|---|---|---|---|
 | items | object | array | required | 购买商品清单 |
 | object.product_id| 1 | number | required | 商品id |
-| object.product_item_id | 1 | number | required | 商品skuid |
+| object.product_item_id | 1 | number | required | 商品库存id |
 | object.amount | 1 | number | required | 购买数量 |
 | object.car_id| 1 | number | optional | 购物车对应id |
 | shipping_address_id | 1 | number | required | 收货地址id |
@@ -591,7 +591,7 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
             {
               "status": 404
               "code": 4001,
-              "message": "商品Sku不存在,或已下架",
+              "message": "商品或库存量不存在,或已下架",
               "ids": [
                 {
                 "product_id": "1",
