@@ -2129,6 +2129,11 @@ Request 参数说明
 
 ### 获取详情 [GET /userProducts/{id}]
 
+
+商品内容在用户已登录的情况下需要`user-id`和`access-token`验证用户身份, 该信息用于验证用户于该商品之间的联系,
+验证通过后会增加`is_favorite`字段, 否则不显示此字段
+
+
 + Parameters
 
     + id: 1 (number) - 商品id
