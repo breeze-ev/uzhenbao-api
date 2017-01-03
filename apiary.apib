@@ -1125,6 +1125,126 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 + Response 204
 
 
+
+## 收藏商品 [/users/{userId}/favorites/products]
+
+### 收藏 [POST]
+
++ Parameters
+
+    + userId: 22 - id of a user
+
++ Request (application/json)
+
+    + Attributes
+
+        + favorite_id: 11 (number, required) - product id
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 1
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Response 201 (application/json)
+
+            {
+                "favorite_id":"104",
+                "user_id":"22",
+                "favorite_type":"product",
+                "title":"121",
+                "title_image":"http://devapi.uzhenbao.com/uploads/goods/14731270876338_goods.jpg",
+                "description":"1212",
+                "updated_at":"2016-09-08 16:33:42",
+                "created_at":"2016-09-08 16:33:42",
+                "id":214
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "message": "product.id 不存在"
+            }
+
++ Response 409 (application/json)
+
+            {
+                "status": 409,
+                "code": 4096,
+                "message": "已收藏product.id"
+            }
+
+
+### 取消收藏 [DELETE /users/{userId}/favorites/products/{id}]
+
++ Parameters
+
+    + userId: 22 - id of a user
+    + id: 12 - product id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 1
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Response 204
+
+
+
+### 收藏列表 [GET]
+
++ Parameters
+
+    + userId: 22 - id of a user
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 1
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Response 200 (application/json)
+
+            {
+                "total":1,
+                "per_page":15,
+                "current_page":1,
+                "last_page":1,
+                "next_page_url":null,
+                "prev_page_url":null,
+                "from":1,
+                "to":1,
+                "data":[
+                    {
+                        "id":214,
+                        "user_id":22,
+                        "favorite_id":104,
+                        "favorite_type":"product",
+                        "title":"121",
+                        "title_image":"http://devapi.uzhenbao.com/uploads/goods/14731270876338_goods.jpg",
+                        "description":"1212",
+                        "created_at":"2016-09-08 16:33:42",
+                        "updated_at":"2016-09-08 16:33:42"
+                    }
+                ]
+            }
+
+
 # Group 用户商品
 
 ## 分类列表 [/userProducts/categories]
@@ -1880,6 +2000,126 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
               "code": 4045,
               "message": "收货地址不存在"
             }
+
+
+## 收藏用户商品 [/users/{userId}/favorites/userProducts]
+
+### 收藏 [POST]
+
++ Parameters
+
+    + userId: 22 - id of a user
+
++ Request (application/json)
+
+    + Attributes
+
+        + favorite_id: 11 (number, required) - user product id
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 1
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Response 201 (application/json)
+
+            {
+                "favorite_id":"104",
+                "user_id":"22",
+                "favorite_type":"userProduct",
+                "title":"121",
+                "title_image":"http://devapi.uzhenbao.com/uploads/goods/14731270876338_goods.jpg",
+                "description":"1212",
+                "updated_at":"2016-09-08 16:33:42",
+                "created_at":"2016-09-08 16:33:42",
+                "id":214
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "message": "userProduct.id 不存在"
+            }
+
++ Response 409 (application/json)
+
+            {
+                "status": 409,
+                "code": 4096,
+                "message": "已收藏userProduct.id"
+            }
+
+
+### 取消收藏 [DELETE /users/{userId}/favorites/userProducts/{id}]
+
++ Parameters
+
+    + userId: 22 - id of a user
+    + id: 12 - user product id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 1
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Response 204
+
+
+
+### 收藏列表 [GET]
+
++ Parameters
+
+    + userId: 22 - id of a user
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 1
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Response 200 (application/json)
+
+            {
+                "total":1,
+                "per_page":15,
+                "current_page":1,
+                "last_page":1,
+                "next_page_url":null,
+                "prev_page_url":null,
+                "from":1,
+                "to":1,
+                "data":[
+                    {
+                        "id":214,
+                        "user_id":22,
+                        "favorite_id":104,
+                        "favorite_type":"userProduct",
+                        "title":"121",
+                        "title_image":"http://devapi.uzhenbao.com/uploads/goods/14731270876338_goods.jpg",
+                        "description":"1212",
+                        "created_at":"2016-09-08 16:33:42",
+                        "updated_at":"2016-09-08 16:33:42"
+                    }
+                ]
+            }
+
 
 
 # Group 销售者
