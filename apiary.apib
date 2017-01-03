@@ -986,6 +986,145 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
             }
 
 
+## 购物车 [/users/{userId}/shoppingCars]
+
+### 加入购物车 [POST]
+
++ Parameters
+
+    + userId: 22 - id of an user
+
++ Request (application/json)
+
+    + Attributes
+
+        + product_id: 11 (number, required) - goods id
+        + product_item_id: 23 (number, required) - goods sku id
+        + amount: 1 (number, required) - buy amount
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 1
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Response 201 (application/json)
+
+            {
+                "product_id":"73",
+                "product_item_id":"48",
+                "amount":"2",
+                "title":"Louis Vuitton/路易威登 女士 蒙田大号两用手提单肩包MONTAIGNE 老花色、帆布/配皮 M41067",
+                "title_image":"http://v1.api.y-r-one.com/uploads/goods/14725287591358_goods.jpg",
+                "user_id":"22",
+                "updated_at":"2016-09-26 11:52:38",
+                "created_at":"2016-09-26 11:52:38",
+                "id":162
+            }
+
+
+### 购物车内商品列表 [GET]
+
++ Parameters
+
+    + userId: 22 - id of an user
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 1
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Response 200 (application/json)
+
+            [
+              {
+                "id": 1,
+                "user_id": 4,
+                "product_id": 11,
+                "product_item_id": 21,
+                "amount": 2,
+                "created_at": "2017-01-03 10:16:59",
+                "updated_at": "2017-01-03 10:16:59",
+                "title": "测试",
+                "title_image": "http://devapi.uzhenbao.com/uploads/products/20161230105411348894.jpg",
+                "product": {
+                  "id": 11,
+                  "category_id": 1,
+                  "user_id": 0,
+                  "title": "测试",
+                  "keywords": "",
+                  "description": "",
+                  "price": "0.01",
+                  "reference_price": "1.00",
+                  "likes": 0,
+                  "sales": 0,
+                  "comments": 0,
+                  "views": 8,
+                  "favorites": 0,
+                  "product_no": "",
+                  "rebate": "0.00",
+                  "title_image": "http://devapi.uzhenbao.com/uploads/products/20161230105411348894.jpg",
+                  "postage": "0.00",
+                  "stock": 33,
+                  "sort": 0,
+                  "type": 0,
+                  "status": 1,
+                  "created_at": "2016-12-30 10:27:28",
+                  "updated_at": "2016-12-30 18:50:25",
+                  "flash_buy_id": 0,
+                  "group_buy_id": 0,
+                  "group_buy_preferential_price": "0.00",
+                  "week_return": 1,
+                  "seller_id": null,
+                  "sizes": null,
+                  "colors": null,
+                  "genders": null
+                },
+                "product_item": {
+                  "id": 21,
+                  "product_id": 11,
+                  "color": "1",
+                  "size": "1",
+                  "price": "0.01",
+                  "image": "https://devapi.uzhenbao.com/uploads/products/20161230105425926650.jpg",
+                  "stock": 9,
+                  "updated_at": "2016-12-30 13:51:06",
+                  "created_at": "2016-12-30 10:27:23"
+                }
+              }
+            ]
+
+
+### 删除购物中商品 [DELETE /users/{userId}/shoppingCars/{id}]
+
++ Parameters
+
+    + userId: 22 - id of an user
+    + id: 4 - id in car of the goods
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 1
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Response 204
+
+
 # Group 用户商品
 
 ## 分类列表 [/userProducts/categories]
@@ -1741,145 +1880,6 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
               "code": 4045,
               "message": "收货地址不存在"
             }
-
-
-## 购物车 [/users/{userId}/shoppingCars]
-
-### 加入购物车 [POST]
-
-+ Parameters
-
-    + userId: 22 - id of an user
-
-+ Request (application/json)
-
-    + Attributes
-
-        + product_id: 11 (number, required) - goods id
-        + product_item_id: 23 (number, required) - goods sku id
-        + amount: 1 (number, required) - buy amount
-
-    + Headers
-
-            timestamp: 1478840722
-            app-key: 92lsk20ks
-            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 1
-            user-id: 22
-            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
-
-+ Response 201 (application/json)
-
-            {
-                "product_id":"73",
-                "product_item_id":"48",
-                "amount":"2",
-                "title":"Louis Vuitton/路易威登 女士 蒙田大号两用手提单肩包MONTAIGNE 老花色、帆布/配皮 M41067",
-                "title_image":"http://v1.api.y-r-one.com/uploads/goods/14725287591358_goods.jpg",
-                "user_id":"22",
-                "updated_at":"2016-09-26 11:52:38",
-                "created_at":"2016-09-26 11:52:38",
-                "id":162
-            }
-
-
-### 购物车内商品列表 [GET]
-
-+ Parameters
-
-    + userId: 22 - id of an user
-
-+ Request
-
-    + Headers
-
-            timestamp: 1478840722
-            app-key: 92lsk20ks
-            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 1
-            user-id: 22
-            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
-
-+ Response 200 (application/json)
-
-            [
-              {
-                "id": 1,
-                "user_id": 4,
-                "product_id": 11,
-                "product_item_id": 21,
-                "amount": 2,
-                "created_at": "2017-01-03 10:16:59",
-                "updated_at": "2017-01-03 10:16:59",
-                "title": "测试",
-                "title_image": "http://devapi.uzhenbao.com/uploads/products/20161230105411348894.jpg",
-                "product": {
-                  "id": 11,
-                  "category_id": 1,
-                  "user_id": 0,
-                  "title": "测试",
-                  "keywords": "",
-                  "description": "",
-                  "price": "0.01",
-                  "reference_price": "1.00",
-                  "likes": 0,
-                  "sales": 0,
-                  "comments": 0,
-                  "views": 8,
-                  "favorites": 0,
-                  "product_no": "",
-                  "rebate": "0.00",
-                  "title_image": "http://devapi.uzhenbao.com/uploads/products/20161230105411348894.jpg",
-                  "postage": "0.00",
-                  "stock": 33,
-                  "sort": 0,
-                  "type": 0,
-                  "status": 1,
-                  "created_at": "2016-12-30 10:27:28",
-                  "updated_at": "2016-12-30 18:50:25",
-                  "flash_buy_id": 0,
-                  "group_buy_id": 0,
-                  "group_buy_preferential_price": "0.00",
-                  "week_return": 1,
-                  "seller_id": null,
-                  "sizes": null,
-                  "colors": null,
-                  "genders": null
-                },
-                "product_item": {
-                  "id": 21,
-                  "product_id": 11,
-                  "color": "1",
-                  "size": "1",
-                  "price": "0.01",
-                  "image": "https://devapi.uzhenbao.com/uploads/products/20161230105425926650.jpg",
-                  "stock": 9,
-                  "updated_at": "2016-12-30 13:51:06",
-                  "created_at": "2016-12-30 10:27:23"
-                }
-              }
-            ]
-
-
-### 删除购物中商品 [DELETE /users/{userId}/shoppingCars/{id}]
-
-+ Parameters
-
-    + userId: 22 - id of an user
-    + id: 4 - id in car of the goods
-
-+ Request
-
-    + Headers
-
-            timestamp: 1478840722
-            app-key: 92lsk20ks
-            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 1
-            user-id: 22
-            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
-
-+ Response 204
 
 
 # Group 销售者
