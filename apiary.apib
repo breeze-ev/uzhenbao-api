@@ -217,6 +217,1010 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 # Group 平台商品
 
 
+## 商品分类 [/products/categories]
+
+商品分类用户获取商品的的品类及品类所持有的属性
+
+### 获取 [GET]
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 1
+
++ Response 200 (application/json)
+
+
+            [
+              {
+                "id": 1,
+                "name": "服装",
+                "icon": "",
+                "updated_at": "2016-12-27 16:32:05",
+                "created_at": "2016-12-27 16:32:21",
+                "children": [
+                  {
+                    "id": 1,
+                    "category_id": 1,
+                    "name": "打底衫",
+                    "keywords": null,
+                    "styles": null,
+                    "colors": [
+                      {
+                        "name": "红色",
+                        "value": "#ed5565"
+                      },
+                      {
+                        "name": "橙色",
+                        "value": "#fc6351"
+                      },
+                      {
+                        "name": "黄色",
+                        "value": "#ffce54"
+                      },
+                      {
+                        "name": "绿色",
+                        "value": "a0d468"
+                      },
+                      {
+                        "name": "青色",
+                        "value": "#48cfad"
+                      },
+                      {
+                        "name": "蓝色",
+                        "value": "#5d9cec"
+                      },
+                      {
+                        "name": "紫色",
+                        "value": "#ac92ec"
+                      },
+                      {
+                        "name": "粉色",
+                        "value": "#ec87c0"
+                      },
+                      {
+                        "name": "棕色",
+                        "value": "#804000"
+                      },
+                      {
+                        "name": "黑色",
+                        "value": "#656d78"
+                      },
+                      {
+                        "name": "白色",
+                        "value": "#f5f7fa"
+                      },
+                      {
+                        "name": "灰色",
+                        "value": "#ccd1d9"
+                      }
+                    ],
+                    "textures": null,
+                    "genders": [
+                      "男士",
+                      "女士"
+                    ],
+                    "models": null,
+                    "brands": null,
+                    "sizes": [
+                      "S",
+                      "M",
+                      "L",
+                      "XL",
+                      "XXL",
+                      "XXXL"
+                    ],
+                    "udpated_at": "2016-12-27 16:28:34",
+                    "created_at": "2016-12-27 16:28:34"
+                  },
+                  {
+                    "id": 2,
+                    "category_id": 1,
+                    "name": "毛衣",
+                    "keywords": null,
+                    "styles": null,
+                    "colors": [
+                      {
+                        "name": "红色",
+                        "value": "#ed5565"
+                      },
+                      {
+                        "name": "橙色",
+                        "value": "#fc6351"
+                      },
+                      {
+                        "name": "黄色",
+                        "value": "#ffce54"
+                      },
+                      {
+                        "name": "绿色",
+                        "value": "a0d468"
+                      },
+                      {
+                        "name": "青色",
+                        "value": "#48cfad"
+                      },
+                      {
+                        "name": "蓝色",
+                        "value": "#5d9cec"
+                      },
+                      {
+                        "name": "紫色",
+                        "value": "#ac92ec"
+                      },
+                      {
+                        "name": "粉色",
+                        "value": "#ec87c0"
+                      },
+                      {
+                        "name": "棕色",
+                        "value": "#804000"
+                      },
+                      {
+                        "name": "黑色",
+                        "value": "#656d78"
+                      },
+                      {
+                        "name": "白色",
+                        "value": "#f5f7fa"
+                      },
+                      {
+                        "name": "灰色",
+                        "value": "#ccd1d9"
+                      }
+                    ],
+                    "textures": null,
+                    "genders": [
+                      "男士",
+                      "女士"
+                    ],
+                    "models": null,
+                    "brands": null,
+                    "sizes": [
+                      "S",
+                      "M",
+                      "L",
+                      "XL",
+                      "XXL",
+                      "XXXL"
+                    ],
+                    "udpated_at": "2016-12-27 16:28:34",
+                    "created_at": "2016-12-27 16:28:34"
+                  },
+                  {
+                    "id": 3,
+                    "category_id": 1,
+                    "name": "外套",
+                    "keywords": null,
+                    "styles": null,
+                    "colors": [
+                      {
+                        "name": "红色",
+                        "value": "#ed5565"
+                      },
+                      {
+                        "name": "橙色",
+                        "value": "#fc6351"
+                      },
+                      {
+                        "name": "黄色",
+                        "value": "#ffce54"
+                      },
+                      {
+                        "name": "绿色",
+                        "value": "a0d468"
+                      },
+                      {
+                        "name": "青色",
+                        "value": "#48cfad"
+                      },
+                      {
+                        "name": "蓝色",
+                        "value": "#5d9cec"
+                      },
+                      {
+                        "name": "紫色",
+                        "value": "#ac92ec"
+                      },
+                      {
+                        "name": "粉色",
+                        "value": "#ec87c0"
+                      },
+                      {
+                        "name": "棕色",
+                        "value": "#804000"
+                      },
+                      {
+                        "name": "黑色",
+                        "value": "#656d78"
+                      },
+                      {
+                        "name": "白色",
+                        "value": "#f5f7fa"
+                      },
+                      {
+                        "name": "灰色",
+                        "value": "#ccd1d9"
+                      }
+                    ],
+                    "textures": null,
+                    "genders": [
+                      "男士",
+                      "女士"
+                    ],
+                    "models": null,
+                    "brands": null,
+                    "sizes": [
+                      "S",
+                      "M",
+                      "L",
+                      "XL",
+                      "XXL",
+                      "XXXL"
+                    ],
+                    "udpated_at": "2016-12-27 16:28:34",
+                    "created_at": "2016-12-27 16:28:34"
+                  },
+                  {
+                    "id": 4,
+                    "category_id": 1,
+                    "name": "夹克",
+                    "keywords": null,
+                    "styles": null,
+                    "colors": [
+                      {
+                        "name": "红色",
+                        "value": "#ed5565"
+                      },
+                      {
+                        "name": "橙色",
+                        "value": "#fc6351"
+                      },
+                      {
+                        "name": "黄色",
+                        "value": "#ffce54"
+                      },
+                      {
+                        "name": "绿色",
+                        "value": "a0d468"
+                      },
+                      {
+                        "name": "青色",
+                        "value": "#48cfad"
+                      },
+                      {
+                        "name": "蓝色",
+                        "value": "#5d9cec"
+                      },
+                      {
+                        "name": "紫色",
+                        "value": "#ac92ec"
+                      },
+                      {
+                        "name": "粉色",
+                        "value": "#ec87c0"
+                      },
+                      {
+                        "name": "棕色",
+                        "value": "#804000"
+                      },
+                      {
+                        "name": "黑色",
+                        "value": "#656d78"
+                      },
+                      {
+                        "name": "白色",
+                        "value": "#f5f7fa"
+                      },
+                      {
+                        "name": "灰色",
+                        "value": "#ccd1d9"
+                      }
+                    ],
+                    "textures": null,
+                    "genders": [
+                      "男士",
+                      "女士"
+                    ],
+                    "models": null,
+                    "brands": null,
+                    "sizes": [
+                      "S",
+                      "M",
+                      "L",
+                      "XL",
+                      "XXL",
+                      "XXXL"
+                    ],
+                    "udpated_at": "2016-12-27 16:28:34",
+                    "created_at": "2016-12-27 16:28:34"
+                  },
+                  {
+                    "id": 5,
+                    "category_id": 1,
+                    "name": "羽绒服",
+                    "keywords": null,
+                    "styles": null,
+                    "colors": [
+                      {
+                        "name": "红色",
+                        "value": "#ed5565"
+                      },
+                      {
+                        "name": "橙色",
+                        "value": "#fc6351"
+                      },
+                      {
+                        "name": "黄色",
+                        "value": "#ffce54"
+                      },
+                      {
+                        "name": "绿色",
+                        "value": "a0d468"
+                      },
+                      {
+                        "name": "青色",
+                        "value": "#48cfad"
+                      },
+                      {
+                        "name": "蓝色",
+                        "value": "#5d9cec"
+                      },
+                      {
+                        "name": "紫色",
+                        "value": "#ac92ec"
+                      },
+                      {
+                        "name": "粉色",
+                        "value": "#ec87c0"
+                      },
+                      {
+                        "name": "棕色",
+                        "value": "#804000"
+                      },
+                      {
+                        "name": "黑色",
+                        "value": "#656d78"
+                      },
+                      {
+                        "name": "白色",
+                        "value": "#f5f7fa"
+                      },
+                      {
+                        "name": "灰色",
+                        "value": "#ccd1d9"
+                      }
+                    ],
+                    "textures": null,
+                    "genders": [
+                      "男士",
+                      "女士"
+                    ],
+                    "models": null,
+                    "brands": null,
+                    "sizes": [
+                      "S",
+                      "M",
+                      "L",
+                      "XL",
+                      "XXL",
+                      "XXXL"
+                    ],
+                    "udpated_at": "2016-12-27 16:28:34",
+                    "created_at": "2016-12-27 16:28:34"
+                  },
+                  {
+                    "id": 6,
+                    "category_id": 1,
+                    "name": "衬衫",
+                    "keywords": null,
+                    "styles": null,
+                    "colors": [
+                      {
+                        "name": "红色",
+                        "value": "#ed5565"
+                      },
+                      {
+                        "name": "橙色",
+                        "value": "#fc6351"
+                      },
+                      {
+                        "name": "黄色",
+                        "value": "#ffce54"
+                      },
+                      {
+                        "name": "绿色",
+                        "value": "a0d468"
+                      },
+                      {
+                        "name": "青色",
+                        "value": "#48cfad"
+                      },
+                      {
+                        "name": "蓝色",
+                        "value": "#5d9cec"
+                      },
+                      {
+                        "name": "紫色",
+                        "value": "#ac92ec"
+                      },
+                      {
+                        "name": "粉色",
+                        "value": "#ec87c0"
+                      },
+                      {
+                        "name": "棕色",
+                        "value": "#804000"
+                      },
+                      {
+                        "name": "黑色",
+                        "value": "#656d78"
+                      },
+                      {
+                        "name": "白色",
+                        "value": "#f5f7fa"
+                      },
+                      {
+                        "name": "灰色",
+                        "value": "#ccd1d9"
+                      }
+                    ],
+                    "textures": null,
+                    "genders": [
+                      "男士"
+                    ],
+                    "models": null,
+                    "brands": null,
+                    "sizes": [
+                      "S",
+                      "M",
+                      "L",
+                      "XL",
+                      "XXL",
+                      "XXXL"
+                    ],
+                    "udpated_at": "2016-12-27 16:28:34",
+                    "created_at": "2016-12-27 16:28:34"
+                  },
+                  {
+                    "id": 7,
+                    "category_id": 1,
+                    "name": "背心",
+                    "keywords": null,
+                    "styles": null,
+                    "colors": [
+                      {
+                        "name": "红色",
+                        "value": "#ed5565"
+                      },
+                      {
+                        "name": "橙色",
+                        "value": "#fc6351"
+                      },
+                      {
+                        "name": "黄色",
+                        "value": "#ffce54"
+                      },
+                      {
+                        "name": "绿色",
+                        "value": "a0d468"
+                      },
+                      {
+                        "name": "青色",
+                        "value": "#48cfad"
+                      },
+                      {
+                        "name": "蓝色",
+                        "value": "#5d9cec"
+                      },
+                      {
+                        "name": "紫色",
+                        "value": "#ac92ec"
+                      },
+                      {
+                        "name": "粉色",
+                        "value": "#ec87c0"
+                      },
+                      {
+                        "name": "棕色",
+                        "value": "#804000"
+                      },
+                      {
+                        "name": "黑色",
+                        "value": "#656d78"
+                      },
+                      {
+                        "name": "白色",
+                        "value": "#f5f7fa"
+                      },
+                      {
+                        "name": "灰色",
+                        "value": "#ccd1d9"
+                      }
+                    ],
+                    "textures": null,
+                    "genders": [
+                      "男士"
+                    ],
+                    "models": null,
+                    "brands": null,
+                    "sizes": [
+                      "S",
+                      "M",
+                      "L",
+                      "XL",
+                      "XXL",
+                      "XXXL"
+                    ],
+                    "udpated_at": "2016-12-27 16:28:34",
+                    "created_at": "2016-12-27 16:28:34"
+                  },
+                  {
+                    "id": 8,
+                    "category_id": 1,
+                    "name": "裙子",
+                    "keywords": null,
+                    "styles": [
+                      "连衣裙",
+                      "半身裙",
+                      "短裙"
+                    ],
+                    "colors": [
+                      {
+                        "name": "红色",
+                        "value": "#ed5565"
+                      },
+                      {
+                        "name": "橙色",
+                        "value": "#fc6351"
+                      },
+                      {
+                        "name": "黄色",
+                        "value": "#ffce54"
+                      },
+                      {
+                        "name": "绿色",
+                        "value": "a0d468"
+                      },
+                      {
+                        "name": "青色",
+                        "value": "#48cfad"
+                      },
+                      {
+                        "name": "蓝色",
+                        "value": "#5d9cec"
+                      },
+                      {
+                        "name": "紫色",
+                        "value": "#ac92ec"
+                      },
+                      {
+                        "name": "粉色",
+                        "value": "#ec87c0"
+                      },
+                      {
+                        "name": "棕色",
+                        "value": "#804000"
+                      },
+                      {
+                        "name": "黑色",
+                        "value": "#656d78"
+                      },
+                      {
+                        "name": "白色",
+                        "value": "#f5f7fa"
+                      },
+                      {
+                        "name": "灰色",
+                        "value": "#ccd1d9"
+                      }
+                    ],
+                    "textures": null,
+                    "genders": [
+                      "女士"
+                    ],
+                    "models": null,
+                    "brands": null,
+                    "sizes": [
+                      "S",
+                      "M",
+                      "L",
+                      "XL",
+                      "XXL",
+                      "XXXL"
+                    ],
+                    "udpated_at": "2016-12-27 16:28:34",
+                    "created_at": "2016-12-27 16:28:34"
+                  },
+                  {
+                    "id": 9,
+                    "category_id": 1,
+                    "name": "裤子",
+                    "keywords": null,
+                    "styles": [
+                      "短裤",
+                      "长裤",
+                      "马裤"
+                    ],
+                    "colors": [
+                      {
+                        "name": "红色",
+                        "value": "#ed5565"
+                      },
+                      {
+                        "name": "橙色",
+                        "value": "#fc6351"
+                      },
+                      {
+                        "name": "黄色",
+                        "value": "#ffce54"
+                      },
+                      {
+                        "name": "绿色",
+                        "value": "a0d468"
+                      },
+                      {
+                        "name": "青色",
+                        "value": "#48cfad"
+                      },
+                      {
+                        "name": "蓝色",
+                        "value": "#5d9cec"
+                      },
+                      {
+                        "name": "紫色",
+                        "value": "#ac92ec"
+                      },
+                      {
+                        "name": "粉色",
+                        "value": "#ec87c0"
+                      },
+                      {
+                        "name": "棕色",
+                        "value": "#804000"
+                      },
+                      {
+                        "name": "黑色",
+                        "value": "#656d78"
+                      },
+                      {
+                        "name": "白色",
+                        "value": "#f5f7fa"
+                      },
+                      {
+                        "name": "灰色",
+                        "value": "#ccd1d9"
+                      }
+                    ],
+                    "textures": null,
+                    "genders": [
+                      "男士",
+                      "女士"
+                    ],
+                    "models": null,
+                    "brands": null,
+                    "sizes": [
+                      "S",
+                      "M",
+                      "L",
+                      "XL",
+                      "XXL",
+                      "XXXL"
+                    ],
+                    "udpated_at": "2016-12-27 16:28:34",
+                    "created_at": "2016-12-27 16:28:34"
+                  },
+                  {
+                    "id": 10,
+                    "category_id": 1,
+                    "name": "西装",
+                    "keywords": null,
+                    "styles": null,
+                    "colors": [
+                      {
+                        "name": "红色",
+                        "value": "#ed5565"
+                      },
+                      {
+                        "name": "橙色",
+                        "value": "#fc6351"
+                      },
+                      {
+                        "name": "黄色",
+                        "value": "#ffce54"
+                      },
+                      {
+                        "name": "绿色",
+                        "value": "a0d468"
+                      },
+                      {
+                        "name": "青色",
+                        "value": "#48cfad"
+                      },
+                      {
+                        "name": "蓝色",
+                        "value": "#5d9cec"
+                      },
+                      {
+                        "name": "紫色",
+                        "value": "#ac92ec"
+                      },
+                      {
+                        "name": "粉色",
+                        "value": "#ec87c0"
+                      },
+                      {
+                        "name": "棕色",
+                        "value": "#804000"
+                      },
+                      {
+                        "name": "黑色",
+                        "value": "#656d78"
+                      },
+                      {
+                        "name": "白色",
+                        "value": "#f5f7fa"
+                      },
+                      {
+                        "name": "灰色",
+                        "value": "#ccd1d9"
+                      }
+                    ],
+                    "textures": null,
+                    "genders": [
+                      "男士"
+                    ],
+                    "models": null,
+                    "brands": null,
+                    "sizes": [
+                      "S",
+                      "M",
+                      "L",
+                      "XL",
+                      "XXL",
+                      "XXXL"
+                    ],
+                    "udpated_at": "2016-12-27 16:28:34",
+                    "created_at": "2016-12-27 16:28:34"
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "name": "箱包",
+                "icon": "",
+                "updated_at": "2016-12-27 16:32:05",
+                "created_at": "2016-12-27 16:32:21",
+                "children": []
+              },
+              {
+                "id": 3,
+                "name": "配饰",
+                "icon": "",
+                "updated_at": "2016-12-27 16:32:05",
+                "created_at": "2016-12-27 16:32:21",
+                "children": [
+                  {
+                    "id": 11,
+                    "category_id": 3,
+                    "name": "腕表",
+                    "keywords": "手表",
+                    "styles": [
+                      "石英表",
+                      "机械表",
+                      "电子表"
+                    ],
+                    "colors": [
+                      {
+                        "name": "红色",
+                        "value": "#ed5565"
+                      },
+                      {
+                        "name": "橙色",
+                        "value": "#fc6351"
+                      },
+                      {
+                        "name": "黄色",
+                        "value": "#ffce54"
+                      },
+                      {
+                        "name": "绿色",
+                        "value": "a0d468"
+                      },
+                      {
+                        "name": "青色",
+                        "value": "#48cfad"
+                      },
+                      {
+                        "name": "蓝色",
+                        "value": "#5d9cec"
+                      },
+                      {
+                        "name": "紫色",
+                        "value": "#ac92ec"
+                      },
+                      {
+                        "name": "粉色",
+                        "value": "#ec87c0"
+                      },
+                      {
+                        "name": "棕色",
+                        "value": "#804000"
+                      },
+                      {
+                        "name": "黑色",
+                        "value": "#656d78"
+                      },
+                      {
+                        "name": "白色",
+                        "value": "#f5f7fa"
+                      },
+                      {
+                        "name": "灰色",
+                        "value": "#ccd1d9"
+                      }
+                    ],
+                    "textures": [
+                      "镀金",
+                      "镶钻",
+                      "蓝宝石"
+                    ],
+                    "genders": [
+                      "男士",
+                      "女士"
+                    ],
+                    "models": null,
+                    "brands": null,
+                    "sizes": null,
+                    "udpated_at": "2016-12-27 16:28:34",
+                    "created_at": "2016-12-27 16:28:34"
+                  },
+                  {
+                    "id": 12,
+                    "category_id": 3,
+                    "name": "帽子",
+                    "keywords": null,
+                    "styles": null,
+                    "colors": [
+                      {
+                        "name": "红色",
+                        "value": "#ed5565"
+                      },
+                      {
+                        "name": "橙色",
+                        "value": "#fc6351"
+                      },
+                      {
+                        "name": "黄色",
+                        "value": "#ffce54"
+                      },
+                      {
+                        "name": "绿色",
+                        "value": "a0d468"
+                      },
+                      {
+                        "name": "青色",
+                        "value": "#48cfad"
+                      },
+                      {
+                        "name": "蓝色",
+                        "value": "#5d9cec"
+                      },
+                      {
+                        "name": "紫色",
+                        "value": "#ac92ec"
+                      },
+                      {
+                        "name": "粉色",
+                        "value": "#ec87c0"
+                      },
+                      {
+                        "name": "棕色",
+                        "value": "#804000"
+                      },
+                      {
+                        "name": "黑色",
+                        "value": "#656d78"
+                      },
+                      {
+                        "name": "白色",
+                        "value": "#f5f7fa"
+                      },
+                      {
+                        "name": "灰色",
+                        "value": "#ccd1d9"
+                      }
+                    ],
+                    "textures": null,
+                    "genders": [
+                      "男士",
+                      "女士"
+                    ],
+                    "models": null,
+                    "brands": null,
+                    "sizes": [
+                      "S",
+                      "M",
+                      "L",
+                      "XL",
+                      "XXL",
+                      "XXXL"
+                    ],
+                    "udpated_at": "2016-12-27 16:28:34",
+                    "created_at": "2016-12-27 16:28:34"
+                  },
+                  {
+                    "id": 13,
+                    "category_id": 3,
+                    "name": "太阳眼镜",
+                    "keywords": "",
+                    "styles": null,
+                    "colors": null,
+                    "textures": null,
+                    "genders": [
+                      "男士",
+                      "女士"
+                    ],
+                    "models": null,
+                    "brands": null,
+                    "sizes": null,
+                    "udpated_at": "2017-01-03 15:05:51",
+                    "created_at": "2017-01-03 15:05:51"
+                  },
+                  {
+                    "id": 14,
+                    "category_id": 3,
+                    "name": "腰带",
+                    "keywords": "裤带",
+                    "styles": null,
+                    "colors": null,
+                    "textures": [
+                      "皮革",
+                      "牛皮"
+                    ],
+                    "genders": [
+                      "男士",
+                      "女士"
+                    ],
+                    "models": null,
+                    "brands": null,
+                    "sizes": null,
+                    "udpated_at": "2017-01-03 15:05:51",
+                    "created_at": "2017-01-03 15:05:51"
+                  }
+                ]
+              },
+              {
+                "id": 4,
+                "name": "鞋靴",
+                "icon": "",
+                "updated_at": "2016-12-27 16:32:05",
+                "created_at": "2016-12-27 16:32:21",
+                "children": []
+              },
+              {
+                "id": 5,
+                "name": "儿童",
+                "icon": "",
+                "updated_at": "2016-12-27 16:32:05",
+                "created_at": "2016-12-27 16:32:21",
+                "children": []
+              },
+              {
+                "id": 6,
+                "name": "家居",
+                "icon": "",
+                "updated_at": "2016-12-27 16:32:05",
+                "created_at": "2016-12-27 16:32:21",
+                "children": []
+              }
+            ]
+
+
 ## 获取商品 [/products]
 
 ### 列表 [GET]
