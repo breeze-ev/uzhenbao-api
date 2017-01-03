@@ -2941,3 +2941,69 @@ Request 参数说明
                 "alias": "YTO"
               }
             }
+
+
+
+# Group 广告
+
+此节包含移动端所有的广告展示含首页横幅
+
+## 首页横幅 [/banners]
+
+首页横幅最多支持10个广告位轮换, 根据返回的`jump_type`标识跳转的类型`product_id`为Native内部商品跳转,`url`为H5页跳转,
+移动端应根据不同的类型处理跳转逻辑
+
+### 获取 [GET]
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 200 (application/json)
+
+            [
+                {
+                    "id":30,
+                    "title":"测试",
+                    "image":"/uploads/banner/20160920164328155967.jpg",
+                    "jump_type":{
+                        "url":"https://mobile.y-r-one.com/activities/groupBuys/25"
+                    },
+                    "sort":0,
+                    "goods_id":0,
+                    "created_at":"2016-09-20 16:43:32",
+                    "updated_at":"2016-09-20 17:28:59",
+                    "status":1
+                },
+                {
+                    "id":29,
+                    "title":"测试",
+                    "image":"/uploads/banner/20160920162140555034.jpg",
+                    "jump_type":{
+                        "product_id":103
+                    },
+                    "sort":0,
+                    "product_id":103,
+                    "created_at":"2016-09-20 16:21:46",
+                    "updated_at":"2016-09-20 16:21:46",
+                    "status":1
+                },
+                {
+                    "id":28,
+                    "title":"测试",
+                    "image":"/uploads/banner/20160920162007482644.jpg",
+                    "jump_type":{
+                        "product_id":105
+                    },
+                    "sort":0,
+                    "product_id":105,
+                    "created_at":"2016-09-20 16:21:14",
+                    "updated_at":"2016-09-20 16:21:14",
+                    "status":1
+                }
+            ]
