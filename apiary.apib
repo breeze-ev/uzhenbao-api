@@ -1128,6 +1128,12 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
 ## 收藏 [/users/{userId}/favorites/products]
 
+Request 参数说明
+
+| key | Value | Description |
+|---|---|---|
+|`favorite_id`| 1 | 收藏类型的id, 注意此处不是指收藏列表本身的id,例:收藏商品,此处应是商品的id; 收藏主题,此处应是主题的id |
+
 ### 加入收藏 [POST]
 
 + Parameters
@@ -2003,6 +2009,13 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
 
 ## 收藏 [/users/{userId}/favorites/userProducts]
+
+Request 参数说明
+
+| key | Value | Description |
+|---|---|---|
+|`favorite_id`| 1 | 收藏类型的id, 注意此处不是指收藏列表本身的id,例:收藏商品,此处应是商品的id; 收藏主题,此处应是主题的id |
+
 
 ### 加入收藏 [POST]
 
