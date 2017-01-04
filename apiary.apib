@@ -246,7 +246,6 @@ Response 部分字段说明
 
 + Response 200 (application/json)
 
-
             [
               {
                 "id": 1,
@@ -914,19 +913,9 @@ Response 部分字段说明
             ]
 
 
-## 获取商品 [/products]
+### 匹配分类 [GET /products/categories/match]
 
-### 列表 [GET]
-
-商品列表展示为全站商品, 提供分页, 可用于首页底部商品部分和搜索页面
-
-商品支持搜索,排序和筛选, 搜索支持按`title`搜索
-
-排序支持 `综合`, `销量`, `价格`,按`升序` 或 `降序` 排列, 注意根据不同的属性应设一个默认排序,
-例如用户点击销量应默认为`降序`, 而价格默认为`升序`
-
-通用筛选支持 `分类` 和 `价格`, 分类ID由分类API获取, 价格值为区间 用 `-` 连接表示, 例如`1-200`意为筛选价格1-200(含)之间的的商品,
-`-200` 为小于等于200的商品, `200-` 为大于等于200的商品
+用于搜索时对关键词进行解析, 匹配出相近的栏目并返回栏目数据, 如未匹配出, 则给出通用筛选数据
 
 + Request (application/json)
 
@@ -939,18 +928,144 @@ Response 部分字段说明
 
     + Attributes
 
-        + perPage: 15 (optional, number) - default per page is 15
+        + keywords: 石英表 (string, required) - 关键词
+
++ Response 200 (application/json)
+
+            {
+              "id": 11,
+              "category_id": 3,
+              "name": "腕表",
+              "image": null,
+              "keywords": "手表",
+              "styles": [
+                "石英表",
+                "机械表",
+                "电子表"
+              ],
+              "colors": [
+                {
+                  "name": "红色",
+                  "value": "#ed5565"
+                },
+                {
+                  "name": "橙色",
+                  "value": "#fc6351"
+                },
+                {
+                  "name": "黄色",
+                  "value": "#ffce54"
+                },
+                {
+                  "name": "绿色",
+                  "value": "a0d468"
+                },
+                {
+                  "name": "青色",
+                  "value": "#48cfad"
+                },
+                {
+                  "name": "蓝色",
+                  "value": "#5d9cec"
+                },
+                {
+                  "name": "紫色",
+                  "value": "#ac92ec"
+                },
+                {
+                  "name": "粉色",
+                  "value": "#ec87c0"
+                },
+                {
+                  "name": "棕色",
+                  "value": "#804000"
+                },
+                {
+                  "name": "黑色",
+                  "value": "#656d78"
+                },
+                {
+                  "name": "白色",
+                  "value": "#f5f7fa"
+                },
+                {
+                  "name": "灰色",
+                  "value": "#ccd1d9"
+                }
+              ],
+              "textures": [
+                "镀金",
+                "镶钻",
+                "蓝宝石"
+              ],
+              "genders": [
+                "男士",
+                "女士"
+              ],
+              "models": null,
+              "brands": null,
+              "sizes": null,
+              "updated_at": "2016-12-27 16:28:34",
+              "created_at": "2016-12-27 16:28:34"
+            }
+
++ Response 404 (application/json)
+
+
+
+## 获取商品 [/products]
+
+### 列表 [GET]
+
+商品列表展示为全站商品, 提供分页, 可用于首页底部商品部分和搜索页面
+
+商品支持搜索,排序和筛选, 搜索支持按`title`搜索
+
+排序支持 `默认`, `销量`, `价格`,按`升序` 或 `降序` 排列, 注意根据不同的属性应设一个默认排序,
+例如用户点击销量应默认为`降序`, 而价格默认为`升序`
+
+筛选支持按分类所有属性筛选, `价格`值为区间 用 `-` 连接表示, 例如`1-200`意为筛选价格1-200(含)之间的的商品,
+`-200` 为小于等于200的商品, `200-` 为大于等于200的商品
+
+
+Request 参数
+
+| Key | Value | Required | Lenght | Description |
+|---|---|---|---|---|
+|`keywords`| 衬衫 | false | (0, 255] | 标题或关键词 |
+|`per_page`| 15 | false | (0, 255] | 分页控制, 默认每页15条数据 |
+|`filter[texture]`| 镀金 | false | (0, 255] | 筛选材质 |
+|`filter[size]`| xl | false | (0, 255] | 筛选尺寸 |
+|`filter[color]`| 红色 | false | (0, 255] | 筛选颜色 |
+|`filter[style]`| 低领 | false | (0, 255] | 筛选款式 |
+|`filter[banrd]`| 阿迪达斯 | false | (0, 255] | 筛选品牌 |
+|`filter[gender]`| 男士 | false | (0, 255] | 筛选性别 |
+|`filter[style]`| 低领 | false | (0, 255] | 筛选款式 |
+|`filter[model]`| a3230 | false | (0, 255] | 筛选型号 |
+|`sort[id]`| desc | false | (0, 255] | 默认排序, id 降序 |
+|`sort[price]`| asc | false | (0, 255] | 价格升序 |
+|`sort[sales]`| desc | false | (0, 255] | 销量降序 |
+
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
+    + Attributes
+
+        + keywords: 男装 (string, optional) - keyword
+        + per_page: 15 (optional, number) - default per page is 15
         + sort (object, optional)
             + price: desc - (asc)
-            + new: desc - (asc)
-            + comments: desc - (asc)
+            + id: desc - (asc)
             + sales: desc - (asc)
         + filter (object, optional)
             + price: 1-200 (string) - price interval
-            + category_id: 1 (number) - id from categories id
-
-        + search (object, optional)
-            + title: 男装
 
 
 + Response 200 (application/json)
@@ -1033,8 +1148,6 @@ Response 部分字段说明
                 }
               ]
             }
-
-
 
 ### 详情 [GET /products/{id}]
 
@@ -3300,7 +3413,6 @@ Request 参数说明
             api-version: 2
 
 + Response 200 (application/json)
-
 
             {
               "total": 2,
