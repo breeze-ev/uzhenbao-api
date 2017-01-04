@@ -233,7 +233,7 @@ Response 部分字段说明
 |`genders`| `["男士", "女士"]` | 可选性别 |
 
 
-### 获取 [GET]
+### 所有分类 [GET]
 
 + Request
 
@@ -1011,6 +1011,62 @@ Response 部分字段说明
 
 + Response 404 (application/json)
 
+            {
+              "genders": [
+                "男士",
+                "女士"
+              ],
+              "colors": [
+                {
+                  "name": "红色",
+                  "value": "#ed5565"
+                },
+                {
+                  "name": "橙色",
+                  "value": "#fc6351"
+                },
+                {
+                  "name": "黄色",
+                  "value": "#ffce54"
+                },
+                {
+                  "name": "绿色",
+                  "value": "a0d468"
+                },
+                {
+                  "name": "青色",
+                  "value": "#48cfad"
+                },
+                {
+                  "name": "蓝色",
+                  "value": "#5d9cec"
+                },
+                {
+                  "name": "紫色",
+                  "value": "#ac92ec"
+                },
+                {
+                  "name": "粉色",
+                  "value": "#ec87c0"
+                },
+                {
+                  "name": "棕色",
+                  "value": "#804000"
+                },
+                {
+                  "name": "黑色",
+                  "value": "#656d78"
+                },
+                {
+                  "name": "白色",
+                  "value": "#f5f7fa"
+                },
+                {
+                  "name": "灰色",
+                  "value": "#ccd1d9"
+                }
+              ]
+            }
 
 
 ## 获取商品 [/products]
