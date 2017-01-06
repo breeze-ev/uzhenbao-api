@@ -3056,6 +3056,84 @@ Request 参数说明
                 ]
             }
 
+## 咨询 [/products/{id}/consultations]
+
+商品咨询是用户对商品健介绍不足的一种补充信息, 移动端应将咨询内容应放在商品详情页中, 便于用户查看
+
+### 列表 [GET]
+
++ Parameters
+
+    + id: 11 (number) - 商品id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 200 (application/json)
+
+            {
+              "total": 1,
+              "per_page": 15,
+              "current_page": 1,
+              "last_page": 1,
+              "next_page_url": null,
+              "prev_page_url": null,
+              "from": 1,
+              "to": 1,
+              "data": [
+                {
+                  "id": 1,
+                  "product_id": 11,
+                  "name": "张三",
+                  "user_id": 1,
+                  "content": "这是真的吗",
+                  "reply": null,
+                  "created_at": "2016-12-16 11:52:36",
+                  "updated_at": "2016-12-16 11:52:36"
+                }
+              ]
+            }
+
+### 发布 [POST]
+
++ Parameters
+
+    + id: 11 (number) - 商品id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
+    + Attributes
+
+        + name: 我是好孩子 (required, string) - 用户名
+        + user_id: 11 (number, optional) - 用户id
+        + content: 咨询的内容 (string, required) - 用户咨询的内容, 最多255字
+
++ Response 201 (application/json)
+
+            {
+                "status": 201,
+                "message": "发表成功"
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "message": "商品不存在,或已下架"
+            }
 
 
 # Group 销售者
