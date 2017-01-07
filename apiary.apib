@@ -3145,6 +3145,31 @@ Request 参数说明
 
 ## 订单 [/sellers/{userId}/orders]
 
+订单支持 Request 中两种方式进行筛选，两者可以共存, 建议只使用其中一种方式
+
+`status` 状态码进行筛选
+
+|Value|Description|
+|---|---|
+|`-1`|已取消|
+|`1`|消费者已付款, 待发货|
+|`1.1`|销售者已发货，待平台收货|
+|`1.2`|平台已收货，检测中|
+|`2`|已发货，待消费者收货|
+|`3`|消费者已收货|
+
+
+
+`filter` 业务流程进行筛选
+
+|Value|Description|
+|---|---|
+|`canceled`|已取消|
+|`finished`|已完成|
+|`waitSend`|待发货|
+|`sending`|物流中|
+
+
 ### 列表 [GET]
 
 + Parameters
