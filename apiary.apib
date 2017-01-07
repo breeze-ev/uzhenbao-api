@@ -3149,25 +3149,25 @@ Request 参数说明
 
 `status` 状态码进行筛选
 
-|Value|Description|
-|---|---|
-|`-1`|已取消|
-|`1`|消费者已付款, 待发货|
-|`1.1`|销售者已发货，待平台收货|
-|`1.2`|平台已收货，检测中|
-|`2`|已发货，待消费者收货|
-|`3`|消费者已收货|
+|Key|Value|Description|
+|---|---|---|
+|`status`|`-1`|已取消|
+|`status`|`1`|消费者已付款, 待发货|
+|`status`|`1.1`|销售者已发货，待平台收货|
+|`status`|`1.2`|平台已收货，检测中|
+|`status`|`2`|已发货，待消费者收货|
+|`status`|`3`|消费者已收货|
 
 
 
 `filter` 业务流程进行筛选
 
-|Value|Description|
-|---|---|
-|`canceled`|已取消|
-|`finished`|已完成|
-|`waitSend`|待发货|
-|`sending`|物流中|
+|Key|Value|Description|
+|---|---|---|
+|`filter`|`canceled`|已取消|
+|`filter`|`finished`|已完成|
+|`filter`|`waitSend`|待发货|
+|`filter`|`sending`|物流中|
 
 
 ### 列表 [GET]
