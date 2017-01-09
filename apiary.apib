@@ -3979,6 +3979,58 @@ Response 部分字段说明
                 "message": "资源不存在, 或已被删除"
             }
 
+### 确认结算 [PUT /sellers/{userId}/orderResults/{id}/audit]
+
++ Parameters
+
+    + userId: 4 (number) - 用户id
+    + id: 1 (number) - 订单id
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Response 201 (application/json)
+
+            {
+              "id": 73,
+              "user_id": 4,
+              "money": "0.03",
+              "month": 12,
+              "year": 2016,
+              "created_at": "2017-01-09 11:31:39",
+              "is_remitted": 0,
+              "remit_number": null,
+              "is_audited": 1,
+              "bankcard_name": "中国工商银行",
+              "bankcard_real_name": "张三",
+              "bankcard_number": "1231231232131321313",
+              "updated_at": "2017-01-09 12:54:04"
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 404,
+                "message": "资源不存在，或已删除";
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 40412,
+                "message": "银行卡信息不存在或不完整"
+            }
+
 # Group 订单
 
 ## 订单 [/users/{userId}/orders]
