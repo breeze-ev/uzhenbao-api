@@ -3615,7 +3615,7 @@ Request 参数说明
 
 # Group 订单
 
-## 订单 [/orders]
+## 订单 [/users/{userId}/orders]
 
 订单分两种订单
 
@@ -3652,6 +3652,10 @@ Request 参数说明
 
 ### 列表 [GET]
 
++ Parameters
+
+    + userId: 1 (number) - 用户id
+
 + Request (application/json)
 
     + Headers
@@ -3660,6 +3664,8 @@ Request 参数说明
             app-key: 92lsk20ks
             sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
             api-version: 2
+            user-id: 4
+            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
 
 + Response 200 (application/json)
 
@@ -3870,10 +3876,11 @@ Request 参数说明
             }
 
 
-### 详情 [GET /orders/{id}]
+### 详情 [GET /users/{userId}/orders/{id}]
 
 + Parameters
 
+    + userId: 1 (number) - 用户id
     + id: 1 - 订单id
 
 + Request (application/json)
@@ -3884,6 +3891,8 @@ Request 参数说明
             app-key: 92lsk20ks
             sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
             api-version: 2
+            user-id: 4
+            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
 
 + Response 200 (application/json)
 
