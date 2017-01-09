@@ -1390,7 +1390,9 @@ Request 参数
 | object.car_id| 1 | number | optional | 购物车对应id |
 | shipping_address_id | 1 | number | required | 收货地址id |
 | coupon_id | 1 | number | optional | 优惠券id |
+| is_invoice | 1 | number |required | 是否开具发票， 1: 是, 0: 否|
 | memo | 这是备注 | string | optional | 备注, 最多255字 |
+
 
 ### 预览订单 [POST /users/{userId}/orders/preview]
 
@@ -1414,7 +1416,7 @@ Request 参数
 
     + Attributes
 
-        + orders (array, required)
+        + items (array, required)
             + (object)
                 + product_id: 2 (required) - id of a goods
                 + product_item_id: 23 (required) - id of a goods sku
@@ -1584,7 +1586,7 @@ Request 参数
 
     + Attributes
 
-        + orders (array, required)
+        + items (array, required)
             + (object)
                 + product_id: 2 (required) - id of a goods
                 + product_item_id: 23 (required) - id of a goods sku
