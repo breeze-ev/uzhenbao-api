@@ -4522,12 +4522,7 @@ Response 部分字段说明
 
 ## 分类 [/categories]
 
-Response 部分字段说明
-
-| Key | Value | Description |
-|---|---|---|
-|`type`| 1 | 二级菜单 |
-|`type`| 0 | 一级菜单 |
+category_id 和 category_child_id 同时存在为二级菜单, 否则为一级菜单
 
 
 ### 获取 [GET]
@@ -4548,25 +4543,36 @@ Response 部分字段说明
                 "name": "品牌",
                 "image": "/uploads/products/categories/20170106111330131354.png",
                 "sort": 1,
-                "type": 0
+                "category_id": 1,
+                "category_child_id": null
               },
               {
                 "name": "配饰",
                 "image": "/uploads/products/categories/20170121173011786074.png",
                 "sort": 0,
-                "type": 0
+                "category_id": 3,
+                "category_child_id": null
               },
               {
                 "name": "家居",
                 "image": "/uploads/products/categories/20170106103539382321.png",
                 "sort": 9,
-                "type": 0
+                "category_id": 6,
+                "category_child_id": null
               },
               {
                 "name": "服装",
                 "image": "/uploads/products/categories/20170121172955116299.png",
                 "sort": 0,
-                "type": 0
+                "category_id": 7,
+                "category_child_id": null
+              },
+              {
+                "name": "太阳眼镜",
+                "image": null,
+                "sort": 7,
+                "category_id": 3,
+                "category_child_id": 13
               }
             ]
 
