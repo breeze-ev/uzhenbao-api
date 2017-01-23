@@ -4520,7 +4520,68 @@ Response 部分字段说明
 
 # Group 主页
 
-## 橱窗 [/booths]
+## 分类 [/categories]
+
+Response 部分字段说明
+
+| Key | Value | Description |
+|---|---|---|
+|`type`| 1 | 二级菜单 |
+|`type`| 0 | 一级菜单 |
+
+
+### 获取 [GET]
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 200 (application/json)
+
+            [
+              {
+                "name": "品牌",
+                "image": "/uploads/products/categories/20170106111330131354.png",
+                "sort": 1,
+                "type": 0
+              },
+              {
+                "name": "配饰",
+                "image": "/uploads/products/categories/20170121173011786074.png",
+                "sort": 0,
+                "type": 0
+              },
+              {
+                "name": "家居",
+                "image": "/uploads/products/categories/20170106103539382321.png",
+                "sort": 9,
+                "type": 0
+              },
+              {
+                "name": "服装",
+                "image": "/uploads/products/categories/20170121172955116299.png",
+                "sort": 0,
+                "type": 0
+              }
+            ]
+
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 404,
+                "message": "资源不存在"
+            }
+
+## 展位 [/booths]
+
+展位显示特定或推荐的商品， 展位返回404时将不于显示
 
 ### 获取 [GET]
 
