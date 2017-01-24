@@ -4070,6 +4070,7 @@ Response 部分字段说明
 |`status`| `3` | 用户已收货, 订单完成 |
 |`status`| `-1` | 订单取消 |
 |`status`| `-2` | 订单已超出付款时间, 过期 |
+|`status`| `10` | 订单正在进行中, 即 status >= 1 && status <= 2 |
 
 
 2. 用户商品订单
@@ -4103,6 +4104,10 @@ Response 部分字段说明
             api-version: 2
             user-id: 4
             access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
+
+    + Attributes
+
+        + status: 1 (optional, number) - 筛选状态 = 1的订单
 
 + Response 200 (application/json)
 
