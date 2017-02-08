@@ -4640,7 +4640,7 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 
 以上两种类型分别以`type` = 1 , `type` = 2 表示
 
-### 获取 [GET]
+### 列表 [GET]
 
 返回字段说明
 
@@ -4727,12 +4727,33 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
               ]
             }
 
+### 详情 [GET /activities/flashBuys/{id}]
+
++ Parameters
+
+    + id: 1 - 闪购id
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 200 (application/json)
+
+            {
+
+            }
+
 
 ## 团购 [/activities/groupBuys]
 
 团购为app内活动, 注意返回的字段含有`url`, 移动端直接加载, 需实现H5页内的商品启动app内置购买页面
 
-### 获取 [GET]
+### 列表 [GET]
 
 + Request
 
@@ -4771,4 +4792,26 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
                   "share_token": null
                 }
               ]
+            }
+
+
+### 详情 [GET /activities/groupBuys/{id}]
+
++ Parameters
+
+    + id: 1 - 团购id
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 200 (application/json)
+
+            {
+
             }
