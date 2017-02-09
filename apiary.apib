@@ -4783,6 +4783,13 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
               ]
             }
 
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 404,
+                "message": "资源不存在"
+            }
 
 ## 团购 [/activities/groupBuys]
 
@@ -4839,5 +4846,110 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 + Response 200 (application/json)
 
             {
+              "id": 64,
+              "name": "测试",
+              "type": 1,
+              "updated_at": "2017-01-21 10:13:45",
+              "created_at": "2017-01-12 11:42:25",
+              "status": 1,
+              "begin_at": "2017-01-11 05:25:00",
+              "end_at": "2017-01-31 11:55:00",
+              "title_image": "http://devapi.uzhenbao.com/uploads/groupBuy/20170121101332458954.jpg",
+              "template": "default",
+              "sort": 0,
+              "url": "https://devm.uzhenbao.com/activities/groupBuys/64",
+              "share_token": null,
+              "products": [
+                {
+                  "id": 2,
+                  "category_id": 1,
+                  "category_child_id": 2,
+                  "admin_id": 0,
+                  "title": "传",
+                  "keywords": "测试",
+                  "description": "四川省",
+                  "price": "0.01",
+                  "reference_price": "0.00",
+                  "likes": 0,
+                  "sales": 1,
+                  "comments": 0,
+                  "views": 633,
+                  "favorites": 3,
+                  "product_no": "",
+                  "rebate": "0.00",
+                  "title_image": "http://devapi.uzhenbao.com/uploads/products/20170120175452121734.jpg",
+                  "postage": "0.00",
+                  "stock": 7,
+                  "sort": 0,
+                  "type": 0,
+                  "status": 1,
+                  "created_at": "2017-01-20 17:56:02",
+                  "updated_at": "2017-02-09 12:53:18",
+                  "flash_buy_id": 0,
+                  "group_buy_id": 64,
+                  "group_buy_preferential_price": "0.00",
+                  "merchant_id": null,
+                  "is_audited": null,
+                  "sizes": "[\"L\"]",
+                  "colors": "[\"\\u9ed1\"]",
+                  "brands": null,
+                  "models": null,
+                  "styles": null,
+                  "genders": "[\"\\u5973\\u58eb\"]",
+                  "textures": null,
+                  "week_return": 0,
+                  "week_exchange": 0,
+                  "name": null
+                },
+                {
+                  "id": 6,
+                  "category_id": 4,
+                  "category_child_id": 19,
+                  "admin_id": 1,
+                  "title": "测试",
+                  "keywords": "测试",
+                  "description": "测试",
+                  "price": "1290.00",
+                  "reference_price": "1999.00",
+                  "likes": 0,
+                  "sales": 0,
+                  "comments": 0,
+                  "views": 26,
+                  "favorites": 0,
+                  "product_no": "",
+                  "rebate": "0.00",
+                  "title_image": "http://devapi.uzhenbao.com/uploads/products/20170207164530966866.png",
+                  "postage": "0.00",
+                  "stock": 1111,
+                  "sort": 0,
+                  "type": 0,
+                  "status": 1,
+                  "created_at": "2017-02-07 16:46:27",
+                  "updated_at": "2017-02-09 13:32:35",
+                  "flash_buy_id": 0,
+                  "group_buy_id": 64,
+                  "group_buy_preferential_price": "5.00",
+                  "merchant_id": 0,
+                  "is_audited": null,
+                  "sizes": "[\"xx\"]",
+                  "colors": "[\"blue\"]",
+                  "brands": "[\"adidas\",\"nike\"]",
+                  "models": null,
+                  "styles": null,
+                  "genders": "[\"\\u7537\\u58eb\"]",
+                  "textures": null,
+                  "week_return": 1,
+                  "week_exchange": 0,
+                  "name": ""
+                }
+              ]
+            }
 
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 404,
+                "message": "资源不存在"
             }
