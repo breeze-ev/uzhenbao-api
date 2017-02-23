@@ -4964,6 +4964,7 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 |category_id| 1 | optional | 可筛选分类id下的数据 |
 |buyer_id| 1 | optional | 代购者的数据 |
 |customer_id| 1 | optional | 消费者的数据 |
+|title| 我要代购 | optional | 搜索标题 |
 
 
 部分Response数据说明
@@ -5147,6 +5148,145 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
               "updated_at": "2017-02-23 11:52:15",
               "created_at": "2017-02-23 11:52:15",
               "id": 51
+            }
+
+### 接单 [PUT /procurements/{id}/exchange]
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 4
+            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
+
+
++ Response 201 (application/json)
+
+            {
+              "id": 25,
+              "description": null,
+              "category_id": 1,
+              "customer_id": 4,
+              "buyer_id": 1,
+              "area": "1231321312",
+              "created_at": "2017-02-22 13:54:10",
+              "updated_at": "2017-02-23 14:53:43",
+              "exchange_started_at": "2017-02-23 14:53:43",
+              "exchange_canceled_at": null,
+              "exchange_finished_at": null,
+              "exchange_closed_at": null,
+              "exchange_waited_at": "2017-02-22 13:54:10",
+              "deleted_at": null,
+              "status": 2,
+              "sort": null,
+              "price": null,
+              "product_name": null,
+              "is_accept_flaw": null,
+              "is_possible_flaw": null,
+              "type": null,
+              "is_graded": null
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 404,
+                "message": "资源不存在, 或已被删除"
+            }
+
++ Response 409 (application/json)
+
+            {
+                "status": 409,
+                "code": 40911,
+                "message": "代购服务已被他人购买"
+            }
+
++ Response 403 (application/json)
+
+            {
+                "status": 403
+                "code": 40313
+                "message": "不能为自己代购"
+            }
+
++ Response 403 (application/json)
+
+            {
+                "status": 403
+                "code": 40314
+                "message": "代购已被关闭"
+            }
+
+
+### 取消代购 [PUT /procurements/{id}/cancel]
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 4
+            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
+
++ Response 201 (application/json)
+
+            {
+
+            }
+
++ Response 403 (application/json)
+
+            {
+              "status": 403,
+              "code": 403,
+              "message": "拒绝访问资源, 不具备访问权限"
+            }
+
+### 关闭代购 [PUT /procurements/{id}/close]
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 4
+            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
+
++ Response 200 (application/json)
+
+            {
+
+            }
+
+### 开启代购 [PUT /procurements/{id}/open]
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 4
+            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
+
++ Response 200 (application/json)
+
+            {
+
             }
 
 ## 代购分类 [/procurements/categories]
