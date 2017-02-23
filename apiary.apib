@@ -33,7 +33,7 @@ RESTful API使用如下动词, 完成客户端与服务器间的交互操作
 |---|---|
 | `GET` | 获取单个或列表资源, 正常时返回 `200`, 未找到时返回 `404` |
 | `POST` | 创建资源, 正常时返回 `201` |
-| `PUT` | 更新一个资源, 成功时返回 `201` |
+| `PUT` | 更新一个资源, 成功时返回 `201`, (下个版本将纠正为200) |
 | `DELETE` | 删除资源, 成功时 `204`|
 
 
@@ -48,7 +48,7 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 | `204` | Success - *无返回内容 (DELETE)*
 | `400` | Bad Request - *请求验证不通过, 参数有误*
 | `401` | Unauthorized - *需要登录验证, 未验证的*
-| `403` | Forbidden - *权限被拒绝*
+| `403` | Forbidden - *访问被拒绝*
 | `404` | Not Found - *资源不存在*
 | `405` | Method Not Found - *方法不存在*
 | `409` | Conflict - *资源已存在*
@@ -99,8 +99,8 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 | Field | Description |
 |---|---|
 |`httpMethod`|`GET|POST|PUT|DELETE` 大写|
-|`apiUrl`|`https://api.uzhenbao.com/goods` 如有`?|&`参数, 需携带|
-|`apiVersion`|`1` 当前api版本|
+|`apiUrl`|`https://api.uzhenbao.com/products` 如有`?|&`参数, 需携带|
+|`apiVersion`|`2` 当前api版本|
 |`timestamp`|`1478333136` unix 时间辍, 单位秒, 注意要与header中的`timestamp`值一致|
 |`contentLength`|`0` 请求体总长度|
 |`appSecret`|`ksi28Skxmsw01lZs391`  由系统分配, 固定, 管理平台 app栏目获取, 签名密钥, 不可暴露, 移动端应放在安全的位置,或做包混淆|
@@ -156,7 +156,7 @@ HTTP状态码是客户端接收服务器响应状态, 根据不同的状态提�
 
 为了保证客户端输入的数据为有效数据，服务器将验证每个接口所需要的特定的参数所支持的数据类型及数据长度等信息
 
-验证错误会返回与当前请求相关的错误信息:
+验证错误会返回与当前请求相关的错误信息,状态码：`400`
 
 ```
 {
@@ -4950,3 +4950,240 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
                 "code": 404,
                 "message": "资源不存在"
             }
+
+
+
+
+# Group 代购
+
+## 代购列表 [/procurements]
+
+部分Request参数说明，可按需进行筛选
+| Key | Value | Required | Description |
+|---|---|---|---|
+|category_id| 1 | optional | 可筛选分类id下的数据 |
+|buyer_id| 1 | optional | 代购者的数据 |
+|customer_id| 1 | optional | 消费者的数据 |
+
+
+部分Response数据说明
+| Key | Value | Description |
+|---|---|---|---|
+|is_accept_flaw| 1 | 是否接收商品会有瑕疵, 1接受, 0不接受 |
+|is_possible_flaw| 1 | 代购是否有可能造成瑕疵, 1会, 0不会 |
+|type| 1 | 1找代购, 2为人代购 |
+|area| 某某商厦 | 商品购入地点 |
+|price| 1999 | 代购一口价 |
+|product_name| 香奈儿限量手包 | 代购商品名 |
+|description| 代购说明 | 代购说明 |
+
+
+### 获取 [GET]
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
+    + Attributes
+
+        + category_id: 1 (number, optional) - 分类id
+        + buyer_id: 1 (number, optional) - 代购者id
+        + customer_id: 1 (number, optional) - 消费者id
+
++ Response 200 (application/json)
+
+            {
+              "total": 4,
+              "per_page": 15,
+              "current_page": 1,
+              "last_page": 1,
+              "next_page_url": null,
+              "prev_page_url": null,
+              "from": 1,
+              "to": 4,
+              "data": [
+                {
+                  "id": 26,
+                  "title": "哈哈",
+                  "description": null,
+                  "category_id": 1,
+                  "customer_id": 4,
+                  "buyer_id": 1,
+                  "area": "1231321312",
+                  "created_at": "2017-02-22 13:54:13",
+                  "updated_at": "2017-02-22 17:21:40",
+                  "exchange_started_at": "2017-02-22 15:10:08",
+                  "exchange_canceled_at": "2017-02-22 15:24:52",
+                  "exchange_finished_at": null,
+                  "exchange_closed_at": "2017-02-22 17:21:40",
+                  "exchange_waited_at": "2017-02-22 17:21:26",
+                  "deleted_at": null,
+                  "status": 0,
+                  "sort": null,
+                  "price": null,
+                  "product_name": null,
+                  "is_accept_flaw": null,
+                  "is_possible_flaw": null,
+                  "type": null,
+                  "is_graded": null
+                },
+                {
+                  "id": 25,
+                  "title": "哈哈",
+                  "description": null,
+                  "category_id": 1,
+                  "customer_id": null,
+                  "buyer_id": 4,
+                  "area": "1231321312",
+                  "created_at": "2017-02-22 13:54:10",
+                  "updated_at": "2017-02-22 13:54:10",
+                  "exchange_started_at": null,
+                  "exchange_canceled_at": null,
+                  "exchange_finished_at": null,
+                  "exchange_closed_at": null,
+                  "exchange_waited_at": "2017-02-22 13:54:10",
+                  "deleted_at": null,
+                  "status": 1,
+                  "sort": null,
+                  "price": null,
+                  "product_name": null,
+                  "is_accept_flaw": null,
+                  "is_possible_flaw": null,
+                  "type": null,
+                  "is_graded": null
+                },
+                {
+                  "id": 24,
+                  "title": "哈哈",
+                  "description": null,
+                  "category_id": 1,
+                  "customer_id": null,
+                  "buyer_id": 4,
+                  "area": "1231321312",
+                  "created_at": "2017-02-22 13:54:00",
+                  "updated_at": "2017-02-22 13:54:00",
+                  "exchange_started_at": null,
+                  "exchange_canceled_at": null,
+                  "exchange_finished_at": null,
+                  "exchange_closed_at": null,
+                  "exchange_waited_at": "2017-02-22 13:54:00",
+                  "deleted_at": null,
+                  "status": 1,
+                  "sort": null,
+                  "price": null,
+                  "product_name": null,
+                  "is_accept_flaw": null,
+                  "is_possible_flaw": null,
+                  "type": null,
+                  "is_graded": null
+                },
+                {
+                  "id": 23,
+                  "title": "哈哈",
+                  "description": null,
+                  "category_id": 1,
+                  "customer_id": null,
+                  "buyer_id": 4,
+                  "area": "1231321312",
+                  "created_at": "2017-02-22 13:51:15",
+                  "updated_at": "2017-02-22 13:51:15",
+                  "exchange_started_at": null,
+                  "exchange_canceled_at": null,
+                  "exchange_finished_at": null,
+                  "exchange_closed_at": null,
+                  "exchange_waited_at": "2017-02-22 13:51:15",
+                  "deleted_at": null,
+                  "status": 1,
+                  "sort": null,
+                  "price": null,
+                  "product_name": null,
+                  "is_accept_flaw": null,
+                  "is_possible_flaw": null,
+                  "type": null,
+                  "is_graded": null
+                }
+              ]
+            }
+
+### 发布代购 [POST /procurements]
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 4
+            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
+
+    + Attributes
+
+        + category_id: 1 (number, required) - 分类id
+        + area: Harvey Nichols (string, required) - 购物地点
+        + price: 1999 (string, required) - 购物价
+        + product_name: 香奈儿限量包包 (string, required) - 代购商品名
+        + description: 这是说明 (string, optional) - 代购说明
+        + type: 1 (number, required) - 1 为人代购, (2 找人代购)
+        + is_accept_flaw: 0 (number, required) - 是否接受商品瑕疵
+        + is_possible_flaw: 0 (number, required) - 商品是否有可能瑕疵
+
++ Response 200 (application/json)
+
+            {
+              "area": "1231321312",
+              "category_id": "1",
+              "price": "1999",
+              "product_name": "限量包包",
+              "buyer_id": 4,
+              "exchange_waited_at": "2017-02-23 11:52:15",
+              "status": 1,
+              "updated_at": "2017-02-23 11:52:15",
+              "created_at": "2017-02-23 11:52:15",
+              "id": 51
+            }
+
+## 代购分类 [/procurements/categories]
+
+### 获取 [GET]
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 200 (application/json)
+
+            [
+              {
+                "id": 4,
+                "name": "港台",
+                "sort": 1,
+                "updated_at": null,
+                "created_at": null
+              },
+              {
+                "id": 3,
+                "name": "日韩",
+                "sort": 1,
+                "updated_at": null,
+                "created_at": null
+              },
+              {
+                "id": 1,
+                "name": "欧美",
+                "sort": 1,
+                "updated_at": null,
+                "created_at": null
+              }
+            ]
