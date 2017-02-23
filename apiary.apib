@@ -4965,6 +4965,7 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 |buyer_id| 1 | optional | 代购者的数据 |
 |customer_id| 1 | optional | 消费者的数据 |
 |title| 我要代购 | optional | 搜索标题 |
+|type| 1 | optional | 1找人代购, 2为人代购 |
 
 
 部分Response数据说明
@@ -4972,7 +4973,7 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 |---|---|---|---|
 |is_accept_flaw| 1 | 是否接收商品会有瑕疵, 1接受, 0不接受 |
 |is_possible_flaw| 1 | 代购是否有可能造成瑕疵, 1会, 0不会 |
-|type| 1 | 1找代购, 2为人代购 |
+|type| 1 | 1找人代购, 2为人代购 |
 |area| 某某商厦 | 商品购入地点 |
 |price| 1999 | 代购一口价 |
 |product_name| 香奈儿限量手包 | 代购商品名 |
@@ -5240,7 +5241,28 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 + Response 201 (application/json)
 
             {
-
+              "id": 25,
+              "description": null,
+              "category_id": 1,
+              "customer_id": 4,
+              "buyer_id": 2,
+              "area": "1231321312",
+              "created_at": "2017-02-22 13:54:10",
+              "updated_at": "2017-02-23 17:00:18",
+              "exchange_started_at": "2017-02-23 17:00:04",
+              "exchange_canceled_at": "2017-02-23 17:00:18",
+              "exchange_finished_at": null,
+              "exchange_closed_at": null,
+              "exchange_waited_at": "2017-02-23 16:58:20",
+              "deleted_at": null,
+              "status": -1,
+              "sort": null,
+              "price": null,
+              "product_name": null,
+              "is_accept_flaw": null,
+              "is_possible_flaw": null,
+              "type": null,
+              "is_graded": null
             }
 
 + Response 403 (application/json)
@@ -5267,7 +5289,7 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 + Response 200 (application/json)
 
             {
-
+                
             }
 
 ### 开启代购 [PUT /procurements/{id}/open]
