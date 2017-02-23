@@ -4964,7 +4964,7 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 |category_id| 1 | optional | 可筛选分类id下的数据 |
 |buyer_id| 1 | optional | 代购者的数据 |
 |customer_id| 1 | optional | 消费者的数据 |
-|title| 我要代购 | optional | 搜索标题 |
+|keyword| 我要代购 | optional | 搜索标题 |
 |type| 1 | optional | 1找人代购, 2为人代购 |
 
 
@@ -4980,7 +4980,7 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 |description| 代购说明 | 代购说明 |
 
 
-### 获取 [GET]
+### 列表 [GET]
 
 + Request
 
@@ -5019,20 +5019,15 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
                   "area": "1231321312",
                   "created_at": "2017-02-22 13:54:13",
                   "updated_at": "2017-02-22 17:21:40",
-                  "exchange_started_at": "2017-02-22 15:10:08",
-                  "exchange_canceled_at": "2017-02-22 15:24:52",
-                  "exchange_finished_at": null,
-                  "exchange_closed_at": "2017-02-22 17:21:40",
-                  "exchange_waited_at": "2017-02-22 17:21:26",
+                  "closed_at": "2017-02-22 17:21:40",
+                  "opened_at": "2017-02-22 17:21:26",
                   "deleted_at": null,
-                  "status": 0,
                   "sort": null,
                   "price": null,
                   "product_name": null,
                   "is_accept_flaw": null,
                   "is_possible_flaw": null,
                   "type": null,
-                  "is_graded": null
                 },
                 {
                   "id": 25,
@@ -5044,20 +5039,15 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
                   "area": "1231321312",
                   "created_at": "2017-02-22 13:54:10",
                   "updated_at": "2017-02-22 13:54:10",
-                  "exchange_started_at": null,
-                  "exchange_canceled_at": null,
-                  "exchange_finished_at": null,
-                  "exchange_closed_at": null,
-                  "exchange_waited_at": "2017-02-22 13:54:10",
+                  "closed_at": null,
+                  "opened_at": "2017-02-22 13:54:10",
                   "deleted_at": null,
-                  "status": 1,
                   "sort": null,
                   "price": null,
                   "product_name": null,
                   "is_accept_flaw": null,
                   "is_possible_flaw": null,
                   "type": null,
-                  "is_graded": null
                 },
                 {
                   "id": 24,
@@ -5069,20 +5059,15 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
                   "area": "1231321312",
                   "created_at": "2017-02-22 13:54:00",
                   "updated_at": "2017-02-22 13:54:00",
-                  "exchange_started_at": null,
-                  "exchange_canceled_at": null,
-                  "exchange_finished_at": null,
-                  "exchange_closed_at": null,
-                  "exchange_waited_at": "2017-02-22 13:54:00",
+                  "closed_at": null,
+                  "opened_at": "2017-02-22 13:54:00",
                   "deleted_at": null,
-                  "status": 1,
                   "sort": null,
                   "price": null,
                   "product_name": null,
                   "is_accept_flaw": null,
                   "is_possible_flaw": null,
                   "type": null,
-                  "is_graded": null
                 },
                 {
                   "id": 23,
@@ -5094,23 +5079,65 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
                   "area": "1231321312",
                   "created_at": "2017-02-22 13:51:15",
                   "updated_at": "2017-02-22 13:51:15",
-                  "exchange_started_at": null,
-                  "exchange_canceled_at": null,
-                  "exchange_finished_at": null,
-                  "exchange_closed_at": null,
-                  "exchange_waited_at": "2017-02-22 13:51:15",
+                  "closed_at": null,
+                  "opened_at": "2017-02-22 13:51:15",
                   "deleted_at": null,
-                  "status": 1,
                   "sort": null,
                   "price": null,
                   "product_name": null,
                   "is_accept_flaw": null,
                   "is_possible_flaw": null,
                   "type": null,
-                  "is_graded": null
                 }
               ]
             }
+
+### 详情 [GET /procurements/{id}]
+
++ Parameters
+
+    + id: 1 - 代购id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 4
+            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
+
++ Response 200 (application/json)
+
+            {
+              "id": 25,
+              "category_id": 1,
+              "buyer_id": 4,
+              "description": null,
+              "area": "1231321312",
+              "created_at": "2017-02-22 13:54:10",
+              "updated_at": "2017-02-23 17:36:39",
+              "closed_at": "2017-02-23 17:20:22",
+              "opened_at": "2017-02-23 17:36:39",
+              "deleted_at": null,
+              "sort": null,
+              "price": null,
+              "product_name": null,
+              "is_accept_flaw": null,
+              "is_possible_flaw": null,
+              "type": null
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 404,
+                "message": "资源不存在, 或已被删除"
+            }
+
 
 ### 发布代购 [POST /procurements]
 
@@ -5144,134 +5171,13 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
               "price": "1999",
               "product_name": "限量包包",
               "buyer_id": 4,
-              "exchange_waited_at": "2017-02-23 11:52:15",
+              "opened_at": "2017-02-23 11:52:15",
               "status": 1,
               "updated_at": "2017-02-23 11:52:15",
               "created_at": "2017-02-23 11:52:15",
               "id": 51
             }
 
-### 接单 [PUT /procurements/{id}/exchange]
-
-+ Request (application/json)
-
-    + Headers
-
-            timestamp: 1478840722
-            app-key: 92lsk20ks
-            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 2
-            user-id: 4
-            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
-
-
-+ Response 201 (application/json)
-
-            {
-              "id": 25,
-              "description": null,
-              "category_id": 1,
-              "customer_id": 4,
-              "buyer_id": 1,
-              "area": "1231321312",
-              "created_at": "2017-02-22 13:54:10",
-              "updated_at": "2017-02-23 14:53:43",
-              "exchange_started_at": "2017-02-23 14:53:43",
-              "exchange_canceled_at": null,
-              "exchange_finished_at": null,
-              "exchange_closed_at": null,
-              "exchange_waited_at": "2017-02-22 13:54:10",
-              "deleted_at": null,
-              "status": 2,
-              "sort": null,
-              "price": null,
-              "product_name": null,
-              "is_accept_flaw": null,
-              "is_possible_flaw": null,
-              "type": null,
-              "is_graded": null
-            }
-
-+ Response 404 (application/json)
-
-            {
-                "status": 404,
-                "code": 404,
-                "message": "资源不存在, 或已被删除"
-            }
-
-+ Response 409 (application/json)
-
-            {
-                "status": 409,
-                "code": 40911,
-                "message": "代购服务已被他人购买"
-            }
-
-+ Response 403 (application/json)
-
-            {
-                "status": 403
-                "code": 40313
-                "message": "不能为自己代购"
-            }
-
-+ Response 403 (application/json)
-
-            {
-                "status": 403
-                "code": 40314
-                "message": "代购已被关闭"
-            }
-
-
-### 取消代购 [PUT /procurements/{id}/cancel]
-
-+ Request (application/json)
-
-    + Headers
-
-            timestamp: 1478840722
-            app-key: 92lsk20ks
-            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 2
-            user-id: 4
-            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
-
-+ Response 201 (application/json)
-
-            {
-              "id": 25,
-              "description": null,
-              "category_id": 1,
-              "customer_id": 4,
-              "buyer_id": 2,
-              "area": "1231321312",
-              "created_at": "2017-02-22 13:54:10",
-              "updated_at": "2017-02-23 17:00:18",
-              "exchange_started_at": "2017-02-23 17:00:04",
-              "exchange_canceled_at": "2017-02-23 17:00:18",
-              "exchange_finished_at": null,
-              "exchange_closed_at": null,
-              "exchange_waited_at": "2017-02-23 16:58:20",
-              "deleted_at": null,
-              "status": -1,
-              "sort": null,
-              "price": null,
-              "product_name": null,
-              "is_accept_flaw": null,
-              "is_possible_flaw": null,
-              "type": null,
-              "is_graded": null
-            }
-
-+ Response 403 (application/json)
-
-            {
-              "status": 403,
-              "code": 403,
-              "message": "拒绝访问资源, 不具备访问权限"
-            }
 
 ### 关闭代购 [PUT /procurements/{id}/close]
 
@@ -5289,7 +5195,31 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 + Response 200 (application/json)
 
             {
-                
+              "id": 25,
+              "description": null,
+              "category_id": 1,
+              "customer_id": 4,
+              "buyer_id": 4,
+              "area": "1231321312",
+              "created_at": "2017-02-22 13:54:10",
+              "updated_at": "2017-02-23 17:20:22",
+              "opened_at": "2017-02-23 17:00:18",
+              "closed_at": "2017-02-23 17:20:22",
+              "deleted_at": null,
+              "sort": null,
+              "price": null,
+              "product_name": null,
+              "is_accept_flaw": null,
+              "is_possible_flaw": null,
+              "type": null,
+            }
+
++ Response 403 (application/json)
+
+            {
+              "status": 403,
+              "code": 403,
+              "message": "拒绝访问资源, 不具备访问权限"
             }
 
 ### 开启代购 [PUT /procurements/{id}/open]
@@ -5305,10 +5235,34 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
             user-id: 4
             access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
 
-+ Response 200 (application/json)
++ Response 201 (application/json)
 
             {
+                "id": 25,
+                "description": null,
+                "category_id": 1,
+                "customer_id": 4,
+                "buyer_id": 4,
+                "area": "1231321312",
+                "created_at": "2017-02-22 13:54:10",
+                "updated_at": "2017-02-23 17:36:39",
+                "closed_at": "2017-02-23 17:20:22",
+                "opened_at": "2017-02-23 17:36:39",
+                "deleted_at": null,
+                "sort": null,
+                "price": null,
+                "product_name": null,
+                "is_accept_flaw": null,
+                "is_possible_flaw": null,
+                "type": null,
+            }
 
++ Response 403 (application/json)
+
+            {
+              "status": 403,
+              "code": 403,
+              "message": "拒绝访问资源, 不具备访问权限"
             }
 
 ## 代购分类 [/procurements/categories]
