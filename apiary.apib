@@ -4964,7 +4964,7 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 |category_id| 1 | optional | 可筛选分类id下的数据 |
 |buyer_id| 1 | optional | 代购者的数据 |
 |customer_id| 1 | optional | 消费者的数据 |
-|keyword| 我要代购 | optional | 搜索标题 |
+|keyword| 香奈儿包包 | optional | 可搜索商品名和地区 |
 |type| 1 | optional | 1找人代购, 2为人代购 |
 
 
@@ -5011,7 +5011,6 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
               "data": [
                 {
                   "id": 26,
-                  "title": "哈哈",
                   "description": null,
                   "category_id": 1,
                   "customer_id": 4,
@@ -5031,7 +5030,6 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
                 },
                 {
                   "id": 25,
-                  "title": "哈哈",
                   "description": null,
                   "category_id": 1,
                   "customer_id": null,
@@ -5051,7 +5049,6 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
                 },
                 {
                   "id": 24,
-                  "title": "哈哈",
                   "description": null,
                   "category_id": 1,
                   "customer_id": null,
@@ -5071,7 +5068,6 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
                 },
                 {
                   "id": 23,
-                  "title": "哈哈",
                   "description": null,
                   "category_id": 1,
                   "customer_id": null,
@@ -5303,3 +5299,131 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
                 "created_at": null
               }
             ]
+
+
+## 购买 [/users/{id}/percurementOrders]
+
+购买代购服务,执行流程: `预览订单` -> `生成订单` -> `选择支付方式获取平台交易信息` -> `客户端向支付平台发起交易` ->
+`平台返回结果`
+
+注：支付方式与`平台商品`支付方式一致
+
+| Key | Value | Data Type | Required | Description |
+|---|---|---|---|---|
+| `percurement_id` | 1 | number | required | 代购id |
+| `shipping_address_id` | 1 | number | required | 收货地址id |
+| `memo` | 这是备注 | string | optional | 备注, 最多255字 |
+
+### 预览订单 [POST /users/{id}/percurementOrders/preview]
+
++ Parameters
+
+    + id: 1 (number) - 用户id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 4
+            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
+
+    + Attributes
+
+        + percurement_id: 1 (required) - 代购id
+        + shipping_address_id: 4 (required) - 收货地址id
+        + memo (optional, string) - 备注内容, 最多255字
+
+
++ Response 200 (application/json)
+
+            {
+              "total_price": 157.7,
+              "original_price": 157.7,
+              "postage": 0,
+              "coupon_price": 0,
+              "available_coupons": []
+            }
+
+
++ Response 409 (application/json)
+
+            {
+              "status": 409,
+              "code": 40911,
+              "message": "代购服务已被他人购买"
+            }
+
+
++ Response 403 (application/json)
+
+            {
+                "status": 403,
+                "code": 40313,
+                "message": "不能为自己代购"
+            }
+
++ Response 404 (application/json)
+
+            {
+              "status": 404,
+              "code": 4045,
+              "message": "收货地址不存在"
+            }
+
+
+### 生成订单 [POST]
+
++ Parameters
+
+    + id: 1 (number) - 用户id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
+    + Attributes
+
+        + percurement_id: 1 (required) - 代购id
+        + shipping_address_id: 4 (required) - 收货地址id
+        + memo (optional, string) - 备注内容, 最多255字
+
++ Response 201 (application/json)
+
+            {
+
+            }
+
+
++ Response 403 (application/json)
+
+            {
+              "status": 403,
+              "code": 40311,
+              "message": "该商品已售出"
+            }
+
+
++ Response 403 (application/json)
+
+            {
+                "status": 403,
+                "code": 40312,
+                "message": "您不能购买自己发布的商品"
+            }
+
++ Response 404 (application/json)
+
+            {
+              "status": 404,
+              "code": 4045,
+              "message": "收货地址不存在"
+            }
