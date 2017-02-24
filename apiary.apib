@@ -5398,16 +5398,16 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 + Response 201 (application/json)
 
             {
-
+                
             }
 
 
-+ Response 403 (application/json)
++ Response 409 (application/json)
 
             {
-              "status": 403,
-              "code": 40311,
-              "message": "该商品已售出"
+              "status": 409,
+              "code": 40911,
+              "message": "代购服务已被他人购买"
             }
 
 
@@ -5415,8 +5415,8 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 
             {
                 "status": 403,
-                "code": 40312,
-                "message": "您不能购买自己发布的商品"
+                "code": 40313,
+                "message": "不能为自己代购"
             }
 
 + Response 404 (application/json)
