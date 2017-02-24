@@ -5300,7 +5300,7 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
             ]
 
 
-## 购买 [/users/{id}/percurementOrders]
+## 购买 [/users/{id}/procurementOrders]
 
 购买代购服务,执行流程: `预览订单` -> `生成订单` -> `选择支付方式获取平台交易信息` -> `客户端向支付平台发起交易` ->
 `平台返回结果`
@@ -5313,7 +5313,7 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 | `shipping_address_id` | 1 | number | required | 收货地址id |
 | `memo` | 这是备注 | string | optional | 备注, 最多255字 |
 
-### 预览订单 [POST /users/{id}/percurementOrders/preview]
+### 预览订单 [POST /users/{id}/procurementOrders/preview]
 
 + Parameters
 
