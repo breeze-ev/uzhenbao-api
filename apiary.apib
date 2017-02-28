@@ -5310,6 +5310,7 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 | Key | Value | Data Type | Required | Description |
 |---|---|---|---|---|
 | `percurement_id` | 1 | number | required | 代购id |
+| `amount` | 1 | number | required | 数量 |
 | `shipping_address_id` | 1 | number | required | 收货地址id |
 | `memo` | 这是备注 | string | optional | 备注, 最多255字 |
 
@@ -5332,8 +5333,9 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 
     + Attributes
 
-        + percurement_id: 1 (required) - 代购id
-        + shipping_address_id: 4 (required) - 收货地址id
+        + percurement_id: 1 (required, number) - 代购id
+        + shipping_address_id: 4 (required, number) - 收货地址id
+        + amount: 1 (required, number) - 代购数量
         + memo (optional, string) - 备注内容, 最多255字
 
 
@@ -5348,12 +5350,12 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
             }
 
 
-+ Response 409 (application/json)
++ Response 403 (application/json)
 
             {
-              "status": 409,
-              "code": 40911,
-              "message": "代购服务已被他人购买"
+              "status": 403,
+              "code": 4002,
+              "message": "商品库存不足"
             }
 
 
@@ -5393,8 +5395,9 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 
     + Attributes
 
-        + percurement_id: 1 (required) - 代购id
-        + shipping_address_id: 4 (required) - 收货地址id
+        + percurement_id: 1 (required, number) - 代购id
+        + shipping_address_id: 4 (required, number) - 收货地址id
+        + amount: 1 (required, number) - 代购数量
         + memo (optional, string) - 备注内容, 最多255字
 
 + Response 201 (application/json)
@@ -5435,12 +5438,12 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
             }
 
 
-+ Response 409 (application/json)
++ Response 403 (application/json)
 
             {
-              "status": 409,
-              "code": 40911,
-              "message": "代购服务已被他人购买"
+              "status": 403,
+              "code": 4002,
+              "message": "商品库存不足"
             }
 
 
