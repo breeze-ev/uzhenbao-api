@@ -5137,6 +5137,9 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 
 发布代购有两种: 1, 求购; 2, 代购, 创建时分别传不同的数据
 
+求购,执行流程: `发布求购` -> `求购预付款` -> `选择支付方式获取平台交易信息` -> `客户端向支付平台发起交易` ->
+`平台返回结果` -> `等待代客接单`
+
 求购
 |Key|Value|Required|Data Type|Length|Description|
 |---|---|---|---|---|---|
@@ -5206,7 +5209,86 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
             }
 
 
+### 求购预付款 [POST /users/{id}/prepaymentOrders]
+
++ Attributes
+
+    + id: 1 - 用户id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 4
+            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
+
+    + Attributes
+
+        + procurement_id: 1 (number, required) - 代购id
+
++ Response 201 (application/json)
+
+            {
+              "id": 136,
+              "order_no": "M1703013636039178639",
+              "status": "0",
+              "user_id": 7,
+              "return_id": null,
+              "amount": 1,
+              "original_price": "0.00",
+              "total_price": "100.00",
+              "coupon_price": "0.00",
+              "memo": "",
+              "created_at": "2017-03-01 11:32:27",
+              "updated_at": "2017-03-01 11:32:27",
+              "deleted_at": null,
+              "cancel_id": null,
+              "cancel_description": null,
+              "pay_platform_id": null,
+              "pay_platform_trade_no": null,
+              "coupon_id": null,
+              "coupon_group_id": null,
+              "is_invoice": 0,
+              "invoice_type": null,
+              "invoiced": null,
+              "express_id": null,
+              "tracking_number": null,
+              "express_traces": null,
+              "express_refresh": "2017-03-01 11:32:27",
+              "dispatched_at": null,
+              "received_at": null,
+              "is_refunded": null,
+              "is_restored_stock": 0,
+              "seller_id": null,
+              "buyer_id": null
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 40413,
+                "message": "代购服务不存在，或已被删除"
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 4045,
+                "message": "收货地址不存在"
+            }
+
+
 ### 关闭代购 [PUT /procurements/{id}/close]
+
++ Attributes
+
+    + id: 1 - 代购id
 
 + Request (application/json)
 
@@ -5251,6 +5333,10 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 
 ### 开启代购 [PUT /procurements/{id}/open]
 
++ Attributes
+
+    + id: 1 - 代购id
+
 + Request (application/json)
 
     + Headers
@@ -5292,6 +5378,8 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
               "message": "拒绝访问资源, 不具备访问权限"
             }
 
+
+
 ## 代购分类 [/procurements/categories]
 
 ### 获取 [GET]
@@ -5332,7 +5420,8 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
             ]
 
 
-## 购买 [/users/{id}/procurementOrders]
+
+## 代购下单 [/users/{id}/procurementOrders]
 
 购买代购服务,执行流程: `预览订单` -> `生成订单` -> `选择支付方式获取平台交易信息` -> `客户端向支付平台发起交易` ->
 `平台返回结果`
