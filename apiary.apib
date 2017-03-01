@@ -5655,6 +5655,186 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
               "message": "收货地址不存在"
             }
 
+## 消息 [/procurements/{id}/messages]
+
+### 获取消息 [GET]
+
++ Parameters
+
+    + id: 1 (number) - 代购id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 4
+            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
+
++ Response 200 (application/json)
+
+            {
+              "procurement": {
+                "id": 131,
+                "category_id": 4,
+                "user_id": 40,
+                "description": "说明",
+                "area": "详情",
+                "amount": 0,
+                "created_at": "2017-03-01 16:30:55",
+                "updated_at": "2017-03-01 17:34:47",
+                "closed_at": null,
+                "opened_at": "2017-03-01 16:33:27",
+                "deleted_at": null,
+                "sort": null,
+                "price": "0.01",
+                "product_name": "哈哈",
+                "is_accept_flaw": null,
+                "is_possible_flaw": 1,
+                "type": 2,
+                "images": [
+                  "http://api.dev.uzhenbao.com/uploads/procurements/20170301163055339737.jpg",
+                  "http://api.dev.uzhenbao.com/uploads/procurements/20170301163055584627.jpg"
+                ],
+                "is_paid": null,
+                "memo": null,
+                "shipping_address_id": null,
+                "buyer_id": 40,
+                "customer_id": 4
+              },
+              "order": {
+                "id": 142,
+                "order_no": "M1703017556560817170",
+                "status": "-2",
+                "user_id": 7,
+                "return_id": null,
+                "amount": 1,
+                "original_price": "0.01",
+                "total_price": "0.01",
+                "coupon_price": "0.00",
+                "memo": null,
+                "created_at": "2017-03-01 17:33:06",
+                "updated_at": "2017-03-01 17:49:01",
+                "deleted_at": null,
+                "cancel_id": null,
+                "cancel_description": null,
+                "pay_platform_id": null,
+                "pay_platform_trade_no": null,
+                "coupon_id": null,
+                "coupon_group_id": null,
+                "is_invoice": 0,
+                "invoice_type": null,
+                "invoiced": null,
+                "express_id": null,
+                "tracking_number": null,
+                "express_traces": null,
+                "express_refresh": "2017-03-01 17:33:06",
+                "dispatched_at": null,
+                "received_at": null,
+                "is_refunded": null,
+                "is_restored_stock": 1,
+                "seller_id": null,
+                "buyer_id": 40
+              },
+              "messages": [
+                {
+                  "id": 7,
+                  "procurement_id": 131,
+                  "message": "在,有什么需要",
+                  "customer_id": null,
+                  "buyer_id": 40,
+                  "created_at": "2017-03-01 18:28:20",
+                  "updated_at": "2017-03-01 18:28:20"
+                },
+                {
+                  "id": 2,
+                  "procurement_id": 131,
+                  "message": "在吗",
+                  "customer_id": 4,
+                  "buyer_id": null,
+                  "created_at": "2017-03-01 18:22:43",
+                  "updated_at": "2017-03-01 18:22:43"
+                },
+                {
+                  "id": 1,
+                  "procurement_id": 131,
+                  "message": "你好啊，在吗",
+                  "customer_id": 4,
+                  "buyer_id": null,
+                  "created_at": "2017-03-01 18:22:23",
+                  "updated_at": "2017-03-01 18:22:23"
+                }
+              ]
+            }
+
+
++ Response 403 (application/json)
+
+            {
+                "status": 403,
+                "code": 403,
+                "message": "拒绝访问资源, 不具备访问权限"
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 404,
+                "message": "资源不存在, 或已被删除"
+            }
+
+
+### 发送 [POST]
+
++ Parameters
+
+    + id: 1 (number) - 代购id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 4
+            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
+
+    + Attributes
+
+        + message: 在,有什么需要 (required, string) - 聊天消息,最多255字
+
++ Response 201 (application/json)
+
+            {
+                "message": "在,有什么需要",
+                "procurement_id": "131",
+                "customer_id": 40,
+                "updated_at": "2017-03-01 18:39:14",
+                "created_at": "2017-03-01 18:39:14",
+                "id": 8
+            }
+
++ Response 403 (application/json)
+
+            {
+                "status": 403,
+                "code": 403,
+                "message": "拒绝访问资源, 不具备访问权限"
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 404,
+                "message": "资源不存在, 或已被删除"
+            }
 
 # group 代客
 
