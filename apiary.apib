@@ -4964,6 +4964,7 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 |user_id| 1 | optional | 用户id |
 |keyword| 香奈儿包包 | optional | 可搜索商品名和地区 |
 |type| 1 | optional | 1找人代购, 2为人代购 |
+|status| opened | optional | opened 仅显示已开启的 ( closed 仅显示已关闭的 ) |
 
 
 部分Response数据说明
@@ -5229,6 +5230,76 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
     + Attributes
 
         + procurement_id: 1 (number, required) - 代购id
+
++ Response 201 (application/json)
+
+            {
+              "id": 136,
+              "order_no": "M1703013636039178639",
+              "status": "0",
+              "user_id": 7,
+              "return_id": null,
+              "amount": 1,
+              "original_price": "0.00",
+              "total_price": "100.00",
+              "coupon_price": "0.00",
+              "memo": "",
+              "created_at": "2017-03-01 11:32:27",
+              "updated_at": "2017-03-01 11:32:27",
+              "deleted_at": null,
+              "cancel_id": null,
+              "cancel_description": null,
+              "pay_platform_id": null,
+              "pay_platform_trade_no": null,
+              "coupon_id": null,
+              "coupon_group_id": null,
+              "is_invoice": 0,
+              "invoice_type": null,
+              "invoiced": null,
+              "express_id": null,
+              "tracking_number": null,
+              "express_traces": null,
+              "express_refresh": "2017-03-01 11:32:27",
+              "dispatched_at": null,
+              "received_at": null,
+              "is_refunded": null,
+              "is_restored_stock": 0,
+              "seller_id": null,
+              "buyer_id": null
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 40413,
+                "message": "代购服务不存在，或已被删除"
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 4045,
+                "message": "收货地址不存在"
+            }
+
+### 代客接单 [PUT /procurements/{id}/accept]
+
++ Attributes
+
+    + id: 1 - 代购id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 4
+            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
 
 + Response 201 (application/json)
 
