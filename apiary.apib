@@ -5654,3 +5654,250 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
               "code": 4045,
               "message": "收货地址不存在"
             }
+
+
+# group 代客
+
+## 订单 [/buyers/{userId}/orders]
+
+### 列表 [GET]
+
++ Parameters
+
+    + userId: 1 (number) - 用户id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 4
+            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
+
+
++ Response 200 (application/json)
+
+            {
+              "total": 1,
+              "per_page": 15,
+              "current_page": 1,
+              "last_page": 1,
+              "next_page_url": null,
+              "prev_page_url": null,
+              "from": 1,
+              "to": 1,
+              "data": [
+                {
+                  "id": 137,
+                  "order_no": "M1703019854245772727",
+                  "status": "-2",
+                  "user_id": 7,
+                  "return_id": null,
+                  "amount": 1,
+                  "original_price": "0.00",
+                  "total_price": "1999.00",
+                  "coupon_price": "0.00",
+                  "memo": "",
+                  "created_at": "2017-03-01 13:22:21",
+                  "updated_at": "2017-03-01 15:13:59",
+                  "deleted_at": null,
+                  "cancel_id": null,
+                  "cancel_description": null,
+                  "pay_platform_id": null,
+                  "pay_platform_trade_no": null,
+                  "coupon_id": null,
+                  "coupon_group_id": null,
+                  "is_invoice": 0,
+                  "invoice_type": null,
+                  "invoiced": null,
+                  "express_id": null,
+                  "tracking_number": null,
+                  "express_traces": null,
+                  "express_refresh": "2017-03-01 13:22:21",
+                  "dispatched_at": null,
+                  "received_at": null,
+                  "is_refunded": null,
+                  "is_restored_stock": 1,
+                  "seller_id": null,
+                  "buyer_id": 4,
+                  "items": [
+                    {
+                      "id": 138,
+                      "order_id": 137,
+                      "product_id": null,
+                      "product_item_id": null,
+                      "user_product_id": null,
+                      "procurement_id": 130,
+                      "amount": 1,
+                      "unit_price": "1999.00",
+                      "total_price": "1999.00",
+                      "apply_id": null,
+                      "return_id": null,
+                      "is_returned": 0,
+                      "is_applied": 0,
+                      "created_at": "2017-03-01 13:22:21",
+                      "updated_at": "2017-03-01 13:22:21",
+                      "procurement": {
+                        "id": 130,
+                        "category_id": 1,
+                        "user_id": 4,
+                        "description": "代购说明",
+                        "area": "1231321312",
+                        "amount": 0,
+                        "created_at": "2017-03-01 13:20:20",
+                        "updated_at": "2017-03-01 14:34:03",
+                        "closed_at": null,
+                        "opened_at": "2017-03-01 14:34:03",
+                        "deleted_at": null,
+                        "sort": null,
+                        "price": "1999.00",
+                        "product_name": "限量包包",
+                        "is_accept_flaw": 1,
+                        "is_possible_flaw": null,
+                        "type": 1,
+                        "images": null,
+                        "is_paid": null,
+                        "memo": null,
+                        "shipping_address_id": 200,
+                        "buyer_id": 4
+                      }
+                    }
+                  ],
+                  "user": {
+                    "id": 7,
+                    "name": "李晓璐",
+                    "created_at": "2016-12-29 12:10:37",
+                    "updated_at": "2017-02-23 10:35:31",
+                    "avatar": {
+                      "avatar": "http://api.dev.uzhenbao.com/uploads/users/14863812282310_avatar.jpg",
+                      "thumb": "http://api.dev.uzhenbao.com/uploads/users/thumb_14863812282310_avatar.jpg"
+                    },
+                    "summary": "",
+                    "level": 1,
+                    "forum_level": 15
+                  }
+                }
+              ]
+            }
+
+### 详情 [GET /buyers/{userId}/orders/{id}]
+
++ Parameters
+
+    + userId: 1 (number) - 用户id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 4
+            access-token: $2y$10$L.9BrRr6SoaBoibXXYRGPeyD/PlyWDmiYtvR1Lb..dhBx4pPX790O
+
++ Response 200 (application/json)
+
+            {
+              "id": 137,
+              "order_no": "M1703019854245772727",
+              "status": "-2",
+              "user_id": 7,
+              "return_id": null,
+              "amount": 1,
+              "original_price": "0.00",
+              "total_price": "1999.00",
+              "coupon_price": "0.00",
+              "memo": "",
+              "created_at": "2017-03-01 13:22:21",
+              "updated_at": "2017-03-01 15:13:59",
+              "deleted_at": null,
+              "cancel_id": null,
+              "cancel_description": null,
+              "pay_platform_id": null,
+              "pay_platform_trade_no": null,
+              "coupon_id": null,
+              "coupon_group_id": null,
+              "is_invoice": 0,
+              "invoice_type": null,
+              "invoiced": null,
+              "express_id": null,
+              "tracking_number": null,
+              "express_traces": null,
+              "express_refresh": "2017-03-01 13:22:21",
+              "dispatched_at": null,
+              "received_at": null,
+              "is_refunded": null,
+              "is_restored_stock": 1,
+              "seller_id": null,
+              "buyer_id": 4,
+              "express": null,
+              "items": [
+                {
+                  "id": 138,
+                  "order_id": 137,
+                  "product_id": null,
+                  "product_item_id": null,
+                  "user_product_id": null,
+                  "procurement_id": 130,
+                  "amount": 1,
+                  "unit_price": "1999.00",
+                  "total_price": "1999.00",
+                  "apply_id": null,
+                  "return_id": null,
+                  "is_returned": 0,
+                  "is_applied": 0,
+                  "created_at": "2017-03-01 13:22:21",
+                  "updated_at": "2017-03-01 13:22:21",
+                  "procurement": {
+                    "id": 130,
+                    "category_id": 1,
+                    "user_id": 4,
+                    "description": "代购说明",
+                    "area": "1231321312",
+                    "amount": 0,
+                    "created_at": "2017-03-01 13:20:20",
+                    "updated_at": "2017-03-01 14:34:03",
+                    "closed_at": null,
+                    "opened_at": "2017-03-01 14:34:03",
+                    "deleted_at": null,
+                    "sort": null,
+                    "price": "1999.00",
+                    "product_name": "限量包包",
+                    "is_accept_flaw": 1,
+                    "is_possible_flaw": null,
+                    "type": 1,
+                    "images": null,
+                    "is_paid": null,
+                    "memo": null,
+                    "shipping_address_id": 200,
+                    "buyer_id": 4
+                  }
+                }
+              ],
+              "buyer": {
+                "id": 4,
+                "name": "宝宝31021883",
+                "created_at": "2016-12-29 11:25:21",
+                "updated_at": "2017-01-11 11:03:44",
+                "avatar": {
+                  "avatar": "http://api.dev.uzhenbao.com/default/avatar.jpg",
+                  "thumb": "http://api.dev.uzhenbao.com/default/avatar.jpg"
+                },
+                "summary": "",
+                "level": 1,
+                "forum_level": 10
+              }
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 404,
+                "message": "资源不存在，或已被删除"
+            }
