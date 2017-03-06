@@ -6082,3 +6082,409 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
                 "code": 404,
                 "message": "资源不存在，或已被删除"
             }
+
+## 结算单 [/buyers/{userId}/orderResults]
+
+Response 部分字段说明
+
+| Key | Value | Description |
+|---|---|---|
+| is_remitted | 1 | 0: 未汇款 , 1: 已汇款|
+| remit_number | 92929292872 | 汇款单号 |
+| is_audited | 1 | 0: 用户未确认结算, 1: 用户已确认结算 |
+| bankcard_name | 中国工商银行 |  银行卡发卡行名称 |
+| bankcard_real_name | 张三 | 持卡人姓名 |
+| bankcard_number | 122982829282829289 | 银行卡卡号 |
+
+
+### 列表 [GET]
+
++ Parameters
+
+    + userId: 4 (number) - 用户id
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
+
++ Response 200 (application/json)
+
+            {
+              "total": 1,
+              "per_page": 15,
+              "current_page": 1,
+              "last_page": 1,
+              "next_page_url": null,
+              "prev_page_url": null,
+              "from": 1,
+              "to": 1,
+              "data": [
+                {
+                  "id": 21,
+                  "user_id": 4,
+                  "money": "0.03",
+                  "month": 12,
+                  "year": 2016,
+                  "created_at": "2017-01-07 17:13:01",
+                  "is_remitted": 1,
+                  "remit_number": null,
+                  "is_audited": 0
+                  "bankcard_number": null,
+                  "bankcard_real_name": null,
+                  "bankcard_name": null
+                }
+              ]
+            }
+
+
+### 详情 [GET /buyers/{userId}/orderResults/{id}]
+
++ Parameters
+
+    + userId: 4 (number) - 用户id
+    + id: 1 (number) - 订单id
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Response 200 (application/json)
+
+            {
+              "id": 73,
+              "user_id": 4,
+              "money": "0.03",
+              "month": 12,
+              "year": 2016,
+              "created_at": "2017-01-09 11:31:39",
+              "is_remitted": 0,
+              "remit_number": null,
+              "is_audited": 0,
+              "bankcard_number": null,
+              "bankcard_real_name": null,
+              "bankcard_name": null
+              "orders": [
+                {
+                  "id": 33,
+                  "order_no": "M1701064512788923925",
+                  "status": "3",
+                  "user_id": 13,
+                  "return_id": null,
+                  "amount": 1,
+                  "original_price": "0.01",
+                  "total_price": "0.01",
+                  "coupon_price": "0.00",
+                  "memo": null,
+                  "created_at": "2017-01-06 15:48:43",
+                  "updated_at": "2017-01-07 15:50:01",
+                  "deleted_at": null,
+                  "cancel_id": null,
+                  "cancel_description": null,
+                  "pay_platform_id": 1,
+                  "pay_platform_trade_no": "2017010621001004200226937805",
+                  "coupon_id": null,
+                  "coupon_group_id": null,
+                  "is_invoice": 0,
+                  "invoice_type": null,
+                  "invoiced": null,
+                  "express_id": 2,
+                  "tracking_number": "6545",
+                  "express_traces": [],
+                  "express_refresh": "2017-01-07 12:39:54",
+                  "dispatched_at": "2017-01-06 15:57:28",
+                  "received_at": "2016-12-06 16:02:48",
+                  "is_refunded": null,
+                  "is_restored_stock": 0,
+                  "seller_id": 4,
+                  "pivot": {
+                    "result_id": 73,
+                    "order_id": 33
+                  },
+                  "items": [
+                    {
+                      "id": 198,
+                      "order_id": 33,
+                      "product_id": null,
+                      "product_item_id": null,
+                      "user_product_id": 67,
+                      "amount": 1,
+                      "unit_price": "0.01",
+                      "total_price": "0.01",
+                      "apply_id": null,
+                      "return_id": null,
+                      "is_returned": 0,
+                      "is_applied": 0,
+                      "created_at": "2017-01-06 15:48:43",
+                      "updated_at": "2017-01-06 15:48:43",
+                      "user_product": {
+                        "id": 67,
+                        "user_id": 4,
+                        "title": "测试",
+                        "keywords": null,
+                        "description": "测试",
+                        "images": [
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20170106154803516946.jpg",
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20170106154803625530.jpg",
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20170106154803832802.jpg"
+                        ],
+                        "price": "0.01",
+                        "original_price": "1.00",
+                        "category_id": 1,
+                        "is_sold": 1,
+                        "is_audited": 1,
+                        "quality": 95,
+                        "delivery_day": 0,
+                        "updated_at": "2017-01-06 17:04:20",
+                        "created_at": "2017-01-06 15:48:03",
+                        "sort": 0,
+                        "audited_at": "2017-01-06 15:48:34",
+                        "postage": "0.00",
+                        "status": 1,
+                        "favorites": 0,
+                        "views": 9
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": 35,
+                  "order_no": "M1701068181090313985",
+                  "status": "2",
+                  "user_id": 13,
+                  "return_id": null,
+                  "amount": 1,
+                  "original_price": "0.01",
+                  "total_price": "0.01",
+                  "coupon_price": "0.00",
+                  "memo": null,
+                  "created_at": "2017-01-06 16:11:53",
+                  "updated_at": "2017-01-07 18:13:32",
+                  "deleted_at": null,
+                  "cancel_id": null,
+                  "cancel_description": null,
+                  "pay_platform_id": 1,
+                  "pay_platform_trade_no": "2017010621001004200226963039",
+                  "coupon_id": null,
+                  "coupon_group_id": null,
+                  "is_invoice": 0,
+                  "invoice_type": null,
+                  "invoiced": null,
+                  "express_id": 1,
+                  "tracking_number": "12345678",
+                  "express_traces": [],
+                  "express_refresh": "2017-01-07 18:13:28",
+                  "dispatched_at": "2017-01-06 17:49:13",
+                  "received_at": "2016-12-06 16:02:48",
+                  "is_refunded": null,
+                  "is_restored_stock": 0,
+                  "seller_id": 4,
+                  "pivot": {
+                    "result_id": 73,
+                    "order_id": 35
+                  },
+                  "items": [
+                    {
+                      "id": 200,
+                      "order_id": 35,
+                      "product_id": null,
+                      "product_item_id": null,
+                      "user_product_id": 70,
+                      "amount": 1,
+                      "unit_price": "0.01",
+                      "total_price": "0.01",
+                      "apply_id": null,
+                      "return_id": null,
+                      "is_returned": 0,
+                      "is_applied": 0,
+                      "created_at": "2017-01-06 16:11:53",
+                      "updated_at": "2017-01-06 16:11:53",
+                      "user_product": {
+                        "id": 70,
+                        "user_id": 4,
+                        "title": "测试",
+                        "keywords": null,
+                        "description": "测试",
+                        "images": [
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20170106160546885848.jpg",
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20170106160546945809.jpg",
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20170106160546887494.jpg"
+                        ],
+                        "price": "0.01",
+                        "original_price": "2.00",
+                        "category_id": 1,
+                        "is_sold": 1,
+                        "is_audited": 1,
+                        "quality": 95,
+                        "delivery_day": 0,
+                        "updated_at": "2017-01-07 20:34:16",
+                        "created_at": "2017-01-06 16:05:46",
+                        "sort": 0,
+                        "audited_at": "2017-01-06 16:10:04",
+                        "postage": "0.00",
+                        "status": 1,
+                        "favorites": 0,
+                        "views": 17
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": 37,
+                  "order_no": "M1701065696796415704",
+                  "status": "-1",
+                  "user_id": 13,
+                  "return_id": null,
+                  "amount": 1,
+                  "original_price": "0.01",
+                  "total_price": "0.01",
+                  "coupon_price": "0.00",
+                  "memo": "记得要开过来",
+                  "created_at": "2017-01-06 17:53:35",
+                  "updated_at": "2017-01-07 15:50:05",
+                  "deleted_at": null,
+                  "cancel_id": 8,
+                  "cancel_description": "检测不通过",
+                  "pay_platform_id": 1,
+                  "pay_platform_trade_no": "2017010621001004200227181397",
+                  "coupon_id": null,
+                  "coupon_group_id": null,
+                  "is_invoice": 0,
+                  "invoice_type": null,
+                  "invoiced": null,
+                  "express_id": 1,
+                  "tracking_number": "89891828282",
+                  "express_traces": [],
+                  "express_refresh": "2017-01-07 12:19:31",
+                  "dispatched_at": "2017-01-06 17:55:30",
+                  "received_at": "2016-12-06 16:02:48",
+                  "is_refunded": 1,
+                  "is_restored_stock": 1,
+                  "seller_id": 4,
+                  "pivot": {
+                    "result_id": 73,
+                    "order_id": 37
+                  },
+                  "items": [
+                    {
+                      "id": 201,
+                      "order_id": 37,
+                      "product_id": null,
+                      "product_item_id": null,
+                      "user_product_id": 72,
+                      "amount": 1,
+                      "unit_price": "0.01",
+                      "total_price": "0.01",
+                      "apply_id": null,
+                      "return_id": null,
+                      "is_returned": 0,
+                      "is_applied": 0,
+                      "created_at": "2017-01-06 17:53:35",
+                      "updated_at": "2017-01-06 17:53:35",
+                      "user_product": {
+                        "id": 72,
+                        "user_id": 4,
+                        "title": "兰博基尼1辆",
+                        "keywords": null,
+                        "description": "超跑",
+                        "images": [
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20170106175108162283.jpg",
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20170106175108595230.jpg",
+                          "http://devapi.uzhenbao.com/uploads/userProduct/20170106175108927838.jpg"
+                        ],
+                        "price": "0.01",
+                        "original_price": "2000000.00",
+                        "category_id": 5,
+                        "is_sold": 1,
+                        "is_audited": 1,
+                        "quality": 100,
+                        "delivery_day": 0,
+                        "updated_at": "2017-01-06 17:56:19",
+                        "created_at": "2017-01-06 17:51:08",
+                        "sort": 0,
+                        "audited_at": "2017-01-06 17:51:41",
+                        "postage": "0.00",
+                        "status": 1,
+                        "favorites": 0,
+                        "views": 6
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 404,
+                "message": "资源不存在, 或已被删除"
+            }
+
+### 确认结算 [PUT /buyers/{userId}/orderResults/{id}/audit]
+
++ Parameters
+
+    + userId: 4 (number) - 用户id
+    + id: 1 (number) - 订单id
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Response 201 (application/json)
+
+            {
+              "id": 73,
+              "user_id": 4,
+              "money": "0.03",
+              "month": 12,
+              "year": 2016,
+              "created_at": "2017-01-09 11:31:39",
+              "is_remitted": 0,
+              "remit_number": null,
+              "is_audited": 1,
+              "bankcard_name": "中国工商银行",
+              "bankcard_real_name": "张三",
+              "bankcard_number": "1231231232131321313",
+              "updated_at": "2017-01-09 12:54:04"
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 404,
+                "message": "资源不存在，或已删除"
+            }
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 40412,
+                "message": "银行卡信息不存在或不完整"
+            }
+
