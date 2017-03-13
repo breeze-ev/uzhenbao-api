@@ -6149,6 +6149,45 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
                 "message": "资源不存在，或已被删除"
             }
 
+### 发货 [PUT /buyers/{userId}/orders/{id}]
+
++ Parameters
+
+    + userId: 1 (number) - 销售者用户id
+    + id: 1 (number) - 订单id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
+    + Attributes
+
+        + tracking_number: 91282929291 (string) - 快递运单号
+        + express_id: 1 (number) - 快递id
+
++ Response 201 (applicaiton/json)
+
+            {
+                "status": 201,
+                "code": 201,
+                "message": "保存成功"
+            }
+
++ Response 409 (applicaiton/json)
+
+            {
+                "status": 409,
+                "code": 40910,
+                "message": "订单已发货"
+            }
+
 ## 结算单 [/buyers/{userId}/orderResults]
 
 Response 部分字段说明
