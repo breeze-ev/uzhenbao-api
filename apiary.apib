@@ -5253,11 +5253,9 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 |product_name| 鼠标 | required | string|(0, 255] | 代购商品名 |
 |description| 微软的人体工学鼠标 | required|string|(0, 255] | 代购商品的详细描述 |
 |type|1|required|integer|[1]| 发布类型 |
-|amount|1|required|integer|[1,11]| 代购商品数量 |
+|amount|1|required|integer|[1,11]| 代购商品数量, 代购几件 |
 |is_accept_flaw| 0 |required| integer | [0,1] | 是否接受代购产生的瑕疵，如包装不完整(1接受,0不接受) |
-|shipping_address_id| 1 | required | integer | (0,11] | 收货地址id |
 |images|multipart\form-data| optional | array | [0,9] | 图片 |
-|memo| 备注 | optional | string | (0,255] | 备注 |
 
 
 代购
@@ -5269,7 +5267,7 @@ category_id 和 category_child_id 同时存在为二级菜单, 否则为一级�
 |product_name| 鼠标 | required | string|(0, 255] | 代购商品名 |
 |description| 微软的人体工学鼠标 | required|string|(0, 255] | 代购商品的详细描述 |
 |type|2|required|integer|[1]| 发布类型 |
-|amount|3|required|integer|[1,11]| 最多可代购数量 |
+|amount|1|required|integer|[1,11]| 最多可代购数量, 暂限定一件 |
 |is_possible_flaw| 0 |required| integer | [0,1] | 是否会产生代购瑕疵，如包装不完整(1会,0不会) |
 |images|multipart\form-data| optional | array | [0,9] | 图片 |
 
