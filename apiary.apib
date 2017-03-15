@@ -6841,6 +6841,182 @@ Response 部分字段说明
             }
 
 
+## 快速结算 [/buyers/{userId}/quickResults]
+
+### 列表 [GET]
+
++ Parameters
+    
+    + userId: 13 - 当前已登录的用户id
+
++ Request
+
+    + Headers
+
+            user-id: 13
+            access-token: $2y$10$OOIjfl4Jd/Me14qwUfXKFurusCLxjKMuRmVJ888qCFCgSempUm2NO
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 200 (application/json)
+
+
+            {
+              "total": 1,
+              "per_page": 15,
+              "current_page": 1,
+              "last_page": 1,
+              "next_page_url": null,
+              "prev_page_url": null,
+              "from": 1,
+              "to": 1,
+              "data": [
+                {
+                  "id": 6,
+                  "user_id": 13,
+                  "created_at": "2017-03-15 18:52:54",
+                  "updated_at": "2017-03-15 18:52:54",
+                  "price": "0.01",
+                  "year": 2017,
+                  "month": 3,
+                  "order_id": 13,
+                  "bankcard_number": "6214 8337 1156 2473",
+                  "bankcard_realname": "陈",
+                  "bankcard_name": "工商银行",
+                  "is_remitted": 0,
+                  "remitted_at": null,
+                  "remit_number": null
+                }
+              ]
+            }
+
+### 详情 [GET /buyers/{userId}/quickResults/{id}]
+
++ Parameters
+    
+    + userId: 13 - 当前已登录的用户id
+    + id: 6 - 结算单id
+
++ Request
+
+    + Headers
+
+            user-id: 13
+            access-token: $2y$10$OOIjfl4Jd/Me14qwUfXKFurusCLxjKMuRmVJ888qCFCgSempUm2NO
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 200 (application/json)
+
+
+            {
+              "id": 6,
+              "user_id": 13,
+              "created_at": "2017-03-15 18:52:54",
+              "updated_at": "2017-03-15 18:52:54",
+              "price": "0.01",
+              "year": 2017,
+              "month": 3,
+              "order_id": 13,
+              "bankcard_number": "6214 8337 1156 2473",
+              "bankcard_realname": "陈",
+              "bankcard_name": "工商银行",
+              "is_remitted": 0,
+              "remitted_at": null,
+              "remit_number": null
+            }
+
++ Response 404 (application/json)
+
+            {
+              "status": 404,
+              "code": 404,
+              "message": "资源不存在或已被删除"
+            }
+
+### 申请结算 [POST /buyers/{userId}/quickResults]
+
+
++ Parameters
+    
+    + userId: 13 - 当前已登录的用户id
+
++ Request
+
+    + Headers
+
+            user-id: 13
+            access-token: $2y$10$OOIjfl4Jd/Me14qwUfXKFurusCLxjKMuRmVJ888qCFCgSempUm2NO
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
+    + Attributes
+
+        + order_id: 1 (number) - 订单id
+
++ Response 201 (application/json)
+
+            {
+              "order_id": 13,
+              "user_id": 13,
+              "month": "03",
+              "year": "2017",
+              "price": "0.01",
+              "is_remitted": 0,
+              "bankcard_number": "6214 8337 1156 2473",
+              "bankcard_name": "工商银行",
+              "bankcard_realname": "陈",
+              "updated_at": "2017-03-15 19:08:24",
+              "created_at": "2017-03-15 19:08:24",
+              "id": 7
+            }
+
++ Response 404 (application/json)
+
+            {
+              "status": 404,
+              "code": 40411,
+              "message": "订单不存在"
+            }
+
++ Response 404 (application/json)
+
+            {
+              "status": 404,
+              "code": 40412,
+              "message": "银行卡信息不存在或不完整"
+            }
+
++ Response 403 (application/json)
+
+            {
+              "status": 403,
+              "code": 4030102,
+              "message": "该订单未交易完成"
+            }
+
++ Response 403 (application/json)
+
+            {
+              "status": 403,
+              "code": 4030101,
+              "message": "该订单已经计入自动结算系统"
+            }
+
++ Response 403 (application/json)
+
+            {
+              "status": 409,
+              "code": 4090101,
+              "message": "每位用户每月仅可申请一次快速结算"
+            }
+
 
 
 # Group 通知
@@ -7644,178 +7820,3 @@ Response 部分字段说明
 
 
 
-## 快速结算 [/buyers/{userId}/quickResults]
-
-### 列表 [GET]
-
-+ Parameters
-    
-    + userId: 13 - 当前已登录的用户id
-
-+ Request
-
-    + Headers
-
-            user-id: 13
-            access-token: $2y$10$OOIjfl4Jd/Me14qwUfXKFurusCLxjKMuRmVJ888qCFCgSempUm2NO
-            timestamp: 1478840722
-            app-key: 92lsk20ks
-            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 2
-
-+ Response 200 (application/json)
-
-
-            {
-              "total": 1,
-              "per_page": 15,
-              "current_page": 1,
-              "last_page": 1,
-              "next_page_url": null,
-              "prev_page_url": null,
-              "from": 1,
-              "to": 1,
-              "data": [
-                {
-                  "id": 6,
-                  "user_id": 13,
-                  "created_at": "2017-03-15 18:52:54",
-                  "updated_at": "2017-03-15 18:52:54",
-                  "price": "0.01",
-                  "year": 2017,
-                  "month": 3,
-                  "order_id": 13,
-                  "bankcard_number": "6214 8337 1156 2473",
-                  "bankcard_realname": "陈",
-                  "bankcard_name": "工商银行",
-                  "is_remitted": 0,
-                  "remitted_at": null,
-                  "remit_number": null
-                }
-              ]
-            }
-
-### 详情 [GET /buyers/{userId}/quickResults/{id}]
-
-+ Parameters
-    
-    + userId: 13 - 当前已登录的用户id
-    + id: 6 - 结算单id
-
-+ Request
-
-    + Headers
-
-            user-id: 13
-            access-token: $2y$10$OOIjfl4Jd/Me14qwUfXKFurusCLxjKMuRmVJ888qCFCgSempUm2NO
-            timestamp: 1478840722
-            app-key: 92lsk20ks
-            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 2
-
-+ Response 200 (application/json)
-
-
-            {
-              "id": 6,
-              "user_id": 13,
-              "created_at": "2017-03-15 18:52:54",
-              "updated_at": "2017-03-15 18:52:54",
-              "price": "0.01",
-              "year": 2017,
-              "month": 3,
-              "order_id": 13,
-              "bankcard_number": "6214 8337 1156 2473",
-              "bankcard_realname": "陈",
-              "bankcard_name": "工商银行",
-              "is_remitted": 0,
-              "remitted_at": null,
-              "remit_number": null
-            }
-
-+ Response 404 (application/json)
-
-            {
-              "status": 404,
-              "code": 404,
-              "message": "资源不存在或已被删除"
-            }
-
-### 申请结算 [POST /buyers/{userId}/quickResults]
-
-
-+ Parameters
-    
-    + userId: 13 - 当前已登录的用户id
-
-+ Request
-
-    + Headers
-
-            user-id: 13
-            access-token: $2y$10$OOIjfl4Jd/Me14qwUfXKFurusCLxjKMuRmVJ888qCFCgSempUm2NO
-            timestamp: 1478840722
-            app-key: 92lsk20ks
-            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
-            api-version: 2
-
-    + Attributes
-
-        + order_id: 1 (number) - 订单id
-
-+ Response 201 (application/json)
-
-            {
-              "order_id": 13,
-              "user_id": 13,
-              "month": "03",
-              "year": "2017",
-              "price": "0.01",
-              "is_remitted": 0,
-              "bankcard_number": "6214 8337 1156 2473",
-              "bankcard_name": "工商银行",
-              "bankcard_realname": "陈",
-              "updated_at": "2017-03-15 19:08:24",
-              "created_at": "2017-03-15 19:08:24",
-              "id": 7
-            }
-
-+ Response 404 (application/json)
-
-            {
-              "status": 404,
-              "code": 40411,
-              "message": "订单不存在"
-            }
-
-+ Response 404 (application/json)
-
-            {
-              "status": 404,
-              "code": 40412,
-              "message": "银行卡信息不存在或不完整"
-            }
-
-+ Response 403 (application/json)
-
-            {
-              "status": 403,
-              "code": 4030102,
-              "message": "该订单未交易完成"
-            }
-
-+ Response 403 (application/json)
-
-            {
-              "status": 403,
-              "code": 4030101,
-              "message": "该订单已经计入自动结算系统"
-            }
-
-+ Response 403 (application/json)
-
-            {
-              "status": 409,
-              "code": 4090101,
-              "message": "每位用户每月仅可申请一次快速结算"
-            }
