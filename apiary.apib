@@ -7474,3 +7474,166 @@ Response 部分字段说明
             api-version: 2
 
 + Response 204
+
+
+# group 领券中心
+
+## 领券中心 [/coupons]
+
+### 列表 [GET]
+
+可选验证用户， 验证正确`is_took`即显示该用户已获得的优惠券信息
+
++ Request
+
+    + Headers
+
+            user-id: 13
+            access-token: $2y$10$OOIjfl4Jd/Me14qwUfXKFurusCLxjKMuRmVJ888qCFCgSempUm2NO
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 200 (application/json)
+
+            {
+              "total": 1,
+              "per_page": 15,
+              "current_page": 1,
+              "last_page": 1,
+              "next_page_url": null,
+              "prev_page_url": null,
+              "from": 1,
+              "to": 1,
+              "data": [
+                {
+                  "id": 31,
+                  "name": "情人节单身🐶发福利",
+                  "amount": 1000,
+                  "allowance": 998,
+                  "cash": "888.00",
+                  "overflow_price": "1000.00",
+                  "created_at": "2017-02-14 14:38:27",
+                  "updated_at": "2017-03-15 09:46:57",
+                  "expired_at": "2017-05-15 00:00:00",
+                  "deleted_at": null,
+                  "issue_id": 1,
+                  "start_at": "2017-02-14 00:00:00",
+                  "end_at": "2017-05-15 00:00:00",
+                  "category_id": 0,
+                  "category": null,
+                  "is_took": {
+                    "id": 1,
+                    "coupon_id": 31,
+                    "coupon_code_id": 2469,
+                    "user_id": 13,
+                    "created_at": "2017-03-15 09:48:25",
+                    "updated_at": "2017-03-15 09:48:25",
+                    "is_used": 0,
+                    "expired_at": "2017-05-15 00:00:00"
+                  }
+                }
+              ]
+            }
+
+### 领券 [GET /coupons/{id}]
+
++ Parameters
+
+    + id: 1 - 券组id
+
++ Request
+
+    + Headers
+
+            user-id: 13
+            access-token: $2y$10$OOIjfl4Jd/Me14qwUfXKFurusCLxjKMuRmVJ888qCFCgSempUm2NO
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 201 (application/json)
+
+            {
+              "id": 3,
+              "coupon_id": 31,
+              "coupon_code_id": 2471,
+              "user_id": 13,
+              "created_at": "2017-03-15 10:11:54",
+              "updated_at": "2017-03-15 10:11:54",
+              "is_used": 0,
+              "expired_at": "2017-05-15 00:00:00"
+            }
+
++ Response 409 (application/json)
+
+            {
+              "status": 409,
+              "code": 4090,
+              "message": "优惠券已抢过"
+            }
+
+# group 用户
+
+## 优惠券 [/users/{id}/coupons]
+
+### 列表 [GET]
+
++ Parameters
+
+    + id: 1 - 当前已登录的用户id
+
++ Request
+
+    + Headers
+
+            user-id: 13
+            access-token: $2y$10$OOIjfl4Jd/Me14qwUfXKFurusCLxjKMuRmVJ888qCFCgSempUm2NO
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 200 (application/json)
+
+            {
+              "total": 1,
+              "per_page": 15,
+              "current_page": 1,
+              "last_page": 1,
+              "next_page_url": null,
+              "prev_page_url": null,
+              "from": 1,
+              "to": 1,
+              "data": [
+                {
+                  "id": 1,
+                  "coupon_id": 31,
+                  "coupon_code_id": 2469,
+                  "user_id": 13,
+                  "created_at": "2017-03-15 09:48:25",
+                  "updated_at": "2017-03-15 09:48:25",
+                  "is_used": 0,
+                  "expired_at": "2017-05-15 00:00:00",
+                  "coupon": {
+                    "id": 31,
+                    "name": "情人节单身🐶发福利",
+                    "amount": 1000,
+                    "allowance": 998,
+                    "cash": "888.00",
+                    "overflow_price": "1000.00",
+                    "created_at": "2017-02-14 14:38:27",
+                    "updated_at": "2017-03-15 09:46:57",
+                    "expired_at": "2017-05-15 00:00:00",
+                    "deleted_at": null,
+                    "issue_id": 1,
+                    "start_at": "2017-02-14 00:00:00",
+                    "end_at": "2017-05-15 00:00:00",
+                    "category_id": 0,
+                    "category": null
+                  }
+                }
+              ]
+            }
