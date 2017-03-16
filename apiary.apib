@@ -7819,4 +7819,56 @@ Response 部分字段说明
             }
 
 
+## 帐户
+
+### 注册 [POST /users]
+
+Request 参数说明
+|Key|Value|Lenght|Required|Description|
+|---|---|---|---|
+|mobile|13712341234|[11]|Required|用户手机号码|
+|password|123456|[6,30]|Required|用户密码|
+|push|xxxxxxxx|(0, 255]|optional|极光推送channel id|
+
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Attributes
+
+    + mobile: 13712341234 (string) - 手机号
+    + password: 123456 (string) - 密码
+    + device_id: 862224033298939 (string) - 设备唯一特征码
+
++ Response 201 (application/json)
+
+            {
+              "avatar": {
+                "avatar": "http://api.dev.uzhenbao.com/default/avatar.jpg",
+                "thumb": "http://api.dev.uzhenbao.com/default/avatar.jpg"
+              },
+              "name": "宝宝67152166",
+              "level": 1,
+              "updated_at": "2017-03-16 17:00:51",
+              "created_at": "2017-03-16 17:00:51",
+              "id": 75,
+              "token": {
+                "token": "$2y$10$CpnLnp9TVs78nUofm5jlLuHq8cKoBSv94MPw05Gv/Ll7.Hck0QaD2",
+                "updated_at": "2017-03-16 17:00:51",
+                "created_at": "2017-03-16 17:00:51"
+              },
+              "buying_level": {
+                "id": 1,
+                "level": 1,
+                "alias": "青铜",
+                "updated_at": "2016-11-26 14:16:16",
+                "created_at": "2016-08-31 17:18:28"
+              }
+            }
 
