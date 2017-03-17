@@ -7823,11 +7823,14 @@ Response 部分字段说明
 
 ### 注册 [POST]
 
+注册新用户需要如下基本信息
+
 Request 参数说明
 |Key|Value|Lenght|Required|Description|
 |---|---|---|---|---|
-|mobile|13712341234|[11]|Required|用户手机号码|
-|password|123456|[6,30]|Required|用户密码|
+|mobile|13712341234|[11]|required|用户手机号码|
+|password|123456|[6, 30]|required|用户密码|
+|device_id|xxxxxxxxxxxxxx|(0, 255]|required|设备唯一特征码|
 |push_token|xxxxxxxx|(0, 255]|optional|极光推送channel id|
 
 
@@ -7885,11 +7888,15 @@ Request 参数说明
 
 ### 登录 [POST /users/login]
 
+用户登录实际是获取该用户对应的临时授权码`Token`和用户的一些基础信息,在用户名与密码或验证码验证通过后,
+移动开发者应将服务器返回的数据持久化到本地, 其中`Token` 和`Id`用于验证用户身份,基础信息用于移动开发者将信息展示于个人资料页
+
 Request 参数说明
 |Key|Value|Lenght|Required|Description|
 |---|---|---|---|---|
-|mobile|13712341234|[11]|Required|用户手机号码|
-|password|123456|[6,30]|Required|用户密码|
+|mobile|13712341234|[11]|required|用户手机号码|
+|password|123456|[6,30]|required|用户密码|
+|device_id|xxxxxxxxxxxxxx|(0, 255]|required|设备唯一特征码|
 |push_token|xxxxxxxx|(0, 255]|optional|极光推送channel id|
 
 
@@ -7947,6 +7954,16 @@ Request 参数说明
             }
 
 ### 自动登录 [POST /users/autoLogin]
+
+自动登录注册为一体化注册登录流程, 实现静默注册和登录, 即应用开启时向服务器发送设备唯一标识符, 服务器判断是否存在此唯一标识符,
+如存在返回已注册的用户信息, 不存在则注册此用户同时返回新注册的用户信息, 注意：设备唯一标识符对应的用户如已绑定了手机号则无法使用自动登录, 需用户使用密码或其它可用方式进行登录
+
+
+Request 参数说明
+|Key|Value|Lenght|Required|Description|
+|---|---|---|---|---|
+|device_id|xxxxxxxxxxxxxx|(0, 255]|required|设备唯一特征码|
+|push_token|xxxxxxxx|(0, 255]|optional|极光推送channel id|
 
 + Request
 
