@@ -8203,3 +8203,77 @@ Request 参数说明
                 "push_token": null
               }
             }
+
+
+### 更新资料 [PUT /users/{id}/profile]
+
+Request 参数说明
+
+|Key|Value|Lenght|Required|Description|
+|---|---|---|---|---|
+|summary|这是我的简介|(0, 255]|optional|个人简介|
+|email|abc@domain.com|(0, 128]|optional|电子邮件地址|
+|name|我是坏人|(0, 20]|optional|用户呢称|
+|birth_year|1992|(0, 4]|optional|出生年|
+|birth_month|04|(0, 2]|optional|出生月|
+|birth_day|12|(0, 2]|optional|出生日|
+|gender|12|[1]|optional|0保密， 1男， 2女|
+|real_name|张三|(0, 20]|optional|真实姓名|
+|country|中国|(0, 20]|optional|所在国家|
+|province||(0, 20]|optional|所在省会|
+|city|上海|(0, 20]|optional|所在城市|
+|area|黄浦区|(0, 20]|optional|所在区|
+|street|xxxxx|(0, 255]|optional|街道门牌|
+
+
++ Request
+
+    + Headers
+            user-id: 13
+            access-token: $2y$10$8xzLfHU7r2f2w8S.aQl4wuKPNSquZCTt/F4fgVUXavXY2gQk5v8AG
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Attributes
+
+    + summary: 这是我的简介 (object, optional) - 个人简介
+
++ Response 200 (application/json)
+
+            {
+              "id": 21,
+              "name": "宝宝47891083",
+              "created_at": "2016-12-29 20:09:47",
+              "updated_at": "2017-03-17 17:15:01",
+              "avatar": {
+                "avatar": "http://api.dev.uzhenbao.com/default/avatar.jpg",
+                "thumb": "http://api.dev.uzhenbao.com/default/avatar.jpg"
+              },
+              "summary": "这是我的简介",
+              "level": 1,
+              "forum_level": 0,
+              "token": {
+                "token": "$2y$10$Cy4Pe.kXECwWStNOrPyA9eMVwGmFcmJ8/657leT5kGX75XIEqmAH2",
+                "created_at": "2016-12-29 20:40:55",
+                "updated_at": "2016-12-29 20:40:55",
+                "rong_token": null,
+                "push_token": null
+              },
+              "profile": {
+                "birth_year": "1992",
+                "birth_month": 0,
+                "birth_day": 0,
+                "gender": "1",
+                "real_name": "",
+                "country": "",
+                "province": "",
+                "city": "",
+                "area": "",
+                "street": "",
+                "updated_at": "2017-03-17 17:16:01",
+                "created_at": "2017-03-17 17:16:01",
+                "volume_of_trade": 0
+              }
+            }
