@@ -8161,3 +8161,45 @@ Request 参数说明
               "code": 4000003,
               "message": "密码错误"
             }
+
+
+### 上传头像 [POST /users/{id}/avatar]
+
+头像上传需要上传multipart/form-data数据, `avatar`为头像的原始地址 `thumb`为缩略图地址
+
++ Request
+
+    + Headers
+            user-id: 13
+            access-token: $2y$10$8xzLfHU7r2f2w8S.aQl4wuKPNSquZCTt/F4fgVUXavXY2gQk5v8AG
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Attributes
+
+    + avatar: data (object, required) - multipart/form-data
+
++ Response 200 (application/json)
+
+            {
+              "id": 85,
+              "name": "宝宝10780413",
+              "created_at": "2017-03-17 12:20:36",
+              "updated_at": "2017-03-17 16:33:16",
+              "avatar": {
+                "avatar": "http://api.dev.uzhenbao.com/uploads/avatars/20170317163316688206.png",
+                "thumb": "http://api.dev.uzhenbao.com/uploads/avatars/thumb_20170317163316688206.png"
+              },
+              "summary": null,
+              "level": 1,
+              "forum_level": 0,
+              "token": {
+                "token": "$2y$10$lACeMmcCcCdUYBF6pk5hFupadxmdedbCe7OQkWcjm3FA0cxTsBf/m",
+                "created_at": "2017-03-17 15:26:55",
+                "updated_at": "2017-03-17 15:26:57",
+                "rong_token": null,
+                "push_token": null
+              }
+            }
