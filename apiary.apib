@@ -7861,6 +7861,7 @@ Request 参数说明
               "id": 75,
               "token": {
                 "token": "$2y$10$CpnLnp9TVs78nUofm5jlLuHq8cKoBSv94MPw05Gv/Ll7.Hck0QaD2",
+                "push_token": null,
                 "updated_at": "2017-03-16 17:00:51",
                 "created_at": "2017-03-16 17:00:51"
               },
@@ -7943,4 +7944,86 @@ Request 参数说明
               "status": 400,
               "code": 4000002,
               "message": "帐户或密码错误"
+            }
+
+### 自动登录 [POST /users/autoLogin]
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Attributes
+
+    + device_id: 862224033298939 (string, required) - 设备唯一特征码
+    + push_token: xxxxxxxxxx (string, optional) - 极光推送channel id
+
++ Response 200 (application/json)
+
+            {
+              "id": 81,
+              "name": "宝宝55765114",
+              "created_at": "2017-03-17 11:26:04",
+              "updated_at": "2017-03-17 11:26:04",
+              "avatar": {
+                "avatar": "http://api.dev.uzhenbao.com/default/avatar.jpg",
+                "thumb": "http://api.dev.uzhenbao.com/default/avatar.jpg"
+              },
+              "summary": null,
+              "level": 0,
+              "forum_level": 0,
+              "token": {
+                "token": "$2y$10$8xzLfHU7r2f2w8S.aQl4wuKPNSquZCTt/F4fgVUXavXY2gQk5v8AG",
+                "created_at": "2017-03-17 11:26:04",
+                "updated_at": "2017-03-17 11:26:04",
+                "rong_token": null,
+                "push_token": null
+              },
+              "buying_level": {
+                "id": 35,
+                "level": 0,
+                "alias": "小菜鸟",
+                "updated_at": "2016-11-26 14:16:28",
+                "created_at": "2016-08-31 17:18:28"
+              }
+            }
+
++ Response 201 (application/json)
+
+            {
+              "avatar": {
+                "avatar": "http://api.dev.uzhenbao.com/default/avatar.jpg",
+                "thumb": "http://api.dev.uzhenbao.com/default/avatar.jpg"
+              },
+              "name": "宝宝55765114",
+              "level": 0,
+              "summary": null,
+              "updated_at": "2017-03-17 11:26:04",
+              "created_at": "2017-03-17 11:26:04",
+              "id": 81,
+              "token": {
+                "token": "$2y$10$8xzLfHU7r2f2w8S.aQl4wuKPNSquZCTt/F4fgVUXavXY2gQk5v8AG",
+                "push_token": null,
+                "updated_at": "2017-03-17 11:26:04",
+                "created_at": "2017-03-17 11:26:04"
+              },
+              "buying_level": {
+                "id": 35,
+                "level": 0,
+                "alias": "小菜鸟",
+                "updated_at": "2016-11-26 14:16:28",
+                "created_at": "2016-08-31 17:18:28"
+              }
+            }
+
++ Response 403 (application/json)
+
+            {
+              "status": 403,
+              "code": 4030001,
+              "message": "该用户不支持自动登录"
             }
