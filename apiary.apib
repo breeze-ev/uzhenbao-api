@@ -8057,6 +8057,10 @@ Request 参数说明
 |password|xxxxxxxx|[6, 30]|required|密码|
 |password_confirmation|xxxxxxxx|[6, 30]|required|确认密码|
 
++ Parameters
+
+    + id: 1 - 当前已登录的用户id
+
 + Request
 
     + Headers
@@ -8115,6 +8119,10 @@ Request 参数说明
 |new_password|xxxxxxxx|[6, 30]|required|新密码|
 |new_password_confirmation|xxxxxxxx|[6, 30]|required|确认新密码|
 
++ Parameters
+
+    + id: 1 - 当前已登录的用户id
+
 + Request
 
     + Headers
@@ -8166,6 +8174,10 @@ Request 参数说明
 ### 上传头像 [POST /users/{id}/avatar]
 
 头像上传需要上传multipart/form-data数据, `avatar`为头像的原始地址 `thumb`为缩略图地址
+
++ Parameters
+
+    + id: 1 - 当前已登录的用户id
 
 + Request
 
@@ -8225,6 +8237,9 @@ Request 参数说明
 |area|黄浦区|(0, 20]|optional|所在区|
 |street|xxxxx|(0, 255]|optional|街道门牌|
 
++ Parameters
+
+    + id: 1 - 当前已登录的用户id
 
 + Request
 
@@ -8274,6 +8289,69 @@ Request 参数说明
                 "street": "",
                 "updated_at": "2017-03-17 17:16:01",
                 "created_at": "2017-03-17 17:16:01",
+                "volume_of_trade": 0
+              }
+            }
+
+
+### 资料详情 [PUT /users/{id}/profile]
+
++ Parameters
+
+    + id: 1 - 当前已登录的用户id
+
++ Request
+
+    + Headers
+            user-id: 13
+            access-token: $2y$10$8xzLfHU7r2f2w8S.aQl4wuKPNSquZCTt/F4fgVUXavXY2gQk5v8AG
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
+
++ Response 200 (application/json)
+
+            {
+              "id": 21,
+              "name": "宝宝47891083",
+              "created_at": "2016-12-29 20:09:47",
+              "updated_at": "2017-03-17 17:15:01",
+              "avatar": {
+                "avatar": "http://api.dev.uzhenbao.com/default/avatar.jpg",
+                "thumb": "http://api.dev.uzhenbao.com/default/avatar.jpg"
+              },
+              "summary": "123131",
+              "level": 1,
+              "forum_level": 0,
+              "score_names": [
+                {
+                  "field_name": "score3",
+                  "name": "钻石"
+                },
+                {
+                  "field_name": "score2",
+                  "name": "金币"
+                },
+                {
+                  "field_name": "score1",
+                  "name": "积分"
+                }
+              ],
+              "profile": {
+                "birth_year": 0,
+                "birth_month": 0,
+                "birth_day": 0,
+                "gender": 0,
+                "real_name": "",
+                "country": "",
+                "province": "",
+                "city": "",
+                "area": "",
+                "street": "",
+                "updated_at": "2017-03-17 17:44:03",
+                "created_at": "2017-03-17 17:44:03",
                 "volume_of_trade": 0
               }
             }
