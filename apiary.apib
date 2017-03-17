@@ -8044,3 +8044,60 @@ Request 参数说明
               "code": 4030001,
               "message": "该用户不支持自动登录"
             }
+
+
+### 绑定手机号 [POST /users/{id}/bindMobile]
+
+Request 参数说明
+|Key|Value|Lenght|Required|Description|
+|---|---|---|---|---|
+|mobile|xxxxxxxxxxxxxx|[11]|required|手机号|
+|password|xxxxxxxx|[6, 30]|required|密码|
+
++ Request
+
+    + Headers
+            user-id: 13
+            access-token: $2y$10$8xzLfHU7r2f2w8S.aQl4wuKPNSquZCTt/F4fgVUXavXY2gQk5v8AG
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Attributes
+
+    + mobile: 13712341234 (string, required) - 手机号
+    + password: 123456 (string, optional) - 密码
+
+
++ Response 200 (applcation/json)
+
+            {
+              "id": 85,
+              "name": "宝宝10780413",
+              "created_at": "2017-03-17 12:20:36",
+              "updated_at": "2017-03-17 14:53:15",
+              "avatar": {
+                "avatar": "http://api.dev.uzhenbao.com/default/avatar.jpg",
+                "thumb": "http://api.dev.uzhenbao.com/default/avatar.jpg"
+              },
+              "summary": null,
+              "level": 1,
+              "forum_level": 0,
+              "token": {
+                "token": "$2y$10$jSwUboK5WIDrGE8s3URiqupn3WkB1JlQ5efB4eTwksd24KR0ex4hS",
+                "created_at": "2017-03-17 12:20:37",
+                "updated_at": "2017-03-17 12:20:37",
+                "rong_token": null,
+                "push_token": null
+              }
+            }
+
++ Response 403 (application/json)
+
+            {
+              "status": 403,
+              "code": 4030002,
+              "message": "该手机号已被其它用户绑定"
+            }
+
