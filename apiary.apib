@@ -7847,6 +7847,7 @@ Request 参数说明
 
     + mobile: 13712341234 (string, required) - 手机号
     + password: 123456 (string, required) - 密码
+    + password_confirmation: 123456 (string, required) - 重复密码
     + device_id: 862224033298939 (string, required) - 设备唯一特征码
 
 + Response 201 (application/json)
@@ -8053,6 +8054,7 @@ Request 参数说明
 |---|---|---|---|---|
 |mobile|xxxxxxxxxxxxxx|[11]|required|手机号|
 |password|xxxxxxxx|[6, 30]|required|密码|
+|password_confirmation|xxxxxxxx|[6, 30]|required|重复密码|
 
 + Request
 
@@ -8067,7 +8069,8 @@ Request 参数说明
 + Attributes
 
     + mobile: 13712341234 (string, required) - 手机号
-    + password: 123456 (string, optional) - 密码
+    + password: 123456 (string, required) - 密码
+    + password_confirmation: 123456(string, required) - 重复新密码
 
 
 + Response 200 (applcation/json)
@@ -8109,6 +8112,7 @@ Request 参数说明
 |---|---|---|---|---|
 |password|xxxxxxxx|[6, 30]|required|旧密码|
 |new_password|xxxxxxxx|[6, 30]|required|新密码|
+|new_password_confirmation|xxxxxxxx|[6, 30]|required|重复新密码|
 
 + Request
 
@@ -8124,6 +8128,7 @@ Request 参数说明
 
     + password: 123456 (string, required) - 原密码
     + new_password: 123456 (string, required) - 新密码 
+    + new_password_confirmation: 123456 (string, required) - 重复新密码
 
 + Response 200 (application/json)
 
