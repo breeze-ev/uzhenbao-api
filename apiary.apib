@@ -8369,3 +8369,253 @@ Request 参数说明
                 "created_at": "2017-03-17 18:05:59"
               }
             }
+
+
+## 第三方登录 [/thirdParties]
+
+### 微信 [POST /thirdParties/wechat]
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
+    + Attributes
+
+        + code: 041Qk66j2GbTnH02Zh4j274a6j2Qk66b (string, required) - 微信临时请求代码
+        + device_id: 9slsos1lmx82lx238sk2mslw01 (string, required) - 设备唯一特征码
+        + push_token: 170976fa8a8893fef11 (string, optional) - 极光 Registration ID
+
++ Response 200 (application/json)
+
+            {
+              "id": 95,
+              "name": "十亩之间煕",
+              "created_at": "2017-03-20 11:14:08",
+              "updated_at": "2017-03-20 11:16:07",
+              "avatar": {
+                "avatar": "http://tva1.sinaimg.cn/crop.0.0.180.180.180/6831ced1jw1e8qgp5bmzyj2050050aa8.jpg",
+                "thumb": "http://tva1.sinaimg.cn/crop.0.0.180.180.180/6831ced1jw1e8qgp5bmzyj2050050aa8.jpg"
+              },
+              "summary": "漆黑的夜里，我看到了自己",
+              "level": 1,
+              "forum_level": 0,
+              "token": {
+                "token": "$2y$10$MXPqTk4wJCPpBc949nSZa.gUVC7VLxDbOWlCL7u3AZnNajZGB8Nii",
+                "created_at": "2017-03-20 11:37:02",
+                "updated_at": "2017-03-20 11:37:11",
+                "rong_token": null,
+                "push_token": "170976fa8a8890e56a1"
+              },
+              "buying_level": {
+                "id": 1,
+                "level": 1,
+                "alias": "青铜",
+                "updated_at": "2016-11-26 14:16:16",
+                "created_at": "2016-08-31 17:18:28"
+              },
+              "bankcard": null
+            }
+
++ Response 201 (application/json)
+
+            {
+              "id": 95,
+              "name": "十亩之间煕",
+              "created_at": "2017-03-20 11:14:08",
+              "updated_at": "2017-03-20 11:16:07",
+              "avatar": {
+                "avatar": "http://tva1.sinaimg.cn/crop.0.0.180.180.180/6831ced1jw1e8qgp5bmzyj2050050aa8.jpg",
+                "thumb": "http://tva1.sinaimg.cn/crop.0.0.180.180.180/6831ced1jw1e8qgp5bmzyj2050050aa8.jpg"
+              },
+              "summary": "漆黑的夜里，我看到了自己",
+              "level": 1,
+              "forum_level": 0,
+              "token": {
+                "token": "$2y$10$MXPqTk4wJCPpBc949nSZa.gUVC7VLxDbOWlCL7u3AZnNajZGB8Nii",
+                "created_at": "2017-03-20 11:37:02",
+                "updated_at": "2017-03-20 11:37:11",
+                "rong_token": null,
+                "push_token": "170976fa8a8890e56a1"
+              },
+              "buying_level": {
+                "id": 1,
+                "level": 1,
+                "alias": "青铜",
+                "updated_at": "2016-11-26 14:16:16",
+                "created_at": "2016-08-31 17:18:28"
+              },
+              "bankcard": null
+            }
+
+
+### QQ [POST /thirdParties/qq]
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 1
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
+    + Attributes
+
+        + open_id: 6A2A23A026F50608B28A137C8719C815 (string, required) - qq 开放id
+        + access_token: LS29XAK92KSMXLS92K01LAL191 (string, required) - qq 访问token
+        + device_id: 9slsos1lmx82lx238sk2mslw01 (string, required) - 设备id
+        + push_token: 170976fa8a8893fef11 (string, optional) - 极光 Registration ID
+
++ Response 200 (application/json)
+
+            {
+              "id": 95,
+              "name": "十亩之间煕",
+              "created_at": "2017-03-20 11:14:08",
+              "updated_at": "2017-03-20 11:16:07",
+              "avatar": {
+                "avatar": "http://tva1.sinaimg.cn/crop.0.0.180.180.180/6831ced1jw1e8qgp5bmzyj2050050aa8.jpg",
+                "thumb": "http://tva1.sinaimg.cn/crop.0.0.180.180.180/6831ced1jw1e8qgp5bmzyj2050050aa8.jpg"
+              },
+              "summary": "漆黑的夜里，我看到了自己",
+              "level": 1,
+              "forum_level": 0,
+              "token": {
+                "token": "$2y$10$MXPqTk4wJCPpBc949nSZa.gUVC7VLxDbOWlCL7u3AZnNajZGB8Nii",
+                "created_at": "2017-03-20 11:37:02",
+                "updated_at": "2017-03-20 11:37:11",
+                "rong_token": null,
+                "push_token": "170976fa8a8890e56a1"
+              },
+              "buying_level": {
+                "id": 1,
+                "level": 1,
+                "alias": "青铜",
+                "updated_at": "2016-11-26 14:16:16",
+                "created_at": "2016-08-31 17:18:28"
+              },
+              "bankcard": null
+            }
+
++ Response 201 (application/json)
+
+            {
+              "id": 95,
+              "name": "十亩之间煕",
+              "created_at": "2017-03-20 11:14:08",
+              "updated_at": "2017-03-20 11:16:07",
+              "avatar": {
+                "avatar": "http://tva1.sinaimg.cn/crop.0.0.180.180.180/6831ced1jw1e8qgp5bmzyj2050050aa8.jpg",
+                "thumb": "http://tva1.sinaimg.cn/crop.0.0.180.180.180/6831ced1jw1e8qgp5bmzyj2050050aa8.jpg"
+              },
+              "summary": "漆黑的夜里，我看到了自己",
+              "level": 1,
+              "forum_level": 0,
+              "token": {
+                "token": "$2y$10$MXPqTk4wJCPpBc949nSZa.gUVC7VLxDbOWlCL7u3AZnNajZGB8Nii",
+                "created_at": "2017-03-20 11:37:02",
+                "updated_at": "2017-03-20 11:37:11",
+                "rong_token": null,
+                "push_token": "170976fa8a8890e56a1"
+              },
+              "buying_level": {
+                "id": 1,
+                "level": 1,
+                "alias": "青铜",
+                "updated_at": "2016-11-26 14:16:16",
+                "created_at": "2016-08-31 17:18:28"
+              },
+              "bankcard": null
+            }
+
+
+### 微博 [POST /thirdParties/weibo]
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 1
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
+    + Attributes
+
+        + uid: 82ks82slSD92xw (string, required) - 微博用户id
+        + access_token: LS29XAK92KSMXLS92K01LAL191 (string, required) - 微博访问token
+        + device_id: 9slsos1lmx82lx238sk2mslw01 (string, required) - 设备id
+        + push_token: 170976fa8a8893fef11 (string, optional) - 极光 Registration ID
+
++ Response 200 (application/json)
+
+            {
+              "id": 95,
+              "name": "十亩之间煕",
+              "created_at": "2017-03-20 11:14:08",
+              "updated_at": "2017-03-20 11:16:07",
+              "avatar": {
+                "avatar": "http://tva1.sinaimg.cn/crop.0.0.180.180.180/6831ced1jw1e8qgp5bmzyj2050050aa8.jpg",
+                "thumb": "http://tva1.sinaimg.cn/crop.0.0.180.180.180/6831ced1jw1e8qgp5bmzyj2050050aa8.jpg"
+              },
+              "summary": "漆黑的夜里，我看到了自己",
+              "level": 1,
+              "forum_level": 0,
+              "token": {
+                "token": "$2y$10$MXPqTk4wJCPpBc949nSZa.gUVC7VLxDbOWlCL7u3AZnNajZGB8Nii",
+                "created_at": "2017-03-20 11:37:02",
+                "updated_at": "2017-03-20 11:37:11",
+                "rong_token": null,
+                "push_token": "170976fa8a8890e56a1"
+              },
+              "buying_level": {
+                "id": 1,
+                "level": 1,
+                "alias": "青铜",
+                "updated_at": "2016-11-26 14:16:16",
+                "created_at": "2016-08-31 17:18:28"
+              },
+              "bankcard": null
+            }
+
++ Response 201 (application/json)
+
+            {
+              "id": 95,
+              "name": "十亩之间煕",
+              "created_at": "2017-03-20 11:14:08",
+              "updated_at": "2017-03-20 11:16:07",
+              "avatar": {
+                "avatar": "http://tva1.sinaimg.cn/crop.0.0.180.180.180/6831ced1jw1e8qgp5bmzyj2050050aa8.jpg",
+                "thumb": "http://tva1.sinaimg.cn/crop.0.0.180.180.180/6831ced1jw1e8qgp5bmzyj2050050aa8.jpg"
+              },
+              "summary": "漆黑的夜里，我看到了自己",
+              "level": 1,
+              "forum_level": 0,
+              "token": {
+                "token": "$2y$10$MXPqTk4wJCPpBc949nSZa.gUVC7VLxDbOWlCL7u3AZnNajZGB8Nii",
+                "created_at": "2017-03-20 11:37:02",
+                "updated_at": "2017-03-20 11:37:11",
+                "rong_token": null,
+                "push_token": "170976fa8a8890e56a1"
+              },
+              "buying_level": {
+                "id": 1,
+                "level": 1,
+                "alias": "青铜",
+                "updated_at": "2016-11-26 14:16:16",
+                "created_at": "2016-08-31 17:18:28"
+              },
+              "bankcard": null
+            }
