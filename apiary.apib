@@ -8619,3 +8619,310 @@ Request 参数说明
               },
               "bankcard": null
             }
+
+
+## 用户收货地址 [/users/{userId}/shippingAddress]
+
+用户可以添加删除修改自己的地收货的地址, 默认不限制用户的地址数量
+
+### 新建 [POST]
+
++ Parameters
+
+    + userId: 22 - id of a user
+
++ Request (application/json)
+
+    + Attributes
+
+        + province: 江苏 - 省会, 最多255个字
+        + city: 南京 - 市, 最多255个字
+        + area: 东城 - 区, 最多255个字
+        + street: 沿江路 - 街道, 最多255个字
+        + room: 明园小区2号楼1301 - 住址, 最多255个字
+        + real_name: 张三 - 收件人姓名, 最多10个字
+        + phone: 18012341234 - 收件人电话
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
+
++ Response 201 (application/json)
+
+            {
+              "province": "上海",
+              "city": "上海",
+              "area": "普陀区",
+              "street": "曹杨路",
+              "room": "汽车公寓101",
+              "phone": "18018605650",
+              "real_name": "李四",
+              "updated_at": "2016-08-13 10:24:04",
+              "created_at": "2016-08-13 10:24:04",
+              "id": 6
+            }
+
+
+### 所有地址 [GET]
+
++ Request
+
+    + Headers
+
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Parameters
+
+    + userId: 22 - id of a user
+
++ Response 200 (application/json)
+
+            [
+              {
+                "id": 4,
+                "type": 0,
+                "province": "上海",
+                "city": "上海",
+                "area": "普陀区",
+                "street": "曹杨路",
+                "room": "汽车公寓101",
+                "phone": "18018605650",
+                "real_name": "刘迎春",
+                "is_default": 1,
+                "updated_at": "2016-08-13 09:02:52",
+                "created_at": "2016-08-13 09:02:52"
+              },
+              {
+                "id": 5,
+                "type": 0,
+                "province": "上海",
+                "city": "上海",
+                "area": "普陀区",
+                "street": "曹杨路",
+                "room": "汽车公寓101",
+                "phone": "18018605650",
+                "real_name": "李四",
+                "is_default": 0,
+                "updated_at": "2016-08-13 10:23:43",
+                "created_at": "2016-08-13 10:23:43"
+              },
+              {
+                "id": 6,
+                "type": 0,
+                "province": "上海",
+                "city": "上海",
+                "area": "普陀区",
+                "street": "曹杨路",
+                "room": "汽车公寓101",
+                "phone": "18018605650",
+                "real_name": "李四",
+                "is_default": 0,
+                "updated_at": "2016-08-13 10:24:04",
+                "created_at": "2016-08-13 10:24:04"
+              }
+            ]
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 404,
+                "message": "资源不存在"
+            }
+
+
+### 获取单个地址 [GET /users/{userId}/shippingAddress/{id}]
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Parameters
+
+    + userId: 22 - id of a user
+    + id: 4 - id of an address
+
++ Response 200 (application/json)
+
+            {
+              "id": 4,
+              "type": 0,
+              "province": "上海",
+              "city": "上海",
+              "area": "普陀区",
+              "street": "曹杨路",
+              "room": "汽车公寓101",
+              "phone": "18018605650",
+              "real_name": "刘迎春",
+              "is_default": 1,
+              "updated_at": "2016-08-13 09:02:52",
+              "created_at": "2016-08-13 09:02:52"
+            }
+
++ Response 404 (application/json)
+
+            {
+              "status": "404",
+              "message": "地址不存在"
+            }
+
+
+### 更新单个地址 [PUT /users/{userId}/shippingAddress/{id}]
+
++ Parameters
+
+    + userId: 22 - id of a user
+    + id: 4 - id of a address
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
+    + Attributes
+
+        + province: 江苏 - 省会
+        + city: 南京 - 市
+        + area: 东城 - 区
+        + street: 沿江路 - 街道
+        + room: 明园小区2号楼1301 - 住址
+        + real_name: 张三 - 收件人姓名
+        + phone: 18012341234 - 收件人电话
+
++ Response 200 (application/json)
+
+            {
+              "province": "上海",
+              "city": "上海",
+              "area": "普陀区",
+              "street": "曹杨路",
+              "room": "汽车公寓101",
+              "phone": "18018605650",
+              "real_name": "李四",
+              "updated_at": "2016-08-13 10:24:04",
+              "created_at": "2016-08-13 10:24:04",
+              "id": 6
+            }
+
+
+### 删除单个地址 [DELETE /users/{userId}/shippingAddress/{id}]
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Parameters
+
+    + userId: 22 - id of a user
+    + id: 4 - id of an address
+
++ Response 204
+
+
+### 设置默认地址 [PUT /users/{userId}/shippingAddress/{id}/default]
+
+用户可以将地址设为默认, 在今后的购买中自动使用此地址
+
++ Parameters
+
+    + userId: 22 - id of a user
+    + id: 4 - id of shippingAddress
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
++ Response 200 (application/json)
+
+            [
+                {
+                    "id": 4,
+                    "type": 0,
+                    "province": "上海",
+                    "city": "上海",
+                    "area": "普陀区",
+                    "street": "曹杨路",
+                    "room": "汽车公寓101",
+                    "phone": "18018605650",
+                    "is_default": 1,
+                    "real_name": "刘迎春",
+                    "updated_at": "2016-08-22 09:56:03",
+                    "created_at": "2016-08-13 09:02:52"
+                },
+                {
+                    "id": 5,
+                    "type": 0,
+                    "province": "上海",
+                    "city": "上海",
+                    "area": "普陀区",
+                    "street": "曹杨路",
+                    "room": "汽车公寓101",
+                    "phone": "18018605650",
+                    "is_default": 0,
+                    "real_name": "李四",
+                    "updated_at": "2016-08-22 09:49:13",
+                    "created_at": "2016-08-13 10:23:43"
+                },
+                {
+                    "id": 6,
+                    "type": 0,
+                    "province": "上海",
+                    "city": "上海",
+                    "area": "普陀区",
+                    "street": "曹杨路",
+                    "room": "汽车公寓101",
+                    "phone": "18018605650",
+                    "is_default": 0,
+                    "real_name": "李四",
+                    "updated_at": "2016-08-22 17:08:11",
+                    "created_at": "2016-08-13 10:24:04"
+                }
+            ]
+
++ Response 404 (application/json)
+
+            {
+              "status": "404",
+              "message": "收货地址不存在"
+            }
+
+
