@@ -2715,6 +2715,90 @@ Response 部分字段说明
             }
 
 
+### 取消订单 [PUT /users/{userId}/orders/{id}]
+
+订单status在 `-1`, `2` 的时候无法被取消
+
++ Parameters
+
+    + userId: 22 - id of a user
+    + id: 21 - id of an order
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
+
++ Response 201 (application/json)
+
+            {
+              "id": 21,
+              "order_no": "M1608163570911938793",
+              "status": -1,
+              "goods_id": 1,
+              "goods_sku_id": 11,
+              "user_id": 22,
+              "amount": 2,
+              "total_price": "0.00",
+              "unit_price": "0.00",
+              "memo": "",
+              "updated_at": "2016-08-16 06:48:55",
+              "created_at": "2016-08-16 01:45:38",
+              "one_goods": null,
+              "one_goods_sku": {
+              "id": 11,
+              "goods_id": 90,
+              "color": "123",
+              "size": "123",
+              "price": "123.00",
+              "image": "",
+              "stock": 0,
+              "updated_at": "2016-08-16 05:45:20",
+              "created_at": "2016-08-16 13:45:05"
+              },
+              "one_user": {
+              "id": 22,
+              "name": "我是好孩子",
+              "created_at": "2016-08-12 05:06:42",
+              "updated_at": "2016-08-15 08:26:50",
+              "avatar": "http://v1.api.y-r-one.com/uploads/users/14712496109926_avatar.jpg",
+              "summary": "这是我的个人简介",
+              "level": 1
+              }
+            }
+
++ Response 404 (application/json)
+
+            {
+              "status": "404",
+              "message": "订单不存在,或已删除"
+            }
+
++ Response 403 (application/json)
+
+            {
+                "status": 403,
+                "code": 4003,
+                "message": "订单当前状态不可取消"
+            }
+
++ Response 409 (application/json)
+
+            {
+                "status": 409,
+                "code": 4004,
+                "message": "订单已经取消"
+            }
+
+
+
 # Group 用户商品
 
 ## 分类列表 [/userProducts/categories]
