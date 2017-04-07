@@ -2739,40 +2739,90 @@ Response 部分字段说明
 + Response 201 (application/json)
 
             {
-              "id": 21,
-              "order_no": "M1608163570911938793",
-              "status": -1,
-              "goods_id": 1,
-              "goods_sku_id": 11,
-              "user_id": 22,
-              "amount": 2,
-              "total_price": "0.00",
-              "unit_price": "0.00",
-              "memo": "",
-              "updated_at": "2016-08-16 06:48:55",
-              "created_at": "2016-08-16 01:45:38",
-              "one_goods": null,
-              "one_goods_sku": {
-              "id": 11,
-              "goods_id": 90,
-              "color": "123",
-              "size": "123",
-              "price": "123.00",
-              "image": "",
-              "stock": 0,
-              "updated_at": "2016-08-16 05:45:20",
-              "created_at": "2016-08-16 13:45:05"
-              },
-              "one_user": {
-              "id": 22,
-              "name": "我是好孩子",
-              "created_at": "2016-08-12 05:06:42",
-              "updated_at": "2016-08-15 08:26:50",
-              "avatar": "http://v1.api.y-r-one.com/uploads/users/14712496109926_avatar.jpg",
-              "summary": "这是我的个人简介",
-              "level": 1
-              }
+                "id":142,
+                "order_no":"17033013352500060006",
+                "status":-1,
+                "user_id":2300,
+                "return_id":null,
+                "amount":1,
+                "original_price":"0.00",
+                "total_price":"0.01",
+                "coupon_price":"0.00",
+                "memo":"",
+                "created_at":"2017-03-30 13:35:25",
+                "updated_at":"2017-04-07 17:26:23",
+                "deleted_at":null,
+                "cancel_id":1,
+                "cancel_description":null,
+                "pay_platform_id":1,
+                "pay_platform_trade_no":"2017033021001004200237251977",
+                "coupon_id":null,
+                "coupon_group_id":null,
+                "is_invoice":0,
+                "invoice_type":null,
+                "invoiced":null,
+                "express_id":null,
+                "tracking_number":null,
+                "express_traces":null,
+                "express_refresh":"2017-03-30 13:35:25",
+                "dispatched_at":null,
+                "received_at":null,
+                "is_refunded":null,
+                "is_restored_stock":1,
+                "seller_id":null,
+                "buyer_id":2295,
+                "type":3,
+                "items":[
+                    {
+                        "id":127,
+                        "order_id":142,
+                        "product_id":null,
+                        "product_item_id":null,
+                        "user_product_id":null,
+                        "procurement_id":1306,
+                        "amount":1,
+                        "unit_price":"0.01",
+                        "total_price":"0.01",
+                        "apply_id":null,
+                        "return_id":null,
+                        "is_returned":0,
+                        "is_applied":0,
+                        "created_at":"2017-03-30 13:35:25",
+                        "updated_at":"2017-03-30 13:35:25",
+                        "product":null,
+                        "product_item":null,
+                        "user_product":null
+                    }
+                ],
+                "user":{
+                    "id":2300,
+                    "name":"微风",
+                    "created_at":"2017-04-01 13:44:21",
+                    "updated_at":"2017-04-01 13:44:21",
+                    "avatar":{
+                        "avatar":"http://wx.qlogo.cn/mmopen/DAkL0GVQ6ePWzkOVKgHKIoXl7yKia09BKMoKia8eIM5zgp8zXJHlscm19zapztRGaejVBfGHn6KwxEhyahtJP1bxCazCeZsHpu/0",
+                        "thumb":"http://wx.qlogo.cn/mmopen/DAkL0GVQ6ePWzkOVKgHKIoXl7yKia09BKMoKia8eIM5zgp8zXJHlscm19zapztRGaejVBfGHn6KwxEhyahtJP1bxCazCeZsHpu/0"
+                    },
+                    "summary":null,
+                    "level":0,
+                    "forum_level":0,
+                    "wechat_union_id":"oTH7Rwi5FKSLWlzgkhovWm4sic2k"
+                },
+                "shipping_address":{
+                    "order_id":142,
+                    "province":"香港",
+                    "city":"香港",
+                    "area":"中西区",
+                    "street":"陈陈",
+                    "room":"陈",
+                    "phone":"18237177662",
+                    "real_name":"陈",
+                    "updated_at":"2017-03-30 13:35:25",
+                    "created_at":"2017-03-30 13:35:25"
+                }
             }
+
+
 
 + Response 404 (application/json)
 
