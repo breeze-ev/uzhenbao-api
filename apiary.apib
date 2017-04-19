@@ -2717,7 +2717,7 @@ Response 部分字段说明
 
 ### 取消订单 [PUT /users/{userId}/orders/{id}]
 
-订单status在 `-1`, `2` 的时候无法被取消
+订单status仅在 `0`, `1` 的时候可以被取消
 
 + Parameters
 
@@ -7905,6 +7905,37 @@ Request 可选筛选参数
               ]
             }
 
+### 通知数量 [GET /users/{userId}/notificationNumber]
+
+获取当前未读通知消息数量
+
+Response 字段说明
+|Key|Type|Description|
+|---|---|---|
+|`all`| number| 所有消息数 |
+|`order`| number| 订单消息数 |
+|`post`| number| 话题消息数 |
+
++ Parameters
+
+    + userId: 22 - 当前已登录的用户id
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 200 (application/json)
+
+            {
+                "all": 2,
+                "order": 1,
+                "post": 1
+            }
 
 ### 已读 [PUT /users/{userId}/notifications/{id}]
 
