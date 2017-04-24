@@ -7193,6 +7193,117 @@ Response 部分字段说明
 
 # Group 通知
 
+## 系统通知 [/notifications{?platform}]
+
+全体通知将下发到全体用户,包含未注册的用户, 移动端根据自己的平台设备类型, 向api请求该平台的数据
+
+### 通知列表 [GET]
+
++ Parameter
+
+    + platform: 1 (number, required) - 平台类型, 1: 安卓, 2: 苹果, 请根据自己的设备类型传相应的值
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 200 (application/json)
+
+            {
+              "total": 2,
+              "per_page": 15,
+              "current_page": 1,
+              "last_page": 1,
+              "next_page_url": null,
+              "prev_page_url": null,
+              "from": 1,
+              "to": 2,
+              "data": [
+                {
+                  "id": 54,
+                  "title": "测试",
+                  "description": "系统通知测试",
+                  "updated_at": "2016-12-03 13:20:14",
+                  "created_at": "2016-12-03 13:20:14",
+                  "arrival_rate": 0,
+                  "remote_platform": 0,
+                  "tag": "",
+                  "alias": "",
+                  "group": "",
+                  "registration_ids": "",
+                  "status": 1,
+                  "url": null
+                },
+                {
+                  "id": 49,
+                  "title": "111",
+                  "description": "1111",
+                  "updated_at": "2016-12-02 18:42:09",
+                  "created_at": "2016-12-02 18:42:09",
+                  "arrival_rate": 0,
+                  "remote_platform": 1,
+                  "tag": "",
+                  "alias": "",
+                  "group": "",
+                  "registration_ids": "",
+                  "status": 1,
+                  "url": null
+                }
+              ]
+            }
+
+
+
+### 通知详情 [GET /notifications/{id}]
+
++ Parameter
+
+    + id: 1 (number, required) - 通知id
+
++ Request
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 200 (application/json)
+
+            {
+              "id": 54,
+              "title": "测试",
+              "description": "系统通知测试",
+              "updated_at": "2016-12-03 13:20:14",
+              "created_at": "2016-12-03 13:20:14",
+              "arrival_rate": 0,
+              "remote_platform": 0,
+              "tag": "",
+              "alias": "",
+              "group": "",
+              "registration_ids": "",
+              "status": 1,
+              "url": null,
+              "content": {
+                "notice_id": 54,
+                "content": "234234123213123"
+              }
+            }
+
++ Response 404 (application/json)
+
+            {
+              "status": 404,
+              "code": 404,
+              "message": "资源不存在或已被删除"
+            }
+
 
 
 ## 用户通知 [/users/{userId}/notifications]
