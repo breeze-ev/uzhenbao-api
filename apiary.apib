@@ -9329,6 +9329,40 @@ Request 参数说明
               }
             }
 
+### Token令牌 [PUT /users/{id}/token]
+
+由于三方服务需要确认用户设备唯一符方可正常使用三方功能, 但是由于网络等不确定因素, 易导致服务受损
+为了不影响app功能正常使用, 此处在网络等恢复时, 及时更新token, 以便三方功能及时修复
+
+
++ Parameters
+
+    + id: 22 - 已登录的用户id
+
++ Request (application/json)
+
+    + Headers
+
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 22
+            access-token: $2y$10$Kbz6jSCLHLkm4D5Gp67xhux
+
+    + Attributes
+
+        + push_token: 170976fa8a8893fef11 (string, optional) - 极光 Registration ID
+
++ Response 201 (application/json)
+
+            {
+                "status": 201,
+                "message": "更新成功"
+            }
+
+
 
 ## 第三方登录 [/thirdParties]
 
