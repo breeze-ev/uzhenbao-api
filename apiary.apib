@@ -10629,3 +10629,46 @@ Request 参数说明
               "phone": "128123123213",
               "real_name": "上海烨历网络科技有限公司"
             }
+
+## 快递支持 [/expresses]
+
+### 获取列表 [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
++ Response 200 (application/json)
+
+            [
+                {
+                    "id": 1,
+                    "name": "顺丰速运",
+                    "alias": "SF"
+                },
+                {
+                    "id": 2,
+                    "name": "圆通快递",
+                    "alias": "YT"
+                },
+                {
+                    "id": 3,
+                    "name": "申通快递",
+                    "alias": "ST"
+                }
+            ]
+
+
++ Response 404 (application/json)
+
+            {
+                "status": 404,
+                "code": 404,
+                "message": "资源不存在"
+            }
+
