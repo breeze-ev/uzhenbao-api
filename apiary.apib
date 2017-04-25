@@ -2973,6 +2973,7 @@ Response 部分字段说明
 Response 部分字段说明
 
 |Key| Value | Description |
+|---|---|---|
 |audit_state| 0 | 审核不通过 |
 |audit_state| 1 | 审核通过 |
 |audit_state| 2 | 审核中 |
@@ -3348,6 +3349,13 @@ Response 部分字段说明
                 "message": "该商品已售出"
             }
 
++ Response 404 (application/json)
+
+            {
+              "status": 404,
+              "code": 404,
+              "message": "资源不存在, 或已被删除"
+            }
 
 ### 下架 [PUT /userProducts/{id}/close]
 
@@ -3415,6 +3423,14 @@ Response 部分字段说明
                 "status": 403,
                 "code": 40311,
                 "message": "该商品已售出"
+            }
+
++ Response 404 (application/json)
+
+            {
+              "status": 404,
+              "code": 404,
+              "message": "资源不存在, 或已被删除"
             }
 
 ### 删除 [DELETE /userProducts/{id}]
