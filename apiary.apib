@@ -3159,6 +3159,8 @@ Response 部分字段说明
             app-key: 92lsk20ks
             sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
             api-version: 2
+            user-id: 2300
+            access-token: 1587dac6bef69d34eaaec467689a7ffe2
 
 + Response 200 (application/json)
 
@@ -3234,6 +3236,8 @@ Response 部分字段说明
             app-key: 92lsk20ks
             sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
             api-version: 2
+            user-id: 2300
+            access-token: 1587dac6bef69d34eaaec467689a7ffe2
 
     + Attributes
 
@@ -3290,6 +3294,8 @@ Response 部分字段说明
             app-key: 92lsk20ks
             sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
             api-version: 2
+            user-id: 2300
+            access-token: 1587dac6bef69d34eaaec467689a7ffe2
 
 
 + Response 200 (application/json)
@@ -3357,6 +3363,8 @@ Response 部分字段说明
             app-key: 92lsk20ks
             sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
             api-version: 2
+            user-id: 2300
+            access-token: 1587dac6bef69d34eaaec467689a7ffe2
 
 
 + Response 200 (application/json)
@@ -3408,6 +3416,26 @@ Response 部分字段说明
                 "code": 40311,
                 "message": "该商品已售出"
             }
+
+### 删除 [DELETE /userProducts/{id}]
+
++ Parameters
+
+    + id: 1 (number) - 商品id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+            user-id: 2300
+            access-token: 1587dac6bef69d34eaaec467689a7ffe2
+
+
++ Response 204
 
 
 ## 成色质量 [/userProducts/qualities]
