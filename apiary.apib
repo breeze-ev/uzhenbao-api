@@ -2969,6 +2969,19 @@ Response 部分字段说明
 
 用户商品默认显示待审核的商品， 可以通过可选参数进行筛选
 
+
+Response 部分字段说明
+
+|Key| Value | Description |
+|audit_state| 0 | 审核不通过 |
+|audit_state| 1 | 审核通过 |
+|audit_state| 2 | 审核中 |
+|sale_state| 0 | 已关闭 |
+|sale_state| 1 | 销售中 |
+|audited_at| 2017-04-25 17:03:22 | 审核通过或不通过的时间 |
+
+正常销售的条件 `audit_state == 1 && sale_state == 1`
+
 ### 获取列表 [GET]
 
 + Request (application/json)
@@ -2984,45 +2997,144 @@ Response 部分字段说明
 
         + user_id: 1 (number, optional) - 用户id, 筛选与该用户有关的商品
         + category_id: 1 (number, optional) -  用户商品分类id
-        + is_audited: 1 (number, optional) - 1:筛选审核通过的商品; 0: 筛选侍审核的商品; -1: 审核未通过的商品
-        + status: 1 (number, optional) - 1: 上架商品; 0: 下架商品
+        + audit_state: 1 (number, optional) - 1:筛选审核通过的商品; 2: 筛选侍审核的商品; 0: 审核未通过的商品
+        + sale_state: 1 (number, optional) - 1: 上架商品; 0: 下架商品
 
 + Response 200 (application/json)
 
             {
-              "total": 15,
+              "total": 4,
               "per_page": 15,
               "current_page": 1,
               "last_page": 1,
               "next_page_url": null,
               "prev_page_url": null,
               "from": 1,
-              "to": 15,
+              "to": 4,
               "data": [
                 {
-                  "id": 18,
-                  "user_id": 1,
+                  "id": 41,
+                  "user_id": 1660,
                   "title": "这是测试标题",
                   "keywords": null,
                   "description": "这是描述",
                   "images": [
-                    "http://devapi.uzhenbao.com/uploads/userProduct/20161228110300288924.png"
+                    "http://dev-api.uzhenbao.com/uploads/userProduct/20170425170322788592.png"
+                  ],
+                  "thumbs": [
+                    "http://dev-api.uzhenbao.com/uploads/userProduct/thumb_20170425170322788592.png"
                   ],
                   "price": "129.00",
                   "original_price": "199.00",
                   "category_id": 1,
                   "is_sold": 0,
-                  "is_audited": 0,
+                  "is_audited": 2,
                   "quality": 99,
                   "delivery_day": 1,
-                  "updated_at": "2016-12-28 14:02:25",
-                  "created_at": "2016-12-28 11:03:00",
+                  "updated_at": "2017-04-25 17:03:22",
+                  "created_at": "2017-04-25 17:03:22",
                   "sort": 0,
-                  "audited_at": null,
+                  "audited_at": "2017-04-25 17:03:22",
                   "postage": "0.00",
                   "status": 0,
                   "favorites": 0,
-                  "views": 6
+                  "views": 0,
+                  "audit_state": 1,
+                  "sale_state": 1,
+                  "deleted_at": null
+                },
+                {
+                  "id": 40,
+                  "user_id": 1690,
+                  "title": "这是测试标题",
+                  "keywords": null,
+                  "description": "这是描述",
+                  "images": [
+                    "http://dev-api.uzhenbao.com/uploads/userProduct/20170425170315329166.png"
+                  ],
+                  "thumbs": [
+                    "http://dev-api.uzhenbao.com/uploads/userProduct/thumb_20170425170315329166.png"
+                  ],
+                  "price": "129.00",
+                  "original_price": "199.00",
+                  "category_id": 1,
+                  "is_sold": 0,
+                  "is_audited": 2,
+                  "quality": 99,
+                  "delivery_day": 1,
+                  "updated_at": "2017-04-25 17:03:16",
+                  "created_at": "2017-04-25 17:03:15",
+                  "sort": 0,
+                  "audited_at": "2017-04-25 17:03:16",
+                  "postage": "0.00",
+                  "status": 0,
+                  "favorites": 0,
+                  "views": 0,
+                  "audit_state": 1,
+                  "sale_state": 1,
+                  "deleted_at": null
+                },
+                {
+                  "id": 39,
+                  "user_id": 1378,
+                  "title": "这是测试标题",
+                  "keywords": null,
+                  "description": "这是描述",
+                  "images": [
+                    "http://dev-api.uzhenbao.com/uploads/userProduct/20170425170307993048.png"
+                  ],
+                  "thumbs": [
+                    "http://dev-api.uzhenbao.com/uploads/userProduct/thumb_20170425170307993048.png"
+                  ],
+                  "price": "129.00",
+                  "original_price": "199.00",
+                  "category_id": 1,
+                  "is_sold": 0,
+                  "is_audited": 2,
+                  "quality": 99,
+                  "delivery_day": 1,
+                  "updated_at": "2017-04-25 17:03:07",
+                  "created_at": "2017-04-25 17:03:07",
+                  "sort": 0,
+                  "audited_at": "2017-04-25 17:03:07",
+                  "postage": "0.00",
+                  "status": 0,
+                  "favorites": 0,
+                  "views": 0,
+                  "audit_state": 1,
+                  "sale_state": 1,
+                  "deleted_at": null
+                },
+                {
+                  "id": 37,
+                  "user_id": 1800,
+                  "title": "这是测试标题",
+                  "keywords": null,
+                  "description": "这是描述",
+                  "images": [
+                    "http://dev-api.uzhenbao.com/uploads/userProduct/20170425162144619471.png"
+                  ],
+                  "thumbs": [
+                    "http://dev-api.uzhenbao.com/uploads/userProduct/thumb_20170425162144619471.png"
+                  ],
+                  "price": "129.00",
+                  "original_price": "199.00",
+                  "category_id": 1,
+                  "is_sold": 0,
+                  "is_audited": 2,
+                  "quality": 99,
+                  "delivery_day": 1,
+                  "updated_at": "2017-04-25 16:21:44",
+                  "created_at": "2017-04-25 16:21:44",
+                  "sort": 0,
+                  "audited_at": "2017-04-25 16:21:44",
+                  "postage": "0.00",
+                  "status": 0,
+                  "favorites": 0,
+                  "views": 0,
+                  "audit_state": 1,
+                  "sale_state": 1,
+                  "deleted_at": null
                 }
               ]
             }
@@ -3051,46 +3163,56 @@ Response 部分字段说明
 + Response 200 (application/json)
 
             {
-              "id": 18,
-              "user_id": 1,
+              "id": 41,
+              "user_id": 1660,
               "title": "这是测试标题",
               "keywords": null,
               "description": "这是描述",
               "images": [
-                "http://devapi.uzhenbao.com/uploads/userProduct/20161228110300288924.png"
+                "http://dev-api.uzhenbao.com/uploads/userProduct/20170425170322788592.png"
+              ],
+              "thumbs": [
+                "http://dev-api.uzhenbao.com/uploads/userProduct/thumb_20170425170322788592.png"
               ],
               "price": "129.00",
               "original_price": "199.00",
               "category_id": 1,
               "is_sold": 0,
-              "is_audited": 0,
+              "is_audited": 2,
               "quality": {
                 "id": 2,
                 "name": 99,
                 "description": "商品拆包\n轻微使用"
               },
               "delivery_day": 1,
-              "updated_at": "2016-12-28 12:06:59",
-              "created_at": "2016-12-28 11:03:00",
+              "updated_at": "2017-04-25 17:03:22",
+              "created_at": "2017-04-25 17:03:22",
               "sort": 0,
-              "audited_at": null,
+              "audited_at": "2017-04-25 17:03:22",
               "postage": "0.00",
               "status": 0,
               "favorites": 0,
-              "views": 6,
+              "views": 1,
+              "audit_state": 1,
+              "sale_state": 1,
+              "deleted_at": null,
               "user": {
-                "id": 1,
-                "name": "宝宝30832065",
-                "created_at": "2016-11-28 19:34:25",
-                "updated_at": "2016-11-30 14:17:47",
+                "id": 1660,
+                "name": "Alejandra D'Amore",
+                "created_at": "2017-03-22 15:25:24",
+                "updated_at": "2017-04-25 10:02:00",
                 "avatar": {
-                  "avatar": "http://devapi.uzhenbao.com/default/avatar.jpg",
-                  "thumb": "http://devapi.uzhenbao.com/default/avatar.jpg"
+                  "avatar": "http://dev-api.uzhenbao.com/default/avatar.jpg",
+                  "thumb": "http://dev-api.uzhenbao.com/default/avatar.jpg"
                 },
-                "summary": "",
-                "level": 1,
-                "forum_level": 2
-              }
+                "summary": null,
+                "level": 0,
+                "forum_level": 0,
+                "wechat_union_id": null,
+                "is_ghost": 1,
+                "is_ghost_master": null
+              },
+              "is_favorite": null
             }
 
 
@@ -3130,31 +3252,35 @@ Response 部分字段说明
 + Response 201 (application/json)
 
             {
-              "id": 11,
-              "user_id": 1,
+              "audit_state": 2,
+              "sale_state": 0,
               "title": "这是测试标题",
-              "keywords": null,
+              "original_price": "199",
+              "price": "129",
+              "category_id": "1",
               "description": "这是描述",
+              "quality": "99",
+              "delivery_day": "1",
+              "postage": "0",
               "images": [
-                "http://devapi.uzhenbao.com/uploads/userProducts/20161214135425434566.png"
+                "http://dev-api.uzhenbao.com/uploads/userProduct/20170425171949776201.png"
               ],
-              "price": "129.00",
-              "original_price": "199.00",
-              "category_id": 1,
-              "is_sold": 0,
-              "is_audited": 0,
-              "quality": 99,
-              "delivery_day": 1,
-              "updated_at": "2016-12-14 13:54:25",
-              "created_at": "2016-12-14 13:54:25",
-              "sort": 0,
-              "audited_at": null,
-              "status": 1
+              "thumbs": [
+                "http://dev-api.uzhenbao.com/uploads/userProduct/thumb_20170425171949776201.png"
+              ],
+              "user_id": 2300,
+              "updated_at": "2017-04-25 17:19:49",
+              "created_at": "2017-04-25 17:19:49",
+              "id": 42
             }
 
 
 
-### 更新 [PUT /userProducts/{id}]
+### 上架 [PUT /userProducts/{id}/open]
+
++ Parameters
+
+    + id: 1 (number) - 商品id
 
 + Request (application/json)
 
@@ -3165,34 +3291,106 @@ Response 部分字段说明
             sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
             api-version: 2
 
-    + Attributes
 
-        + status: 1 (number, optional) - 1:上架, 0:下架
-
-
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
             {
-              "id": 11,
-              "user_id": 1,
+              "id": 42,
+              "user_id": 2300,
               "title": "这是测试标题",
               "keywords": null,
               "description": "这是描述",
               "images": [
-                "http://devapi.uzhenbao.com/uploads/userProducts/20161214135425434566.png"
+                "http://dev-api.uzhenbao.com/uploads/userProduct/20170425171949776201.png"
+              ],
+              "thumbs": [
+                "http://dev-api.uzhenbao.com/uploads/userProduct/thumb_20170425171949776201.png"
               ],
               "price": "129.00",
               "original_price": "199.00",
               "category_id": 1,
               "is_sold": 0,
-              "is_audited": 0,
+              "is_audited": 2,
               "quality": 99,
               "delivery_day": 1,
-              "updated_at": "2016-12-14 13:54:25",
-              "created_at": "2016-12-14 13:54:25",
+              "updated_at": "2017-04-25 17:19:49",
+              "created_at": "2017-04-25 17:19:49",
               "sort": 0,
               "audited_at": null,
-              "status": 1
+              "postage": "0.00",
+              "status": 0,
+              "favorites": 0,
+              "views": 0,
+              "audit_state": 1,
+              "sale_state": 1,
+              "deleted_at": null
+            }
+
++ Response 403 (application/json)
+
+            {
+                "status": 403,
+                "code": 40310,
+                "message": "该商品未通过审核"
+            }
+
++ Response 403 (application/json)
+
+            {
+                "status": 403,
+                "code": 40311,
+                "message": "该商品已售出"
+            }
+
+
+### 下架 [PUT /userProducts/{id}/close]
+
++ Parameters
+
+    + id: 1 (number) - 商品id
+
++ Request (application/json)
+
+    + Headers
+
+            timestamp: 1478840722
+            app-key: 92lsk20ks
+            sign: 9cf1587dac6bef69d34eaaec467689a7ffe2a5d5
+            api-version: 2
+
+
++ Response 200 (application/json)
+
+            {
+              "id": 42,
+              "user_id": 2300,
+              "title": "这是测试标题",
+              "keywords": null,
+              "description": "这是描述",
+              "images": [
+                "http://dev-api.uzhenbao.com/uploads/userProduct/20170425171949776201.png"
+              ],
+              "thumbs": [
+                "http://dev-api.uzhenbao.com/uploads/userProduct/thumb_20170425171949776201.png"
+              ],
+              "price": "129.00",
+              "original_price": "199.00",
+              "category_id": 1,
+              "is_sold": 0,
+              "is_audited": 2,
+              "quality": 99,
+              "delivery_day": 1,
+              "updated_at": "2017-04-25 17:19:49",
+              "created_at": "2017-04-25 17:19:49",
+              "sort": 0,
+              "audited_at": null,
+              "postage": "0.00",
+              "status": 0,
+              "favorites": 0,
+              "views": 0,
+              "audit_state": 1,
+              "sale_state": 0,
+              "deleted_at": null
             }
 
 + Response 403 (application/json)
